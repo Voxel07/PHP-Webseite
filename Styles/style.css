@@ -1,0 +1,290 @@
+@font-face{
+    font-family: roboto_L;
+    src:url("../Roboto/Roboto-Light.ttf");
+}
+@font-face{
+    font-family: roboto_B;
+    src:url("../Roboto/Roboto-Bold.ttf");
+}
+body {
+    background:rgb(48, 48, 48);
+    background-image: url("../Bilder/Logo.png");
+    background-position-x: center;
+    background-position-y: 50px;
+    background-repeat: no-repeat;
+    background-size: 94%;
+     /* background-position: top; */
+    /* background-image: radial-gradient(0) */
+    color: rgb(194, 194, 194);
+    font-family: roboto_L;
+    margin: 0%;
+    padding: 0%;
+}
+header{
+    background-color: none;
+    background-image:none;
+    background-size: 20%;
+    background-position: right;
+    background-repeat: no-repeat;
+    height: 150px;
+    padding: 20px;
+    text-align: center;
+}
+header a{
+    color:white;
+    text-decoration: none;
+    text-transform: uppercase;
+    margin-top: 50px;
+    
+}
+.logo a{
+    background-image: url("../Bilder/Schrift.gif");
+    background-size: 300px;
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 100px;
+    position: relative;
+    text-indent: -9999999px;
+    top: -30px;
+    width: 300px;
+}
+
+nav ul{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  
+}
+nav li{
+    display: inline-block;
+    margin-right: 20px;
+}
+
+ul li {
+    list-style: none;
+  
+}
+
+/*Wenn die Seite ausgeählt ist*/
+/* nav ul li a.aktiv{
+    background: gainsboro;
+    color:red;
+    font-size: 20px;
+    border-radius: 5%;
+} */
+/* nav ul li a:hover:not(.aktiv){
+    background: rgb(248, 118, 118);
+} */
+
+
+h1,h2,h3,a{
+    font-family: roboto_B;
+}
+
+/*Alle divs auf 80 % damit links und rechts sponsorbanner angezeigt werden können*/
+/* div{
+    display: block;
+    width: 80%;
+    position: relative;
+    left: 10%;
+    background-color:rgb(19, 17, 17);
+}  */
+
+/* macht das was ? */
+h1.überschrift{
+    color: aqua;
+    position: absolute;
+    top: 120px;
+    right: 85%;
+}
+
+/* Banner wenn der Nutzer nicht angmeldet ist */
+.Loged_out-Banner{
+    position: fixed;
+    top: 5px;
+    right: 10px;
+    background-color: whitesmoke;
+    width: auto;
+    height: 30px;
+    display: flex;
+    border-radius: 3px;
+    overflow: visible;
+}
+.Loged_out-Banner a{
+    text-decoration: none;
+    color: black;
+    font-family: roboto_B;
+}
+
+.Loged_out-Butten{
+    width: 100px;
+    /* background-color: seagreen; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Loged_out-Name{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    margin-left: 5px;
+    margin-right: 5px;
+  
+}
+.Loged_out-Login{
+  display: flex;
+  align-items: center;
+  justify-items: center;
+}
+
+.Loged_out-Login .user-input{
+    border: none;
+    outline: none;
+    color: black;
+    background: none;
+    font-size: 16px;
+    font-family: roboto_B;
+    border-bottom: 1px solid #b3b3b3;
+}
+.Loged_out-SVG{
+    height: 30px;
+    width: 30px;
+
+}
+.Loged_out-SVG svg{
+fill: red;
+}
+
+
+
+/* Banner wenn der Nutzer angemeldet ist  */
+.Loged_in-Banner{
+    position: fixed;
+    top: 5px;
+    right: 10px;
+    background-color: whitesmoke;
+    width: auto;
+    height: 50px;
+    display: flex;
+    border-radius: 3px;
+    overflow: visible;
+}
+.Loged_in-Banner a{
+    text-decoration: none;
+    color: black;
+    font-family: roboto_B;
+}
+
+.Loged_in-Butten{
+    width: 100px;
+    /* background-color: seagreen; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Loged_in-Name{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    margin-left: 5px;
+    margin-right: 5px;
+    /* background-color: rgb(223, 222, 222); */
+}
+.Loged_in-Bild{
+    width: 50px;
+    border-radius: 50%;
+    background-image: url("../Bilder/Mitglieder/Logo.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    margin-right: 10px;
+}
+.Loged_in-SVG{
+    
+    margin-top: 10px;
+    height: 30px;
+    width: 30px;
+    /* background-color: red; */
+}
+.Loged_in-SVG svg{
+fill: red;
+}
+
+
+
+
+
+/* Ab hier muss das menü neu angeordnet werden*/
+@media screen and (max-width:1000px){
+    body{
+        background: rgb(214, 105, 105);
+        
+    }
+}
+/* Ab hier muss das menü nochmal neu angeordnet werden*/
+@media screen and (max-width:725px){
+    body{
+        background: rgb(113, 113, 221);
+        
+    }
+}
+/* Ab hier muss das menü nochmal neu angeordnet werden*/
+@media screen and (max-width:500px){
+    body{
+        background: rgb(132, 235, 132);
+        
+    }
+}
+
+#id01{
+    width: 100%;
+    min-width: 400px;
+    background-color: rgba(0, 0, 0, 0.815);
+    
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 500px; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 20px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: none;
+  margin: 0 auto 0 auto; /* 5% from the top, 15% from the bottom and centered
+  /* border: 1px solid #888; */
+  width: 500px; /* Could be more or less, depending on screen size */
+}
+
+/* Add Zoom Animation */
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)} 
+  to {-webkit-transform: scale(1)}
+}
+  
+@keyframes animatezoom {
+  from {transform: scale(0)} 
+  to {transform: scale(1)}
+}
+

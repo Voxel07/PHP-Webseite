@@ -1,0 +1,209 @@
+@font-face{
+  font-family: roboto_L;
+  src:url("../Roboto/Roboto-Light.ttf");
+}
+@font-face{
+  font-family: roboto_B;
+  src:url("../Roboto/Roboto-Bold.ttf");
+}
+
+.joinus_box{
+  display: flex;
+  /* flex-flow: column; */
+  justify-content: center;
+  align-content: center;
+  background-color: none;
+}
+
+/* Box */
+.login-div{
+    font-family: roboto_L;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-content: center;
+    width: 430px;
+    height:auto;
+    padding: 30px 5px 35px 5px; /*Abstand Box zum Inhalt */
+    border-radius: 10px;
+    background: radial-gradient(circle, #555555, #535353, #4e4e4e,#4c4c4c);
+  
+    filter: blur(0.4px);
+    box-shadow:
+    /*bottom shadow*/
+    0px 20px 20px rgba(0,0,0,0.2),
+    0px 5px 10px rgba(0,0,0,0.2),
+    /*long bottom shadow*/
+    0px 70px 50px rgba(0,0,0,0.4),
+    /*right shadow*/
+    30px 50px 50px rgba(0,0,0,0.2),
+    /*left shadow*/
+    -30px 50px 50px rgba(0,0,0,0.2),
+    /*right inset*/
+    inset 20px 0px 60px rgba(0,0,0,0.1),
+    /*left inset*/
+    inset -20px 0px 60px rgba(0,0,0,0.1);
+}
+.logo_log{
+    display: block;
+    background-image: url("../Bilder/Schrift.gif");
+    background-color: none;
+    background-size: 300px;
+    width: 300px;
+    height: 100px;
+    border-radius: 10px;
+    margin: 0 auto;
+
+}
+.titel{
+    text-align: center;
+    font-size: 28px;
+    padding-top: 10px;
+    letter-spacing: 0.5px;
+}
+.titel .fehlermeldung{
+    border: solid 1px;
+    border-radius: 5px;
+    background-color: rgba(0,0,0,0.1);
+    color: rgb(245, 241, 39);
+    font-size: 15px;
+}
+
+.SignUp-Box{
+	background-color: none;
+    padding-left: 10%;
+	display: flex;
+	justify-content: center;
+	flex-flow: column;
+    width: 80%;
+
+}
+/* Jedes einzelen Feld */
+.felder{
+	background-color: none;
+	margin-top: 15px;
+}
+/* Die eingabebox */
+.input-box{
+	display: flex;
+	flex-flow: row;
+	height: 40px;
+}
+.input-svg{
+	width: 50px;
+	fill: black;	
+}
+.input-svg svg{
+	margin-top: 12px;
+	height: 30px;
+}
+/* Das Inputfeld an sich */
+.input-text{
+	width: 400px;
+	/* background-color: indigo; */
+	display: flex;
+	flex-flow: column-reverse;
+	border-bottom: 1px solid #b3b3b3;
+}
+.input-text input{
+	font-family: roboto_B;
+	margin-left: 5px;
+	font-size: 20px;
+	width: 99%;
+	height: 25px;
+	border: none;
+	background: none;
+	outline: none;
+	color: black;
+	padding: 0px;
+	/* margin-bottom: 15px; */
+}
+.input-text label{
+	/* position: relative;
+	top: 0rem;
+	left: 0rem; */
+	font-family: roboto_L;
+	color: white;
+	font-size: 13px;
+	padding: 0;
+	margin-left: 5px;
+}
+.input-check{
+	width: 50px;
+    margin-top: 10px;
+   
+	/* background-color: lawngreen; */
+	background-image: none;
+	background-repeat: no-repeat;
+	background-size: 90%;
+	border-bottom: 1px solid #b3b3b3;
+}
+/* Der hinnweistext */
+.hint-text{
+	display: none;
+	margin-top: 2px;
+	margin-left: 35px;
+	font-size: 15px;
+	color: orange;
+	/* background-color: palegreen; */
+	height: 15px;
+	/* width: 400px; */
+}
+
+/* Ab hier ein und ausblenden */
+
+.input-text input:placeholder-shown + label {
+	opacity: 0;
+	font-size: 1.6rem;
+	color: white;
+}
+
+.upload{
+    margin-top: 30px;
+    margin-left: 50px;
+}
+.upload label{
+    font-size: 14px;
+    color: white;
+}
+
+.signin-button {
+    margin-top: 30px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    height: 50px;
+    border-radius: 5px;
+    font-size: 20px;
+    color: white;
+    text-align: center;
+    letter-spacing: 1px;
+    background: radial-gradient(circle, #24cfaa, #26c5a3, #29b294, #2aa88d);
+    box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+/* .signin-button:hover{
+    background: radial-gradient(circle, #f19114, #ec9421, #ce7e15, #f1ae55);
+}
+.signin-button:active{
+    background: radial-gradient(circle, #000000, #071613, #35695e, #b8d4ce);
+} */
+
+
+/*Korrektur für kleine Bildschirme*/
+@media screen and (max-width:750px){
+    .login-div{
+        margin-left: 10%;
+    }
+    .disclaimer{
+        width: 250px;
+    }
+
+}
+@media screen and (max-width:500px){
+    .login-div{
+        margin-left: 5%;
+    }
+}
+

@@ -1,0 +1,92 @@
+.index_box{
+    display: block;
+    width: 80%;
+    background-color: whitesmoke;
+    margin-left: 10%;
+    padding: 5px;
+
+    height: auto;
+}
+.index_begrüsung{
+    display: block;
+    background-color: rgb(146, 114, 65);
+    height: 150px;
+}
+.index_termine{
+    display: block;
+    background-color: rgb(255, 153, 0);
+    height: 150px;
+    margin-top: 5px;
+}
+.index_floatbox{
+    display: block;
+    background-color: teal;
+    margin-top: 15px;
+    height: 400px;
+}
+.index_sponsor_S,.index_sponsor_B{
+    float: left;
+    /* display:inline-block; */
+    width: 49%;
+    
+    height: auto;
+    /* box-sizing: border-box; */
+    
+}
+.index_sponsor_S{
+    background-color: blue;
+  
+    /* margin-right: 1%; */
+}
+
+.s_logo,.s_beschreibung{
+    color: black;
+    
+  
+}
+.s_logo a{
+    width: 200px;
+    height: 140px; 
+    background-color: none;
+    background-image: url("../Bilder/SAS_Logo.png"); 
+    background-size: 200px;
+    background-repeat: no-repeat;
+    float: left;  
+   
+    
+}
+.s_beschreibung{
+    background-color: chartreuse;
+    padding: 5px;
+}
+
+.index_sponsor_B{
+    background-color: gray;
+    float: right;
+    
+}
+.b_logo,.b_beschreibung{
+    color: black;
+    
+}
+.b_logo a{
+    width: 380px;
+    height: 130px; 
+    background-color: none;
+    background-image: url("../Bilder/Begadi_Banner1.jpg"); 
+    background-size: 380px;
+    background-repeat: no-repeat;
+    float: left;  
+    padding-right: 5px;
+}
+.b_beschreibung{
+    background-color: red;   
+    padding: 5px;
+}
+
+.index_sonstiges{
+    float:none;
+    display: block;
+    background-color: gray;
+    margin-top: 15px;
+}

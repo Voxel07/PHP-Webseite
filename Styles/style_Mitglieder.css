@@ -1,0 +1,31 @@
+
+/*Das Team*/
+.mitglieder li {
+    display:inline-block;
+    width: 500px;
+    height: 200px;
+    background: red;
+    margin:20px 2px; 
+    position: relative; 
+}
+
+.mitglieder li img{
+    position: absolute;
+}
+
+/*Beschreibung*/
+.mitglieder li p {
+    color: black;
+    position: relative;
+    left:205px;
+    width: 290px;
+    height: 50px;
+    top:20px;
+}
+
+/*Abstand zwischen Überschrift und Inhalt*/
+p.mitglieder{
+    padding: 1%;
+   
+}
+

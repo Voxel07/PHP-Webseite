@@ -1,0 +1,126 @@
+Router:
+Geräte PW: 28133702
+Wlan: 3929389028824430
+
+------------------------------------------------------------------------------
+Raspberry:
+PW: w503v679
+DB PW: 59ca2ca526302e38e53ee38a3a1f36d8
+Update: sudo apt-get update
+Upgrade: sudo apt-get upgrade
+
+
+Software:
+Installieren: sudo apt-get install apache2 mariadb-server mariadb-client php libapache2-mod-php phpmyadmin
+Starten: sudo systemctl start apache2
+Autostart: sudo systemctl start apache2
+
+Löschen:
+sudo apt-get remove
+sudo apt-get remove --auto-remove
+sudo apt-get purge --auto-remove
+
+Ablauf:
+sudo su
+# apt upgrade && apt upgrade -y
+# apt install ca-certificates apt-transport-https lsb-release gnupg curl nano unzip -y
+# wget -q https://packages.sury.org/php/apt.gpg -O- | apt-key add -
+# echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/php.list
+# apt update
+# apt install apache2 -y
+# apt install php7.3 php7.3-cli php7.3-curl php7.3-gd php7.3-intl php7.3-json php7.3-mbstring php7.3-mysql php7.3-opcache php7.3-readline php7.3-xml php7.3-xsl php7.3-zip php7.3-bz2 libapache2-mod-php7.3 -y
+# apt install mariadb-server mariadb-client -y
+# mysql_secure_installation
+# systemctl restart apache2
+# cd /usr/share
+# wget https://www.phpmyadmin.net/downloads/phpMyAdmin-latest-all-languages.zip -O phpmyadmin.zip
+# unzip phpmyadmin.zip
+# rm phpmyadmin.zip
+# mv phpMyAdmin-*-all-languages phpmyadmin
+# chmod -R 0755 phpmyadmin
+# nano /etc/apache2/conf-available/phpmyadmin.conf
+ 
+-----------------
+# phpMyAdmin Apache configuration
+ 
+Alias /phpmyadmin /usr/share/phpmyadmin
+ 
+<Directory /usr/share/phpmyadmin>
+    Options SymLinksIfOwnerMatch
+    DirectoryIndex index.php
+</Directory>
+ 
+# Disallow web access to directories that don't need it
+<Directory /usr/share/phpmyadmin/templates>
+    Require all denied
+</Directory>
+<Directory /usr/share/phpmyadmin/libraries>
+    Require all denied
+</Directory>
+<Directory /usr/share/phpmyadmin/setup/lib>
+    Require all denied
+</Directory>
+-----------------
+ 
+# systemctl reload apache2
+# mkdir /usr/share/phpmyadmin/tmp/
+# chown -R www-data:www-data /usr/share/phpmyadmin/tmp/
+# mysql -u root
+# CREATE USER 'username'@'localhost' IDENTIFIED BY 'passwort';
+# GRANT ALL PRIVILEGES ON *.* TO 'username'@'localhost' WITH GRANT OPTION;
+# exit
+# a2enconf phpmyadmin
+# systemctl reload apache2
+-------------------------------------------------------------------------------
+FTP server
+# apt install proftpd -y
+# nano /etc/proftpd/proftpd.conf
+____________________________________________________________________
+ServerName  "hostname / ip-adresse"
+DisplayLogin  "Willkommen auf dem FTP Server hostet by Go2Prepaid.de"
+UseIPv6     off
+ 
+ Include /etc/proftp/conf.d/
+<Global>
+  # Nur den Zugriff mit Shells zulassen, die in /etc/shells definiert sind
+  RequireValidShell  off
+  # Root-Log-in verweigern
+  RootLogin  off
+  # Pfad zum Home-Verzeichnis
+  # DefaultRoot  Verzeichnis
+  # Nutzer in seinem Home-Verzeichnis einsperren
+  DefaultRoot ~
+</Global>
+ 
+# Autorisierte Nutzer/Nutzergruppen für den FTP-Log-in definieren
+<Limit LOGIN>
+  # Nur den Login gestatten, wenn der Nutzer in der ftpuser-Gruppe ist. Mit dem (!) wird alles andere negiert.
+  DenyGroup  !ftpuser
+</Limit>
+____________________________________________________________________
+ 
+# addgroup ftpuser
+# adduser USERNAME --shell /bin/false --home /home/USERNAME --ingroup ftpuser
+# service proftpd restart
+
+camo
+w503v679
+-------------------------------------------------------------------------------
+Temperaturüberwachung:
+
+
+
+
+-------------------------------------------------------------------------------
+
+DiskPart
+
+list disk
+select disk Nummer
+clean
+---------------------------------
+Datenbank:
+
+Infos in: etc/phpmyadmin config-db.php
+Camo
+59ca2ca526302e38e53ee38a3a1f36d8

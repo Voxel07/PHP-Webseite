@@ -1,0 +1,310 @@
+.Form_Nav{
+    width: 80%;
+    height: 35px;
+    margin-left: 10%;
+    background-color: rgb(48, 122, 122);
+
+    display: flex;
+    align-items: center;
+    justify-content: left;  
+}
+
+.Form_Nav a{
+    margin: 0 15px 0 5px;
+    text-decoration: none;
+    color: white;
+    font-family: roboto_B;
+}
+.Form_Pfad{
+    width: 80%;
+    height: 35px;
+    background-color: rgb(224, 224, 224);
+    margin: 5px 0 0 10%;
+   
+    display: flex;
+    align-items: center;
+    justify-content: left;  
+
+}
+.Form_Pfad a{
+    margin: 0 15px 0 5px;
+    text-decoration: none;
+    color: black;
+    font-family: roboto_B;
+}
+.Form_Pfad p{
+    font-family: roboto_B;
+    color: black;
+}
+.Form_Info{
+    width: 80%;
+    height: 50px;
+    background-color: rgb(117, 117, 117);
+    margin: 5px 0 0 10%;
+}
+.Forum_Box{
+    width: 80%;
+    min-height: 200px;
+    height: auto;
+    margin: 5px 0 0 10%;
+    background-color: darkslategray;
+
+
+    display: flex;
+    flex-flow: column;
+}
+.Kategorie{
+    min-height: 100px;
+    display: flex;
+    flex-flow: column;
+    background-color: rgb(216, 216, 216);
+    margin: 10px 0px 10px 0px; 
+    padding: 5px;
+}
+.Kategorie-Titel{
+    background-color: brown;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: space-between;  
+}
+.Kategorie h2{
+    margin-left: 10px;
+}
+.Kategorie a{
+    text-decoration: none;
+    color: white;
+}
+.Thema{
+    height:75px;
+    /* margin-top: 10px; */
+    border-bottom: solid white 1px;
+    background-color: rgb(26, 23, 20);
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: space-between;  
+    align-content: center;
+    
+}
+.gelesen{
+    width: 35px;
+}
+.gelesen svg{
+    fill: white;
+}
+.Thema-Titel{
+    width: 400px;
+    margin-left: 20px;
+}
+.Thema-Titel-Themen{
+    display: flex;
+    align-items: center;
+    width: 400px;
+    margin-left: 20px;
+}
+
+.Thema-Info{
+    margin-left: 150px;
+    display: block;
+    position: relative;
+    /* background-color: blueviolet; */ 
+}
+.Thema-LB{
+   /* background-color: yellow; */
+   margin-right: 5px;
+}
+.Thema-test{
+    display: flex;
+    flex-flow: row;
+}
+.Thema div a{
+    text-decoration: none;
+    color: white;
+}
+.Thema div p{
+    text-align: left;
+}
+.Thema div h4{
+    text-align: center;
+    font-size: 20px;
+}
+.Add-Kategorie{
+    display: flex;
+    flex-flow: row;
+    background-color: seagreen;
+    align-items: center;
+}
+.Add-Thema{
+    display: flex;
+    flex-flow: row;
+    background-color: lightcoral;
+    align-items: center;
+}
+.Add-Kategorie-Form{
+    margin-left: 20px;
+    display: none;
+}
+.Add-Thema-Form{
+    margin-left: 20px;
+    display: none;
+}
+.Add-Thema-Butten{
+/* background-color: sienna; */
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    background-image: url("../Bilder/SVG/plus.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+.Add-Kategorie-Butten{
+    background-color: sienna;
+    align-items: center;
+    width: 30px;
+}
+.Add-Kategorie-Butten svg{
+    margin-top: 5px;
+    align-items: center;
+}
+
+/* Ab hier Post  */
+.Form_Info_Post{
+    color: whitesmoke;
+    width: 80%;
+    height: 50px;
+    background-color: rgb(117, 117, 117);
+    margin: 5px 0 0 10%;
+}
+.Form_Info_Post a{
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+
+.Post_Box{
+    min-height: 150px;
+    display: flex;
+    flex-flow: row;
+    background-color: brown;
+    padding: 2px;
+    /* margin: 10px 10px 10px 10px;  */
+}
+.Post_Inhalt{
+    height: auto;
+    width: 100%;
+    max-width: 85%;
+
+    margin-left: 1%;
+    background-color: rgb(26, 23, 20);
+    font-family: roboto_L;
+    
+}
+
+/* Ab hier Antworten */
+.Antwort_Box{
+    width: auto;
+    height: auto;
+    min-height: 25px;
+    margin-top: 10px;
+    padding: 2px;
+
+    background-color: cyan;
+    display: flex;
+}
+.Antwort_Autor, .Post_Ersteller{
+    height: auto;
+    max-height: 250px;
+    width: 14%;
+    background-color: darkblue;
+
+    display: flex;
+    flex-flow: column;
+
+}
+.Antwort_Text{
+   
+    margin-left: 1%;
+    /* height: 400px; */
+    height: auto;
+    max-width: 85%;
+    background-color: darkgoldenrod;
+}
+.Autor_Profielbild{
+    /* background-image: url("/Bilder/Mitglieder/Logo.png"); */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+
+
+    width: 150px;
+    height: 150px;
+
+    background-color: darkgreen;
+}
+.Autor_Name{
+    margin-top: 5px;
+    height: 25px;
+    background-color: rgb(62, 185, 62);
+}
+.Autor_Posts{
+    margin-top: 5px; 
+    height: 25px;
+    background-color: rgb(84, 181, 219);
+}
+
+/* Ab hier übersich */
+
+.übersicht-box{
+    width: 80%;
+    margin-left: 10%;
+    padding: 2px;
+    background-color: rgb(49, 49, 49);
+    display: flex;
+    flex-flow: column;
+    
+}
+.übersicht-box a{
+    font-family: roboto_B;
+    font-size: 20px;
+    text-decoration: none;
+    color: whitesmoke;
+}
+.übersicht-post{
+    display: flex;
+    flex-flow: row;
+    padding: 2px;
+    align-items: center;
+    justify-content: space-between;
+    font-family: roboto_B;
+}
+.svg-box{
+    justify-self: left;
+    background-color: chartreuse;
+    width: 50px;
+}
+.titel-box{
+    margin-left: 25px;
+    width: 300px;
+    background-color: rgb(33, 206, 212);
+}
+.autor-box{
+    margin-left: 25px;
+    width: 100px;
+    background-color: green;
+    font-family: roboto_B;
+}
+.thema-box{
+    margin-left: 25px;
+    width: 300px;
+    background-color: blue;
+    font-family: roboto_B;
+}
+.antworten-box{
+    justify-self: end;
+    margin-left: 25px;
+    width: 100px;
+    background-color: black;
+    right: 0px;
+    font-family: roboto_B;
+}

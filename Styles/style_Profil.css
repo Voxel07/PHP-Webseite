@@ -1,0 +1,145 @@
+/* Profielseite wenn nicht angemeldet */
+.p_nichtangemeldet{
+    text-align: center;
+    display: block;
+    width:400px;
+    margin-left: 40%;
+    margin-top: 100px;
+    background: radial-gradient(circle, #555555, #535353, #4e4e4e,#4c4c4c);
+    border-radius: 10px;
+}
+.p_nichtangemeldet .user-input{
+    text-align: center;
+    margin-top: 25px;
+    width: 80%;
+    height: 30px;
+    border: none;
+    outline: none;
+    color: white;
+    background: none;
+    font-size: 15px;
+    font-family: roboto_B;
+    border-bottom: 1px solid #b3b3b3;
+}
+.p_signin-button{
+    margin-top: 20px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    width: 80%;
+    height: 60px;
+    border-radius: 5px;
+    font-size: 25px;
+    color: white;
+    text-align: center;
+    letter-spacing: 1px;
+    background: radial-gradient(circle, #24cfaa, #26c5a3, #29b294, #2aa88d);
+    box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    margin-bottom: 5px;
+}
+.p_signin-button:hover{
+    background: radial-gradient(circle, #f19114, #ec9421, #ce7e15, #f1ae55);
+}
+
+/* Profiel, wenn angemeldet */
+
+.Profiel_box{
+    display: block;
+    padding: 5px;
+    background-color: rgb(138, 124, 122);
+    width: 80%;
+    margin-left: 10%;
+}
+.Profiel_begrüsung{
+    display: block;
+    margin-bottom: 5px;
+    background-color: black;
+    text-align: center;
+}
+.Profiel_Profielbild{
+    display: block;
+    width: 100%;
+    background-color: red;
+    height: 500px;
+}
+.Profiel_Bild_ändern{
+    margin-top: 15px;
+    background-color: yellow;
+}
+
+.Profiel_Profielbild_Bild{
+    /* display: inline-block; */
+  
+    float: left;
+    width: 300px;
+    height: auto;
+    background-color: slateblue;
+    padding: 2px;
+}
+.Prfiel_User_Info{
+    float: left;
+    /* display:inline-block; */
+    height: 100%;
+   
+    width: 500px;
+    
+    margin-left: 15px;
+    background-color: seagreen;
+}
+.Profiel_Zusatz{
+    float: right;
+    width: 250px;
+    height: 150px;
+    background-color: blueviolet;
+}
+
+.Profiel_Sonstiges{
+    text-align: center;
+    margin-top: 15px;
+    display: block;
+    background-color: rgb(228, 96, 223);   
+    height: 700px;
+}
+
+.Profiel_Sonstiges_Forum, .Profiel_Sonstiges_Galerie, .Profiel_Sonstiges_Reviews{
+    width: 33%;
+    height:500px;
+    margin-top: 15px;
+    color: black;
+
+}
+.Profiel_Sonstiges_Forum{
+    float: left;
+    background-color: wheat;
+}
+.Profiel_Sonstiges_Galerie{
+    float: left;
+    margin-left: 0.5%;
+
+    background-color: yellow;
+    
+    height: auto;
+}
+.Profiel_Sonstiges_Galerie a{
+    text-decoration: none;
+	/* padding: 2px; */
+	
+	width: 350px;
+
+	margin:20px 10px 0;
+	background-color: green;
+}
+.Profiel_Sonstiges_Galerie a div{
+	width: auto;
+    height: 335px;
+    background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+
+	
+}
+
+.Profiel_Sonstiges_Reviews{
+    float: right;
+    background-color: yellowgreen;
+}

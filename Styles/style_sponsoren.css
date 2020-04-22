@@ -1,0 +1,76 @@
+.sponsoren_box{
+    margin-left: 10%;
+    display: block;
+    width: 80%;
+    background-color: ivory;
+    height: auto;
+    padding: 5px;
+}
+.sponsor_header{
+    display: block;
+    background-color: khaki;
+    height: 20px;
+}
+
+.sponsoren_floatbox{
+    height: 350px;
+    background-color: lawngreen;
+}
+.sponsor_1,.sponsor_2{
+    margin-top: 15px;
+    width: 49%;
+    height: 150px;
+    font-family: roboto_L;
+}
+.sponsor_1{
+float: left;
+background-color: lightcoral;
+}
+.sponsor_1_logo a{
+    width: 200px;
+    height: 140px; 
+    background-color: none;
+    background-image: url("../Bilder/SAS_Logo.png"); 
+    background-size: 200px;
+    background-repeat: no-repeat;
+    float: left;  
+}
+.sponsor_1_text{
+    background-color: black;
+    padding: 5px;
+}
+.sponsor_1_text a{
+text-decoration: none;
+color: red;
+font-family: roboto_B;
+}
+.sponsor_2{
+float: right;
+background-color: lightpink;
+}
+.sponsor_2_logo a{
+    width: 380px;
+    height: 130px; 
+    background-color: none;
+    background-image: url("../Bilder/Begadi_Banner1.jpg"); 
+    background-size: 380px;
+    background-repeat: no-repeat;
+    float: left;  
+    padding-right: 5px;
+
+}
+.sponsor_2_text{
+    background-color: black;
+    padding: 5px;
+}
+.sponsor_2_text a{
+    text-decoration: none;
+    color: red;
+    font-family: roboto_B;
+}
+
+.sonstiges{
+    margin-top: 15px;
+    display: block;
+    background-color: blue;
+}

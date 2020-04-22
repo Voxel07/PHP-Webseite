@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../Styles/layout.css">   
+</head>
+<body>
+<div class="Galerie-Container">
+    <div class="Bild-Container"  onclick="vergrößern(this)" onmouseover="mehr(this)" onmouseout="weniger(this)">
+        <div class="Löschen"></div>
+        <div class="Bild">
+            <img src="../Bilder/Galerie/Bild_1.jpg" alt="Bild_1">
+        </div>
+        <div class ="Titel">Hier stet der Titel</div>
+       
+    </div>
+
+    <div class="Bild-Container"  onclick="vergrößern(this)" onmouseover="mehr(this)" onmouseout="weniger(this)">
+        <div class="Löschen"></div>
+        <div class="Bild">
+            <img src="../Bilder/Galerie/Bild_2.jpg" alt="Bild_2">
+        </div>
+        <div class ="Titel">Hier stet der Titel</div>
+       
+    </div>
+
+    <div class="Bild-Container"  onclick="vergrößern(this)" onmouseover="mehr(this)" onmouseout="weniger(this)">
+        <div class="Löschen"></div>
+        <div class="Bild">
+             <img src="../Bilder/Galerie/Bild_3.jpg" alt="Bild_3">
+        </div>
+        <div class ="Titel">Hier stet der Titel</div>
+    </div>
+
+    <div class="Bild-Container"  onclick="vergrößern(this)" onmouseover="mehr(this)" onmouseout="weniger(this)">
+        <div class="Löschen"></div>
+        <div class="Bild">
+             <img src="../Bilder/Galerie/Bild_4.jpg" alt="Bild_4">
+        </div>
+        <div class ="Titel">Hier stet der Titel</div>
+    </div>
+
+    <div class="Bild-Container"  onclick="vergrößern(this)" onmouseover="mehr(this)" onmouseout="weniger(this)">
+        <div class="Löschen" onclick="löschen()"></div>
+        <div class="Bild">
+             <img src="../Bilder/Galerie/Bild_5.jpg" alt="Bild_5">
+        </div>
+        <div class ="Titel">Hier stet der Titel</div>
+    </div>
+
+  
+
+</div>
+<div id="vollbild" onclick="verkleinern()">
+    <img src="../Bilder/Galerie/Bild_3.jpg" alt="">
+
+</div>
+<script src="../Skripte/layout.js"></script>
+
+    
+</body>
+</html>
