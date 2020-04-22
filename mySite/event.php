@@ -101,6 +101,8 @@ $stmt = mysqli_stmt_init($conn);
     
 
 </div>
+
+<!-- Git test -->
     
 <?php
 include_once "footer.php";
