@@ -1,5 +1,5 @@
 .kom-container{
-    width: 490px;
+    width: 500px;
     /* height: 300px; */
     /* background-color: aquamarine; */
     margin-left: 10%;
@@ -22,6 +22,41 @@
     border-bottom: 1px solid #e07007;
     /* background-color: rgb(109, 53, 2); */
 }
+.event-header{
+    height: 30px;
+    align-items: center;
+    display: flex;
+    flex-flow: row;
+    margin-bottom: 1px;
+    border-bottom: 1px solid #e07007;
+}
+
+.event-liste{
+    max-height: 160px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.event-liste::-webkit-scrollbar{
+    width: 5px;
+    border-radius: 50%;
+}
+/* Führung der scrollbar */
+.event-liste::-webkit-scrollbar-track{
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+}
+/* scrollbar an sich */
+.event-liste::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+  background-color: rgb(243, 77, 0);
+}
+.event-liste::-webkit-scrollbar-thumb:hover {
+    background: #ececec; 
+  }
+.event-header .event-name{
+    color: rgb(170, 170, 170);
+    font-family: roboto_L;
+}
 .event-name {
     width: 150px;
     font-family: roboto_B;
@@ -29,18 +64,18 @@
 }
 .event-name a{
     text-decoration: none;
-    color: white;
+    color: rgb(170, 170, 170);
 }
 .event-date{
     font-family: roboto_L;
     width: 80px;
     margin-left: 10px;
     /* background-color: thistle; */
-    color: white;
+    color: rgb(170, 170, 170);
 }
 .event-count{
     font-family: roboto_L;
-    color:  white;
+    color: rgb(170, 170, 170);
     width: 160px;
     margin-left: 20px;
 }
@@ -60,8 +95,8 @@
 }
 .rueckmeldung{
     font-family: roboto_L;
-    background-color: rgb(24, 138, 24);
-    color: rgb(255, 255, 255);
+    /* background-color: rgb(24, 138, 24); */
+    color: greenyellow;
 }
 
 /* Überschrift */
@@ -85,8 +120,9 @@
 }
 /* Schöne inputfelder */
 .events-neu{
+    display: none;
     margin-top: 10px;
-    display: flex;
+    /* display: flex; */
     flex-flow: row;
     /* background-color:  red; */
 }
@@ -115,9 +151,10 @@
     font-size: 12px;
     padding: 0;
 }
+
+/* Style für das Datum */
 .ev-input-date{
-    
-    width: 130px;
+    width: 140px;
     display: flex;
     flex-flow: column-reverse;
     border-bottom: 1px solid #b3b3b3;
@@ -184,16 +221,25 @@
     outline: none;
 }
 
-.event-hinzufügen{
-    margin-left: auto;
-    margin-right: 13px;
+.event-ausklappen{
+    margin-right: 1px;
     cursor: pointer;
-  
     width: 30px;
     height: 25px;
-    background-size: 80%;
+    background-size: 70%;
     background-position: center;
     background-repeat: no-repeat;
-    background-image: url("../Bilder/SVG/plus.svg");
+    background-image: url("../Bilder/SVG/add.svg");
+}
+.event-einklappen{
+    margin-left: auto;
+    margin-right: 23px;
+    cursor: pointer;
+    width: 30px;
+    height: 25px;
+    background-size: 70%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url("../Bilder/SVG/minus.svg");
  
 }

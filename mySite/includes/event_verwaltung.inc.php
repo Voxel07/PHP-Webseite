@@ -11,7 +11,12 @@ if(isset($_POST['Neues_Event'])&&isset($_SESSION['User'])&&$_SESSION['rang']>0){
 
     $eventName = htmlspecialchars(stripcslashes(trim($_POST['ev-name'])));
     $eventName = str_replace(" ","-",$eventName);
-    $eventLink = htmlspecialchars(stripcslashes(trim($_POST['ev-link'])));
+    if(isset($_POST["ev-link"])){
+        $eventLink = htmlspecialchars(stripcslashes(trim($_POST['ev-link'])));
+    }
+    else{
+        $eventLink ="#";
+    }
     $eventDate = htmlspecialchars(stripcslashes(trim($_POST['ev-date'])));
     $evErsteller = $_SESSION['User'];
     
