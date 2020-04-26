@@ -1,62 +1,199 @@
 .kom-container{
-    width: 700px;
-    height: 300px;
-    background-color: aquamarine;
+    width: 490px;
+    /* height: 300px; */
+    /* background-color: aquamarine; */
     margin-left: 10%;
     display: flex;
     flex-flow: column;
 }
 .events-liste{
-    background-color: bisque;
+    
+    /* background-color: bisque; */
     display: flex;
     flex-flow: column;
+    /* width: 500px; */
 }
 .event{
+    height: 30px;
+    align-items: center;
     display: flex;
     flex-flow: row;
-    margin-bottom: 5px;
+    margin-bottom: 1px;
+    border-bottom: 1px solid #e07007;
+    /* background-color: rgb(109, 53, 2); */
 }
-.event-name{
-    width: 200px;
+.event-name {
+    width: 150px;
+    font-family: roboto_B;
+    /* background-color: tomato; */
+}
+.event-name a{
     text-decoration: none;
+    color: white;
 }
 .event-date{
-    font-weight: 100;
-    color: black;
+    font-family: roboto_L;
+    width: 80px;
+    margin-left: 10px;
+    /* background-color: thistle; */
+    color: white;
 }
 .event-count{
-    margin-left: auto;
-    margin-right: 15px;
+    font-family: roboto_L;
+    color:  white;
+    width: 160px;
+    margin-left: 20px;
 }
 .event-löschen{
     margin-left: 10px;
     /* width: 40px; */
     height: 20px;
-    background-color: aqua;
+    /* background-color: aqua; */
+    width: 20px;
 }
 .event-editieren{
-    /* width: 40px; */
-    height: 20px;
-    background-color: rgb(0, 255, 21);
+    height: 23px;
+    /* background-color: rgb(0, 255, 21); */
+    width: 23px;
+    padding-bottom:2px;
+  
 }
 .rueckmeldung{
-    background-color: rgb(13, 219, 13);
+    font-family: roboto_L;
+    background-color: rgb(24, 138, 24);
     color: rgb(255, 255, 255);
 }
 
+/* Überschrift */
 
-h1 {
-    font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+  h1.insetshadow {
+    font-family: roboto_B;
     font-size: 30px;
-    padding: 20px 20px;
-    text-align: center;
+    padding-bottom: 15px;
+    text-align: left;
     text-transform: uppercase;
     text-rendering: optimizeLegibility;
-  }
-  h1.insetshadow {
     color: #7a4508;
-    background-color: #2d2d2d;
+    /* background-color: #2d2d2d; */
     letter-spacing: 0.1em;
     text-shadow: -1px -1px 1px rgb(0, 0, 0), 2px 2px 1px #363636;
   }
   
+.mantel{
+    display: flex;
+    flex-flow: row;
+}
+/* Schöne inputfelder */
+.events-neu{
+    margin-top: 10px;
+    display: flex;
+    flex-flow: row;
+    /* background-color:  red; */
+}
+/* Das Inputfeld an sich */
+.ev-input-text{
+    width: 160px;
+    display: flex;
+    flex-flow: column-reverse;
+    border-bottom: 1px solid #b3b3b3;
+    margin-right: 5px;
+}
+.ev-input-text input{
+    font-family: roboto_B;
+    margin-left: 1px;
+    font-size: 16px;
+    height: 25px;
+    border: none;
+    background: none;
+    outline: none;
+    color: rgb(129, 129, 129);
+    padding: 0px;
+}
+.ev-input-text label{
+    font-family: roboto_B;
+    color: rgb(161, 161, 161);
+    font-size: 12px;
+    padding: 0;
+}
+.ev-input-date{
+    
+    width: 130px;
+    display: flex;
+    flex-flow: column-reverse;
+    border-bottom: 1px solid #b3b3b3;
+    margin-right: 5px;
+}
+.ev-input-date input{
+    font-family: roboto_B;
+    margin-left: 1px;
+    font-size: 16px;
+    height: 25px;
+    border: none;
+    background: none;
+    outline: none;
+    color: rgb(129, 129, 129);
+    padding: 0px;
+}
+.ev-input-date label{
+    font-family: roboto_B;
+    color: rgb(161, 161, 161);
+    font-size: 12px;
+    padding: 0;
+}
+/* Ab hier ein und ausblenden */
+
+.ev-input-text input:placeholder-shown + label {
+    opacity: 0;
+    font-size: 10px;
+    color: white;
+}
+.ev-button-neu{
+    width: 30px;
+    height: 20px;
+    margin-top: 10px;
+
+}
+.ev-button-neu button{
+    cursor: pointer;
+    width: 30px;
+    height: 20px;
+    border: none;
+    background-color: transparent;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-image: url("../Bilder/SVG/check.svg");
+    outline: none;
+}
+.ev-button-update{
+    width: 30px;
+    height: 25px;
+    margin-top: 10px;
+
+}
+.ev-button-update button{
+    cursor: pointer;
+    width: 30px;
+    height: 25px;
+    border: none;
+    background-color: transparent;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 80%;
+    background-image: url("../Bilder/SVG/aktualisierung.svg");
+    outline: none;
+}
+
+.event-hinzufügen{
+    margin-left: auto;
+    margin-right: 13px;
+    cursor: pointer;
+  
+    width: 30px;
+    height: 25px;
+    background-size: 80%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url("../Bilder/SVG/plus.svg");
+ 
+}

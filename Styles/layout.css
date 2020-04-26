@@ -1,3 +1,6 @@
+body{
+    background-color: red;
+}
 .Galerie-Container{
     width: 100%;
     height: auto;
@@ -52,3 +55,31 @@
     max-width: 95%;
 }
 
+@font-face{
+    font-family: roboto_L;
+    src:url("../Roboto/Roboto-Light.ttf");
+  }
+  @font-face{
+    font-family: roboto_B;
+    src:url("../Roboto/Roboto-Bold.ttf");
+  }
+  
+  .joinus_box{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    background-color: none;
+  }
+  
+  /* Box */
+.mantel{
+    display: flex;
+    flex-flow: column;
+    width: 500px;
+    background-color: chartreuse;
+}
+    .eins{
+    width: 50px;
+    background-color: black;
+    margin: 1px;
+}

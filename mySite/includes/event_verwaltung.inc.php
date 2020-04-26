@@ -7,7 +7,7 @@ session_start();
 
 <?php
 // Events einfügen
-if(isset($_POST['Neues_Event'])&&isset($_SESSION['User'])){
+if(isset($_POST['Neues_Event'])&&isset($_SESSION['User'])&&$_SESSION['rang']>0){
 
     $eventName = htmlspecialchars(stripcslashes(trim($_POST['ev-name'])));
     $eventName = str_replace(" ","-",$eventName);
@@ -47,13 +47,13 @@ if(isset($_POST['Neues_Event'])&&isset($_SESSION['User'])){
         }
 
     }
-    header("Location: ../event.php?eigetragen=$eventName");
+    header("Location: ../event.php?eingetragen=$eventName");
     exit();
 }
 
 // Events löschen
-// elseif ($GET['löschen']&&isset($_SESSION['User'])&&$_SESSION['rang']>=0) {
-elseif (isset($_GET['löschen'])) {
+//elseif (isset($_GET['löschen'])) {
+elseif (isset($_GET['löschen'])&&isset($_SESSION['User'])&&$_SESSION['rang']>0) {
 
     $id = htmlspecialchars(stripcslashes(trim($_GET['löschen'])));
     $evZumLöschen = htmlspecialchars(stripcslashes(trim($_GET['name'])));
@@ -96,8 +96,8 @@ elseif (isset($_GET['löschen'])) {
 }
 
 //Event updaten
-// elseif ($GET['edit']&&isset($_SESSION['User'])&&$_SESSION['rang']>=0) {
-elseif(isset($_GET['edit'])){
+elseif ($_GET['edit']&&isset($_SESSION['User'])&&$_SESSION['rang']>=0) {
+//elseif(isset($_GET['edit'])){
     $id = htmlspecialchars(stripcslashes(trim($_GET['edit'])));
     $evZumÄndern = htmlspecialchars(stripcslashes(trim($_GET['name'])));
 
@@ -127,8 +127,8 @@ elseif(isset($_GET['edit'])){
         }
     }
 }
-//
-elseif (isset($_POST['update'])) {
+elseif (isset($_POST['update'])&&isset($_SESSION['User'])&&$_SESSION['rang']>0) {
+//elseif (isset($_POST['update'])) {
     $id = htmlspecialchars(stripcslashes(trim($_POST['id'])));
     $editor = $_SESSION['User']; 
 
