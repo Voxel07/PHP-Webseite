@@ -14,15 +14,49 @@
 .event{
     display: flex;
     flex-flow: row;
+    margin-bottom: 5px;
 }
 .event-name{
     width: 200px;
     text-decoration: none;
+}
+.event-date{
+    font-weight: 100;
+    color: black;
 }
 .event-count{
     margin-left: auto;
     margin-right: 15px;
 }
 .event-löschen{
+    margin-left: 10px;
+    /* width: 40px; */
+    height: 20px;
     background-color: aqua;
 }
+.event-editieren{
+    /* width: 40px; */
+    height: 20px;
+    background-color: rgb(0, 255, 21);
+}
+.rueckmeldung{
+    background-color: rgb(13, 219, 13);
+    color: rgb(255, 255, 255);
+}
+
+
+h1 {
+    font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+    font-size: 30px;
+    padding: 20px 20px;
+    text-align: center;
+    text-transform: uppercase;
+    text-rendering: optimizeLegibility;
+  }
+  h1.insetshadow {
+    color: #7a4508;
+    background-color: #2d2d2d;
+    letter-spacing: 0.1em;
+    text-shadow: -1px -1px 1px rgb(0, 0, 0), 2px 2px 1px #363636;
+  }
+  
