@@ -53,7 +53,7 @@ echo'<link rel="stylesheet" href="../Styles/style_index.css">';
            </div>
            
            <div class="news-container">
-                <div class="news-bild" style="background-image: url(../Bilder/News/Vorschaubilder/Bild_4.jpg);"></div>
+                <div class="news-bild" style="background-image: url(../Uploads/News/Vorschaubilder/Bild_4.jpg);"></div>
                 <div class="news-text">
                     <div class="news-text-überschrift"><h3>Teamsitzung</h3></div>
                     <div class="news-text-text">

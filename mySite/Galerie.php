@@ -6,9 +6,9 @@ echo'<link rel="stylesheet" href="../Styles/Galerie.css">';
 ?>
 
 
-<div class ="gallerie_box">
-  <div class ="gallerie_titel">   
-  <p>Super duper Gallerie. </p>  
+<div class ="galerie_box">
+  <div class ="galerie_titel">   
+  <p>Super duper Galerie. </p>  
   <?php 
    $sql = "SELECT * FROM gallerie";//Sql befehl 
    $stmt = mysqli_stmt_init($conn);
@@ -20,13 +20,13 @@ echo'<link rel="stylesheet" href="../Styles/Galerie.css">';
        mysqli_stmt_execute($stmt);
        $result =  mysqli_stmt_get_result($stmt);
        $rowCount = mysqli_num_rows($result); //Anzahl der Bilder
-      echo"<p>Aktuell sind $rowCount Bilder in der Gallerie </p>";
+      echo"<p>Aktuell sind $rowCount Bilder in der Galerie </p>";
    }
   ?>
 
   </div>
 
-  <div class="gallerie_bilder">
+  <div class="galerie_bilder">
   <?php
 
     $sql ="SELECT * FROM gallerie ORDER BY Reihenfolge DESC";
@@ -65,10 +65,10 @@ echo'<link rel="stylesheet" href="../Styles/Galerie.css">';
 <?php 
   if(isset($_SESSION['User'])){
     if($_SESSION['rang']>0 && ($_SESSION['rang']!=2)){
-      echo'<div class="gallerie_upload">';
+      echo'<div class="galerie_upload">';
       // echo' <form class ="form" id="uploadForm"> 
       //Fortschrittsbalken geht noch nicht, warum kp. 
-      echo'<form action = "includes/Upload_Gallerie.inc.php" method="post" enctype="multipart/form-data">
+      echo'<form action = "includes/Upload_Galerie.inc.php" method="post" enctype="multipart/form-data">
      
      
      
@@ -76,7 +76,7 @@ echo'<link rel="stylesheet" href="../Styles/Galerie.css">';
       <input tyxpe="text" name ="beschreibung" placeholder="Beschreibe dein Bild" />
       <input type="file" name="DateiZumHochladen"  id="inpFile"> 
 
-      <button type="submit" name="upload-Gallerie"/>Upload</button>    
+      <button type="submit" name="upload-Galerie"/>Upload</button>    
        
       </form>';
           //Upload fortschirtt
@@ -94,7 +94,7 @@ echo'<link rel="stylesheet" href="../Styles/Galerie.css">';
     }
   }
   else{
-    echo'<div class="gallerie_upload">';
+    echo'<div class="galerie_upload">';
     echo'<p style=color:red;>Um Bilder hochladen zu könnnen musst du angemeldet sein. </p>';
     echo'</div>'; //gallerie_upload zu
   }

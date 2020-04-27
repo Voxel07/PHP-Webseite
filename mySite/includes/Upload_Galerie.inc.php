@@ -6,7 +6,7 @@ session_start();
 <?php
 
 //Uploads für die Galerie
-if(isset($_POST['upload-Gallerie']))
+if(isset($_POST['upload-Galerie']))
 {
 
     $Nutzer = $_SESSION['User'];
@@ -44,11 +44,11 @@ if(isset($_POST['upload-Gallerie']))
         if($dateiError === 0){
             //Dateigröße 20mb
             if($dateiSize < 2000000000){
-                $dateinameServer = "gallerie_".  $newFileName. "." . uniqid("",true) . "." . $fileActualExt; //Dateiname unterdem Sie gespeichert wird
+                $dateinameServer = "galerie_".  $newFileName. "." . uniqid("",true) . "." . $fileActualExt; //Dateiname unterdem Sie gespeichert wird
                 $pfad = "../../Uploads/Bilder_Galerie/Vollbild_Bilder/". $dateinameServer; //Wo soll die Datei gespeichert werdem
 
                 if(empty($titel)||empty($beschreibung)){ //Prüft ob Titel und beschreibung gegeben sind
-                    header("Location: ../Gallerie.php?upload=empty");
+                    header("Location: ../Galerie.php?upload=empty");
                      echo'1';
                     exit();
                 }
@@ -56,7 +56,7 @@ if(isset($_POST['upload-Gallerie']))
                     $sql = "SELECT * FROM gallerie";//Sql befehl 
                     $stmt = mysqli_stmt_init($conn);
                     if(!mysqli_stmt_prepare($stmt,$sql)){
-                        header("Location: ../Gallerie.php?upload=sqlStatementError");//
+                        header("Location: ../Galerie.php?upload=sqlStatementError");//
                          echo'2';
                         exit();
                     }
@@ -70,7 +70,7 @@ if(isset($_POST['upload-Gallerie']))
                         // $sql2 = "INSERT INTO gallerie (titelGallerie, beschGallerie, dateinameServer, reihenfolgeGallerie) VALUES (?, ?, ?, ?);";
                         if(!mysqli_stmt_prepare($stmt,$sql2)){
                             echo'3';
-                            header("Location: ../Gallerie.php?upload=sqlStatementError2");
+                            header("Location: ../Galerie.php?upload=sqlStatementError2");
                             exit();
                         }
                         else{
@@ -117,7 +117,7 @@ if(isset($_POST['upload-Gallerie']))
                                     mysqli_stmt_bind_param($stmt,"s",$Nutzer);
                                     mysqli_stmt_execute($stmt);
 
-                                    $filename = 'Gallerie_Upload.txt';
+                                    $filename = 'Galerie_Upload.txt';
                                     $date = date("d.m.Y - H:i", time());
                                     $somecontent = " $date | upload der Datei: $dateinameServer vom Nutzer: $Nutzer\n";
                                     
@@ -137,31 +137,31 @@ if(isset($_POST['upload-Gallerie']))
                                     }
                                 }
                             }
-                            header("Location: ../Gallerie.php?upload=success?&anz =".$anzahl."&anzNeu=".$anzNeu);
+                            header("Location: ../Galerie.php?upload=success?&anz =".$anzahl."&anzNeu=".$anzNeu);
                         }
                     }
                 }
             }
             else{
-                header("Location: ../Gallerie.php?upload=Datei zu groß");
+                header("Location: ../Galerie.php?upload=Datei zu groß");
                  echo'5';
                 exit();
             }
         }
         else{
-            header("Location: ../Gallerie.php?upload=Fehler beim Upload");
+            header("Location: ../Galerie.php?upload=Fehler beim Upload");
              echo'6';
             exit();
         }
     }
     else{
-        header("Location: ../Gallerie.php?upload=Ungültiges Bildformat");
+        header("Location: ../Galerie.php?upload=Ungültiges Bildformat");
          echo'7';
         exit();
     }
 }
 else {
-    header("Location: ../Gallerie.php?falsch");
+    header("Location: ../Galerie.php?falsch");
     exit();
 }
 ?>

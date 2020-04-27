@@ -1,15 +1,15 @@
-.gallerie_box{
+.galerie_box{
 	width: 80%;
 	margin-left: 10%;
 	background-color: blanchedalmond;
 	padding: 2px;
 	height: auto;
 }
-.gallerie_titel{
+.galerie_titel{
 	background-color: brown;
 }
 /* Hier sind die Bilder drin */
-.gallerie_bilder{
+.galerie_bilder{
 
 	display: flex;
 	flex-direction: row;
@@ -18,7 +18,7 @@
 	align-content: flex-start;
 	background-color: coral;
 }
-.gallerie_bilder a{
+.galerie_bilder a{
 	border-radius: 10px 10px 0 0;
 	text-decoration: none;
 	/* padding: 2px; */
@@ -27,7 +27,7 @@
 	background-color: green;
 }
 
-.gallerie_bilder a div{
+.galerie_bilder a div{
 	border-radius: 10px 10px 0 0;
 	width: 100%;
 	height: 335px;
@@ -36,19 +36,19 @@
 	background-size: cover;
 	
 }
-.gallerie_bilder a h3{
+.galerie_bilder a h3{
 	text-decoration: none;
 	color: black;
 	font-size: 25px;
 	font-family: roboto_B;
 }
-.gallerie_bilder a p{
+.galerie_bilder a p{
 	text-decoration: none;
 	color: black;
 	font-size: 15px;
 	font-family: roboto_L;
 }
-.gallerie_upload{
+.galerie_upload{
 	margin-top: 15px;
 	background-color: cornflowerblue;
 	display: flex;

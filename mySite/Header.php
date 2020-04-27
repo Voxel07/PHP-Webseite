@@ -55,7 +55,7 @@ session_start();//Damit der Login Seitenübergreifen gespeichert werden kann
             <li><a id="2" href="Das_Team.php">Das Team</a></li>
             <li><a id="3" href="Infos&Regeln.php">Infos/Regeln</a></li>
             <li class="logo"><a href="index.php">Logo</a></li>
-            <li><a id="4" href="Gallerie.php">Gallerie</a></li>
+            <li><a id="4" href="Galerie.php">Galerie</a></li>
             <li><a id="5" href="Sponsoren.php">Sponsoren</a></li>  
             <li><a id="6" href="Forum.php">Forum</a></li>  
         </ul>
@@ -75,7 +75,7 @@ switch (link) {
     case "/mySite/Infos&Regeln.php":
         elm = document.getElementById("3");
     break;
-        case "/mySite/Gallerie.php":
+        case "/mySite/Galerie.php":
          elm = document.getElementById("4"); 
     break;
         case "/mySite/Sponsoren.php":
