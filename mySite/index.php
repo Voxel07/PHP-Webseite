@@ -64,8 +64,6 @@ echo'<link rel="stylesheet" href="../Styles/style_index.css">';
                     <div class="news-kompletterBeitrag">
                         <a href ="#" >Komletter Beitrag lesen</a>
                     </div>
-                  
-
                 </div>
            </div> 
        </div>
@@ -75,31 +73,43 @@ echo'<link rel="stylesheet" href="../Styles/style_index.css">';
     </div>
 
  
+    <div class="sponsoren"><h1>Sponsoren</h1></div>
     <div class="index-sponsoren">
         <div class="Sponsor-Box Softairstore">
-            <div>Softairstore</div>
-            <div>Logo</div>
-            <div>
+            <!-- <div class="sponsor-name"><h2>Softairstore</h2></div> -->
+            <div class="sponsor-logo" style="background-image: url(../Bilder/SAS-Logo-1000.gif);" href="#"></div>
+            <div class="sponsor-text">
             <p>Kennt ihr das, die treue alte Knifte die Jahrelang gute Dienste gleistet hat, möchte auf einmal nichtmehr. Jetzt müssen schnell Ersatzteile her. Sollte die Waffe dann auch noch von G&G sein, dann seid ihr beim Softairstore genau richtig. Das Sie der offizielle Ansprechpartner für G&G in Deutschland sind, haben die Jungs die möglichkeit an nahezu alle heranzukommen was man so brauchen kann. Das ist aber noch lange nicht alles, in ihrem sich ständig erweiternden Shop findet ihr alles was das Airsofter Herz höher schlagen lässt. Außerdem veranstalten die Jungs in der Zwischenzeit auch ihre eigenen Events und besuchen regelmäßig zusammen mit ihren Sponsorteams öffentliche Events</p>
-                <strong><a href="">Die Hompage</a></strong>                                                                                                        
-                <strong><a href="">Events by SAS</a></strong>
+                <p><strong><a href="">Die Hompage</a></strong></p>                                                                                                        
+                <p><strong><a href="">Events by SAS</a></strong></p>
             </div>
 
         </div>
         <div class="Sponsor-Box Begadi">
-            <div>Begadi</div>
-            <div>Logo</div>
-            <div>
+            <!-- <div class="sponsor-name"><h2>Begadi</h2></div> -->
+            <div class="sponsor-logo" style="background-image: url(../Bilder/Begadi-Logo-1000.gif);"></div>
+            <div class="sponsor-text">
             <p>Jeder kennt Sie, jeder liebt Sie. Die Jungs von Begadi. Mitte 2006 wurde das Team in die Sponsoringreihen von Begadi aufgenommen. Seitdem sind wir Treue und vor allem sehr zufriedene Kunde. Egal was ihr braucht, eine neue Knifte oder endlich mal gescheite Ausrüstung für die Kalten und Nassen Zeiten des Jahres, bei Begadi werdet ihr fündig. Solltet die AEG mal wieder Zicken machen und ihr kommt einfach nicht darauf an was es liegen könnte oder ihr braucht ein Ersatzteil, welches ihr nirgends finden könnt. Dann seid ihr bei der Begadi Werkstatt genau richtig. Mit ihrer Jahren langen Erfahrung und Kontakten zu Händlern und Herstellern, können Sie Probleme schnelle beheben und ihr könnt glücklich zu eurem nächsten Spiel fahren. Nach über 10 Jahren Sponsoring sind wir nach wie vor sehr froh, dass Begadi uns immernoch mit ihrem tollen Support und Sortiment zur Seite steht.</p>
-                <strong><a href="">Die Hompage</a></strong>                                                                                                        
-                <strong><a href="">Die Werkstatt</a></strong>
+                <p><strong><a href="">Die Hompage</a></strong></p>                                                                                                        
+                <p><strong><a href="">Die Werkstatt</a></strong></p>
             </div>
         </div>
 
     </div>
     <div class="index_sonstiges">
-        <p>AS Helden</p>
-        <img src="/Bilder/AS Helden Logo2.png#" alt="">
+        <div class="sonstiges-ash">
+            <div class="ash-logo"><img src="/Bilder/AS_Helden.gif" alt=""></div>
+            <div class="ash-text">
+                <p>Die Airsofthelden haben sich in den letzten Jahren sehr viel Mühe gegeben um die Airsoftszene in Deutschland nach vorne zu treiben. Mit ihrem Steckenpferd der <a href="#">Dark Emergency</a> haben Sie sich die Grundlage geschaffen um eine ernstzunehmende Größe in der Szene zu werden.</p>
+                <p>Da wir alle davon Profitieren wenn es Airsoft in Deutschland gut geht, sind wir stolz darauf einen kleinen Teil beitragen zu dürfen. Seit der DE 3 stellen wir die Leitung auf der Miliz auf der DE. Seitdem wird das tun kam viel Positives Feedack und jedes Jahr möchten mehr Menschen auf der Seite der Miliz spielen.</p>
+                <p>Wir möchten mit Angeboten der Helden mithalten, deshalb verbessern jedes Jahr den Ablauf und versuchen aus dem Feedback der Vergangenen Jahre zu lernen und diese in unsere Planung mit einzubeziehen.</p>
+                <p>Ihr könnt uns gerne hier im Forum ( anmeldung notwendig ) oder über einen unsere Social Media Kanäle Feedback geben.</p>
+                <p>Dieses Jahr gibt es eine Whatsapp Gruppe um die Milizspieler zu organisieren. Der könnt ihr einfach beitreten</p>
+            </div>
+            
+            
+        </div>
+        
     </div>
 </div>
 

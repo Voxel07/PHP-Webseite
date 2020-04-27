@@ -1,5 +1,11 @@
 
 /*Das Team*/
+.Das_Team{
+    display: flex;
+    flex-flow: column;
+    margin-left: 10%;
+    width: 80%;
+}
 .mitglieder li {
     display:inline-block;
     width: 500px;

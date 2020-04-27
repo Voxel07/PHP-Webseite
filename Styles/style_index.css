@@ -120,10 +120,10 @@ h1.news {
 .news-text-text{
     max-height: 150px;
     overflow: hidden;
-    font-family: roboto_L;
     color: rgb(170, 170, 170);;
 }
 .news-text-text p{
+    font-family: roboto_L;
     margin-top: 5px;
 }
 .news-kompletterBeitrag{
@@ -132,7 +132,7 @@ h1.news {
 }
 .news-kompletterBeitrag a{
     text-decoration: none;
-    color: rgb(170, 170, 170);;
+    color: rgb(170, 170, 170);
     font-family: roboto_B;
 }
 .index-events{
@@ -142,12 +142,17 @@ h1.news {
 
 /*Sponsoren*/
 .index-sponsoren{
-    margin-top: 50px;
     width: 100%;
     height: auto;
-    background-color: black;
+    /* background-color: black; */
     display: flex;
     flex-flow: row;
+}
+.index-sponsoren a{
+    text-decoration: none;
+    color: rgb(170, 170, 170);
+    font-family: roboto_B;
+
 }
 .Sponsor-Box{
     padding: 5px;
@@ -156,17 +161,84 @@ h1.news {
   
 }
 .Softairstore{
-    background-color: rgb(108, 145, 132);
+    /* background-color: rgb(46, 26, 0); */
+    border-radius: 10px;
     margin-right: 5px;
+}
+.sponsoren{
+    margin-top: 75px; 
+    font-family: roboto_B;
+    font-size: 30px;
+    padding-bottom: 15px;
+    text-align: center;
+    text-transform: uppercase;
+    text-rendering: optimizeLegibility;
+    color: rgba(233, 162, 32, 0.795);
+    letter-spacing: 0.1em;
+    text-shadow: -2px -2px 2px rgb(0, 0, 0), 2px 2px 2px #363636; 
+}
+.sponsor-name{
+    font-family: roboto_B;
+    font-size: 20px;
+    padding-bottom: 15px;
+    text-align: center;
+    text-transform: uppercase;
+    text-rendering: optimizeLegibility;
+    color: #059405;
+    letter-spacing: 0.1em;
+    text-shadow: -1px -1px 1px rgb(0, 0, 0), 2px 2px 1px #363636;
+}
+.sponsor-logo{
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    height: 300px;
+}
+.Begadi .sponsor-logo{
+    width: 100%;
+}
+.Softairstore .sponsor-logo{
+    width: 100%;
+    
 }
 .Begadi{
     margin-left: 5px;
-    background-color: rgb(100, 88, 88);
+    /* background-color: rgb(100, 88, 88); */
+}
+.sponsor-text{
+    margin-top: 15px;
+    color: rgb(170, 170, 170);
+    
+}
+.sponsor-text p{
+    font-family: roboto_L;
+    margin-top: 5px;
 }
 
 .index_sonstiges{
-    float:none;
-    display: block;
-    background-color: gray;
-    margin-top: 15px;
+    margin-top: 50px;
+    display: flex;
+    flex-flow: column;
+}
+.sonstiges-ash{
+    display: flex;
+    flex-flow: row;
+}
+.ash-logo{
+    width: 259px;
+    height: 300px;
+}
+.ash-text{
+    color: rgb(170, 170, 170);
+    width: 100%;
+}
+.ash-text p{
+    font-family: roboto_L;
+    margin-top: 5px;
+}
+.ash-text a{
+    color: rgb(170, 170, 170);
+    text-decoration: none;
+    font-family: roboto_B;
 }

@@ -1,85 +1,106 @@
-body{
-    background-color: red;
-}
-.Galerie-Container{
-    width: 100%;
-    height: auto;
-    display: flex;
-    background-color: sandybrown;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-}
-
-.Bild-Container{
-    /* min-width: 150px; */
-    height: 200px;
-    background-color: cornsilk;
-    margin: 5px;
-}
-.Bild-Container img{
-    max-height: 200px;  
-}
-.Bild{
-    max-width: 850px;
-    height: 90%; 
-}
-.Titel{
-    z-index: -1;
-    width: 100%;
-    display: none;
-}
-.Löschen{
-    width: 15px;
-    height: 15px;
-    position: absolute;
-    margin-top: 5px;
-    margin-left: 5px;
-    background-image: url("../Bilder/SVG/fail.svg");
-    background-position: center;
-    background-repeat: no-repeat;
-    display: none;
-}
-
-#vollbild{
-   background-color: black;
-    position: absolute;
-    top: 10px;
-    display: block;
-  
-    width: 100%;
-    display: none;
-}
-#vollbild img{
-    margin-left: 2.5%;
-    max-width: 95%;
-}
-
 @font-face{
     font-family: roboto_L;
     src:url("../Roboto/Roboto-Light.ttf");
-  }
-  @font-face{
+}
+@font-face{
     font-family: roboto_B;
     src:url("../Roboto/Roboto-Bold.ttf");
-  }
-  
-  .joinus_box{
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    background-color: none;
-  }
-  
-  /* Box */
-.mantel{
+}
+body{
+    background-color: rgb(66, 66, 66);
+}
+.mitglieder-statistik{
     display: flex;
     flex-flow: row;
+    align-items: flex-start;
     width: 500px;
-    background-color: chartreuse;
+    padding: 5px;
 }
-    .eins{
-    width: 50px;
-    background-color: black;
-    margin: 1px;
+.statistik{
+    display: flex;
+    flex-flow: row;
+    width: 120px;
+    height: 30px;
+    margin-left: 10px;
+}
+.anzahl{
+    width: 150px;
+}
+.alter{
+    width: 150px;
+}
+.statistik-svg{
+    border-radius: 5px 0 0px 5px;
+    fill:rgb(170, 170, 170);
+    width: 40px;
+}
+.statistik-info{
+    border-radius: 0px 5px 5px 0px;
+    width: 100%;
+    display: flex;
+    padding-left: 10px;
+    align-items: center;
+    color: rgb(170, 170, 170);
+    font-family: roboto_B;
+ 
+}
+
+.mitglieder-containter{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    /* background-color: rgb(255, 255, 255); */
+    width: 80%;
+    margin-left: 10%;
+    overflow-wrap: normal;
+    /* height: 800px; */
+}
+.mitglied-box{
+    margin-bottom: 25px;
+    border-radius: 10px 0px 0px 10px;
+    display: inline-flex;
+    width: 500px;
+    height: 200px;
+    /* background-color: red; */
+}
+.mitglied-bild{
+    border-radius: 10px 10px 10px 10px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 200px;
+    min-width: 200px;
+    
+    /* background-color: royalblue; */
+}
+.mitglied-text{
+    display: flex;
+    flex-flow: column;
+    /* background-color: salmon; */
+    width: 300px;
+    margin-right: 0px;
+    margin-left: auto;
+    padding-left: 10px;
+}
+.mitglied-info-box{
+    /* background-color: blue; */
+    display: flex;
+    flex-flow: row;
+    width: 100%;
+    margin-bottom: 10px;
+    border-bottom: 1px solid chocolate ;
+}
+.mitglied-svg{
+    fill: rgb(170, 170, 170);
+    width: 30px;
+}
+.mitglied-info{
+    border-radius: 0px 5px 5px 0px;
+    width: 100%;
+    display: flex;
+    padding-left: 10px;
+    align-items: center;
+    color: rgb(170, 170, 170);
+    font-family: roboto_B;
 }

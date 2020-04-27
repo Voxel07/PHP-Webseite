@@ -11,7 +11,7 @@ echo' <script src="../Skripte/Join_us.js"></script>';
 
     <div class="login-div">
         <div class="logo_log"></div>
-        <div class="titel">Regestrierung</div>
+        <div class="titel">Registrierung</div>
 
         <form action="includes/signeup.inc.php" method="POST" enctype ="multipart/form-data">
         <div class="SignUp-Box">
