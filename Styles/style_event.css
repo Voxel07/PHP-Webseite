@@ -1,10 +1,8 @@
 .kom-container{
     width: 500px;
-    /* height: 300px; */
-    /* background-color: aquamarine; */
-    margin-left: 10%;
     display: flex;
     flex-flow: column;
+    padding-bottom: 5px;
 }
 .events-liste{
     
@@ -48,7 +46,7 @@
 /* scrollbar an sich */
 .event-liste::-webkit-scrollbar-thumb {
     border-radius: 10px;
-  background-color: rgb(243, 77, 0);
+  background-color: rgba(255, 157, 45, 0.5);
 }
 .event-liste::-webkit-scrollbar-thumb:hover {
     background: #ececec; 
@@ -101,7 +99,7 @@
 
 /* Überschrift */
 
-  h1.insetshadow {
+h1.insetshadow {
     font-family: roboto_B;
     font-size: 30px;
     padding-bottom: 15px;
@@ -158,7 +156,7 @@
     display: flex;
     flex-flow: column-reverse;
     border-bottom: 1px solid #b3b3b3;
-    margin-right: 5px;
+    
 }
 .ev-input-date input{
     font-family: roboto_B;
@@ -188,6 +186,7 @@
     width: 30px;
     height: 20px;
     margin-top: 10px;
+    
 
 }
 .ev-button-neu button{
@@ -196,11 +195,12 @@
     height: 20px;
     border: none;
     background-color: transparent;
-    background-position: center;
+    background-position: left;
     background-repeat: no-repeat;
     background-size: 100%;
     background-image: url("../Bilder/SVG/check.svg");
     outline: none;
+   
 }
 .ev-button-update{
     width: 30px;

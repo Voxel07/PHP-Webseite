@@ -13,8 +13,6 @@ body {
     background-position-y: 50px;
     background-repeat: no-repeat;
     background-size: 94%;
-     /* background-position: top; */
-    /* background-image: radial-gradient(0) */
     color: rgb(194, 194, 194);
     font-family: roboto_L;
     margin: 0%;
@@ -62,40 +60,10 @@ nav li{
 
 ul li {
     list-style: none;
-  
 }
-
-/*Wenn die Seite ausgeählt ist*/
-/* nav ul li a.aktiv{
-    background: gainsboro;
-    color:red;
-    font-size: 20px;
-    border-radius: 5%;
-} */
-/* nav ul li a:hover:not(.aktiv){
-    background: rgb(248, 118, 118);
-} */
-
 
 h1,h2,h3,a{
     font-family: roboto_B;
-}
-
-/*Alle divs auf 80 % damit links und rechts sponsorbanner angezeigt werden können*/
-/* div{
-    display: block;
-    width: 80%;
-    position: relative;
-    left: 10%;
-    background-color:rgb(19, 17, 17);
-}  */
-
-/* macht das was ? */
-h1.überschrift{
-    color: aqua;
-    position: absolute;
-    top: 120px;
-    right: 85%;
 }
 
 /* Banner wenn der Nutzer nicht angmeldet ist */
@@ -156,8 +124,6 @@ h1.überschrift{
 fill: red;
 }
 
-
-
 /* Banner wenn der Nutzer angemeldet ist  */
 .Loged_in-Banner{
     position: fixed;
@@ -211,10 +177,6 @@ fill: red;
 .Loged_in-SVG svg{
 fill: red;
 }
-
-
-
-
 
 /* Ab hier muss das menü neu angeordnet werden*/
 @media screen and (max-width:1000px){

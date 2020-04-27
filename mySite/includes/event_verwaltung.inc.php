@@ -25,7 +25,7 @@ if(isset($_POST['Neues_Event'])&&isset($_SESSION['User'])&&$_SESSION['rang']>0){
     
     if(!mysqli_stmt_prepare($stmt,$sql)){
         echo'Kaputt';
-        header("Location: ../event.php?error=sql_error_insert".mysqli_error($conn));
+        header("Location: ../index.php?error=sql_error_insert".mysqli_error($conn));
         exit();
     }
     else {
@@ -52,7 +52,7 @@ if(isset($_POST['Neues_Event'])&&isset($_SESSION['User'])&&$_SESSION['rang']>0){
         }
 
     }
-    header("Location: ../event.php?eingetragen=$eventName");
+    header("Location: ../index.php?eingetragen=$eventName");
     exit();
 }
 
@@ -69,7 +69,7 @@ elseif (isset($_GET['löschen'])&&isset($_SESSION['User'])&&$_SESSION['rang']>0)
     
     if(!mysqli_stmt_prepare($stmt,$sql)){
         echo'Kaputt';
-        header("Location: ../event.php?error=sql_error_löschen");
+        header("Location: ../index.php?error=sql_error_löschen");
         exit();
     }
     else {
@@ -96,7 +96,7 @@ elseif (isset($_GET['löschen'])&&isset($_SESSION['User'])&&$_SESSION['rang']>0)
             print "Die Datei $filename ist nicht schreibbar";
         }
 
-        header("Location: ../event.php?gelöscht=$evZumLöschen");
+        header("Location: ../index.php?gelöscht=$evZumLöschen");
     }
 }
 
@@ -111,7 +111,7 @@ elseif ($_GET['edit']&&isset($_SESSION['User'])&&$_SESSION['rang']>=0) {
     
     if(!mysqli_stmt_prepare($stmt,$sql)){
         echo'Kaputt';
-        header("Location: ../event.php?error=sql_error_edit");
+        header("Location: ../index.php?error=sql_error_edit");
         exit();
     }
     else {
@@ -128,7 +128,7 @@ elseif ($_GET['edit']&&isset($_SESSION['User'])&&$_SESSION['rang']>=0) {
             $_SESSION['datum'] = $row['datum'];
             $_SESSION['id']=$row['id'];
 
-          header("Location: ../event.php?edit=true");
+          header("Location: ../index.php?edit=true");
         }
     }
 }
@@ -146,7 +146,7 @@ elseif (isset($_POST['update'])&&isset($_SESSION['User'])&&$_SESSION['rang']>0) 
     $stmt = mysqli_stmt_init($conn);
     
     if(!mysqli_stmt_prepare($stmt,$sql)){
-        header("Location: ../event.php?error=sql_error_update".mysqli_error($conn));
+        header("Location: ../index.php?error=sql_error_update".mysqli_error($conn));
         exit();
     }
     else {
@@ -172,12 +172,12 @@ elseif (isset($_POST['update'])&&isset($_SESSION['User'])&&$_SESSION['rang']>0) 
         } else {
             print "Die Datei $filename ist nicht schreibbar";
         }
-        header("Location: ../event.php?update=$eventName ");
+        header("Location: ../index.php?update=$eventName ");
     }
 }
 
 else {
-    header("Location: ../event.php?was willst du hier");
+    header("Location: ../index.php?was willst du hier");
 }
 
 ?>

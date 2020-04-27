@@ -1,87 +1,167 @@
 .index_box{
     display: block;
     width: 80%;
-    background-color: whitesmoke;
+    /* background-color: whitesmoke; */
     margin-left: 10%;
     padding: 5px;
-
     height: auto;
 }
 .index_begrüsung{
-    display: block;
-    background-color: rgb(146, 114, 65);
-    height: 150px;
-}
-.index_termine{
-    display: block;
-    background-color: rgb(255, 153, 0);
-    height: 150px;
-    margin-top: 5px;
-}
-.index_floatbox{
-    display: block;
-    background-color: teal;
-    margin-top: 15px;
-    height: 400px;
-}
-.index_sponsor_S,.index_sponsor_B{
-    float: left;
-    /* display:inline-block; */
-    width: 49%;
-    
+    /* background-color: rgb(255, 153, 0); */
     height: auto;
-    /* box-sizing: border-box; */
-    
 }
-.index_sponsor_S{
-    background-color: blue;
-  
-    /* margin-right: 1%; */
+.index_begrüsung p{
+    margin-bottom: 5px;
+    font-family: roboto_L;
+    color: rgb(170, 170, 170);;
 }
-
-.s_logo,.s_beschreibung{
-    color: black;
-    
-  
+.index_begrüsung a{
+    text-decoration: none;
+    text-decoration-line: underline;
+    color: rgb(170, 170, 170);;
+    font-family: roboto_B;
 }
-.s_logo a{
-    width: 200px;
-    height: 140px; 
-    background-color: none;
-    background-image: url("../Bilder/SAS_Logo.png"); 
-    background-size: 200px;
-    background-repeat: no-repeat;
-    float: left;  
-   
-    
-}
-.s_beschreibung{
-    background-color: chartreuse;
-    padding: 5px;
+.index-termine{
+    display: flex;
+    flex-flow: row;
+    /* background-color: rgb(53, 53, 53); */
+    margin-top: 50px;
 }
 
-.index_sponsor_B{
-    background-color: gray;
-    float: right;
-    
+/* News Überschrift */
+h1.news {
+    font-family: roboto_B;
+    font-size: 30px;
+    padding-bottom: 15px;
+    text-align: left;
+    text-transform: uppercase;
+    text-rendering: optimizeLegibility;
+    color: #055494;
+    /* background-color: #2d2d2d; */
+    letter-spacing: 0.1em;
+    text-shadow: -1px -1px 1px rgb(0, 0, 0), 2px 2px 1px #363636;
 }
-.b_logo,.b_beschreibung{
-    color: black;
-    
+
+/* News  */
+.index-news{
+    /* background-color: darkolivegreen; */
+    width: 100%;
+    margin-right: 10px;
 }
-.b_logo a{
-    width: 380px;
-    height: 130px; 
-    background-color: none;
-    background-image: url("../Bilder/Begadi_Banner1.jpg"); 
-    background-size: 380px;
-    background-repeat: no-repeat;
-    float: left;  
+.news-header{
+    display: flex;
+    flex-flow: row;
+}
+
+
+/* Statistik */
+.news-statistik{
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    margin-top: 10px;
+    margin-left: 15px;
+    margin-right: auto;
+    width: auto;
+    height: 30px;
+    /* background-color: yellow; */
+}
+.news-statistik svg{
+    fill:  rgb(170, 170, 170);
+    width: 20px;
+}
+.stats{
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    padding-left: 2px;
     padding-right: 5px;
 }
-.b_beschreibung{
-    background-color: red;   
+.stats p{
+    margin-left: 2px;
+    color: rgb(170, 170, 170);
+    font-family: roboto_B;
+}
+.stats-date svg{
+    margin-top: 2px;
+    width: 25px;
+}
+.stats-views svg{
+    margin-top: 4px;
+    width: 30px;
+}
+/* Ende Statsitik */
+
+/* Aktuelleser beitrag */
+.news-container{
+    display: flex;
+    flex-flow: row;
+    width: 100%;
+}
+.news-bild{
+    /* background-color: rgb(116, 113, 100); */
+    background-image: url("../Bilder/News/Vorschaubilder/Logo.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 200px;
+    width: 300px;
+}
+.news-text{
+    display: flex;
+    flex-flow: column;
+    width: 100%; 
+    padding-left: 5px;
+}
+.news-text-überschrift{
+    font-family: roboto_B;
+    color: rgb(170, 170, 170);;
+}
+.news-text-text{
+    max-height: 150px;
+    overflow: hidden;
+    font-family: roboto_L;
+    color: rgb(170, 170, 170);;
+}
+.news-text-text p{
+    margin-top: 5px;
+}
+.news-kompletterBeitrag{
+    margin-bottom: 0px;
+    margin-top: auto;
+}
+.news-kompletterBeitrag a{
+    text-decoration: none;
+    color: rgb(170, 170, 170);;
+    font-family: roboto_B;
+}
+.index-events{
+    /* wird alles von style_event geregelt */
+}
+
+
+/*Sponsoren*/
+.index-sponsoren{
+    margin-top: 50px;
+    width: 100%;
+    height: auto;
+    background-color: black;
+    display: flex;
+    flex-flow: row;
+}
+.Sponsor-Box{
     padding: 5px;
+    width: 50%;
+    height: auto;
+  
+}
+.Softairstore{
+    background-color: rgb(108, 145, 132);
+    margin-right: 5px;
+}
+.Begadi{
+    margin-left: 5px;
+    background-color: rgb(100, 88, 88);
 }
 
 .index_sonstiges{

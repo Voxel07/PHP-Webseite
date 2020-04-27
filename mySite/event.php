@@ -1,5 +1,4 @@
 <?php
-include "Header.php";
 include_once "includes/dbh.inc.php";
 echo'<link rel="stylesheet" href="../Styles/style_event.css">';
 echo'<script src="../Skripte/events.js"></script>';
@@ -193,7 +192,3 @@ $stmt = mysqli_stmt_init($conn);
     
 
 </div>
-    
-<?php
-include_once "footer.php";
-?>
