@@ -1,20 +1,10 @@
-@font-face{
-    font-family: roboto_L;
-    src:url("../Roboto/Roboto-Light.ttf");
-}
-@font-face{
-    font-family: roboto_B;
-    src:url("../Roboto/Roboto-Bold.ttf");
-}
-body{
-    background-color: rgb(66, 66, 66);
-}
 .mitglieder-statistik{
     display: flex;
     flex-flow: row;
     align-items: flex-start;
     width: 500px;
-    padding: 5px;
+    margin-bottom: 35px;
+    margin-left: 10%;
 }
 .statistik{
     display: flex;
@@ -42,27 +32,23 @@ body{
     align-items: center;
     color: rgb(170, 170, 170);
     font-family: roboto_B;
- 
 }
 
 .mitglieder-containter{
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    justify-content: space-between;
-    /* background-color: rgb(255, 255, 255); */
     width: 80%;
     margin-left: 10%;
     overflow-wrap: normal;
-    /* height: 800px; */
 }
 .mitglied-box{
     margin-bottom: 25px;
     border-radius: 10px 0px 0px 10px;
     display: inline-flex;
-    width: 500px;
+    width: 480px;
     height: 200px;
-    /* background-color: red; */
+    margin-right: 15px;
 }
 .mitglied-bild{
     border-radius: 10px 10px 10px 10px;
@@ -71,20 +57,16 @@ body{
     background-size: cover;
     width: 200px;
     min-width: 200px;
-    
-    /* background-color: royalblue; */
 }
 .mitglied-text{
     display: flex;
     flex-flow: column;
-    /* background-color: salmon; */
-    width: 300px;
+    width: 280px;
     margin-right: 0px;
     margin-left: auto;
     padding-left: 10px;
 }
 .mitglied-info-box{
-    /* background-color: blue; */
     display: flex;
     flex-flow: row;
     width: 100%;
@@ -103,4 +85,24 @@ body{
     align-items: center;
     color: rgb(170, 170, 170);
     font-family: roboto_B;
+}
+
+/* Neue anordnung der Elemente */
+@media screen and (max-width:1890px){
+    .mitglieder-containter{
+    width: 1000px;
+    }
+}
+@media screen and (max-width:1100px){
+    .mitglieder-containter{
+    width: 500px;
+    }
+}
+@media screen and (max-width:580px){
+    .mitglieder-containter{
+    margin-left: 5px;
+    }
+    .mitglieder-statistik{
+        margin-left: 5px;
+    }
 }

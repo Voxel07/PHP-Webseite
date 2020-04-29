@@ -8,10 +8,10 @@ if (isset($_GET["suchbegriff"])) {
 
     switch($kategorie){
         case "Nick":
-            $sql ="SELECT Nick FROM user WHERE Nick=?";
+            $sql ="SELECT Nick FROM nutzer WHERE Nick=?";
         break;
         case "Email":
-            $sql ="SELECT Emailadresse FROM user WHERE Emailadresse=?";
+            $sql ="SELECT Emailadresse FROM nutzer WHERE Emailadresse=?";
         break;
     }
 

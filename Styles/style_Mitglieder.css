@@ -1,37 +1,117 @@
 
 /*Das Team*/
-.Das_Team{
+/* .Das_Team{
     display: flex;
     flex-flow: column;
     margin-left: 10%;
     width: 80%;
-}
-.mitglieder li {
-    display:inline-block;
+} */
+.mitglieder-statistik{
+    display: flex;
+    flex-flow: row;
+    align-items: flex-start;
     width: 500px;
+    margin-bottom: 35px;
+    margin-left: 10%;
+}
+.statistik{
+    display: flex;
+    flex-flow: row;
+    width: 120px;
+    height: 30px;
+    margin-left: 10px;
+}
+.anzahl{
+    width: 150px;
+}
+.alter{
+    width: 150px;
+}
+.statistik-svg{
+    border-radius: 5px 0 0px 5px;
+    fill:rgb(170, 170, 170);
+    width: 40px;
+}
+.statistik-info{
+    border-radius: 0px 5px 5px 0px;
+    width: 100%;
+    display: flex;
+    padding-left: 10px;
+    align-items: center;
+    color: rgb(170, 170, 170);
+    font-family: roboto_B;
+}
+
+.mitglieder-containter{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 80%;
+    margin-left: 10%;
+    overflow-wrap: normal;
+}
+.mitglied-box{
+    margin-bottom: 25px;
+    border-radius: 10px 0px 0px 10px;
+    display: inline-flex;
+    width: 480px;
     height: 200px;
-    background: red;
-    margin:20px 2px; 
-    position: relative; 
+    margin-right: 15px;
+}
+.mitglied-bild{
+    border-radius: 10px 10px 10px 10px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 200px;
+    min-width: 200px;
+}
+.mitglied-text{
+    display: flex;
+    flex-flow: column;
+    width: 280px;
+    margin-right: 0px;
+    margin-left: auto;
+    padding-left: 10px;
+}
+.mitglied-info-box{
+    display: flex;
+    flex-flow: row;
+    width: 100%;
+    margin-bottom: 10px;
+    border-bottom: 1px solid chocolate ;
+}
+.mitglied-svg{
+    fill: rgb(170, 170, 170);
+    width: 30px;
+}
+.mitglied-info{
+    border-radius: 0px 5px 5px 0px;
+    width: 100%;
+    display: flex;
+    padding-left: 10px;
+    align-items: center;
+    color: rgb(170, 170, 170);
+    font-family: roboto_B;
 }
 
-.mitglieder li img{
-    position: absolute;
+/* Neue anordnung der Elemente */
+@media screen and (max-width:1890px){
+    .mitglieder-containter{
+    width: 1000px;
+    }
 }
-
-/*Beschreibung*/
-.mitglieder li p {
-    color: black;
-    position: relative;
-    left:205px;
-    width: 290px;
-    height: 50px;
-    top:20px;
+@media screen and (max-width:1100px){
+    .mitglieder-containter{
+    width: 500px;
+    }
 }
-
-/*Abstand zwischen Überschrift und Inhalt*/
-p.mitglieder{
-    padding: 1%;
-   
+@media screen and (max-width:580px){
+    .mitglieder-containter{
+    margin-left: 5px;
+    }
+    .mitglieder-statistik{
+        margin-left: 5px;
+    }
 }
 
