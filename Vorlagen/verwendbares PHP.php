@@ -181,3 +181,17 @@
 
 
 //header("Location: ../".$ziel); 
+
+
+
+$datum = Date("d-m-Y");
+
+echo $datum;
+
+$ts = strtotime($datum);
+
+echo '</br>'.$ts;
+
+$back = date("d-m-Y",$ts);
+
+echo '</br>'.$back;

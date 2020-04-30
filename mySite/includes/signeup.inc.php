@@ -16,7 +16,7 @@ if(isset($_POST['signeup-submit'])){
 
     //Aktuelles Datum abfragen für Regestriert am...
     $Datum = time();
-
+    $gebTimestap = strtotime($geb);
 
     //Überprüfung der eingaben
     //Ob alles ausgefüllt ist
@@ -44,8 +44,8 @@ if(isset($_POST['signeup-submit'])){
         header("Location: ../join_us.php?error=ungültige_Zeichen_Nick&vName=".$vName."&nName=".$nName."&email=".$email."&geb=".$geb);
         exit();
     }
-    //Ob Geburtsdatum sinvoll ist
-    //   else if(!geb<10){
+    // Ob Geburtsdatum sinvoll ist
+    // else if(!$gebTimestap>10){
     //     header("Location: ../join_us.php?error=ungültiges_Geburtsdatdum&vName=".$vName."&nName=".$nName."&mail=".$emmail."&=nick".$nick);
     //     exit();
     // }
@@ -96,7 +96,7 @@ if(isset($_POST['signeup-submit'])){
                     $hasedPwd = password_hash($passwort, PASSWORD_DEFAULT);
                     // mysqli_stmt_bind_param($stmt,"sssis",$email,$hasedPwd,$nick,$ProfielbildGesetzt, $Datum);
                     
-                    mysqli_stmt_bind_param($stmt,"sssssiss",$vName,$nName,$nick,$email,$hasedPwd,$ProfielbildGesetzt,$Datum,$geb);
+                    mysqli_stmt_bind_param($stmt,"sssssiss",$vName,$nName,$nick,$email,$hasedPwd,$ProfielbildGesetzt,$Datum,$gebTimestap);
                     mysqli_stmt_execute($stmt);   
                     //Schauen ob schon eine Session läuft (Wegen Pop up ding)
                     if(!(session_status()===PHP_SESSION_ACTIVE)){

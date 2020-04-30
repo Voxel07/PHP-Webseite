@@ -1,11 +1,18 @@
 
 /*Das Team*/
-/* .Das_Team{
+.Das_Team{
     display: flex;
     flex-flow: column;
     margin-left: 10%;
     width: 80%;
-} */
+    margin-bottom: 50px;
+}
+.Das_Team h2{
+    margin-bottom: 5px;
+}
+.Das_Team p{
+    margin-bottom: 20px;
+}
 .mitglieder-statistik{
     display: flex;
     flex-flow: row;
@@ -31,6 +38,8 @@
     border-radius: 5px 0 0px 5px;
     fill:rgb(170, 170, 170);
     width: 40px;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 .statistik-info{
     border-radius: 0px 5px 5px 0px;
@@ -84,6 +93,7 @@
 .mitglied-svg{
     fill: rgb(170, 170, 170);
     width: 30px;
+    background-repeat: no-repeat;
 }
 .mitglied-info{
     border-radius: 0px 5px 5px 0px;

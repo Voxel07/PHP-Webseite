@@ -50,11 +50,11 @@ if(isset($_POST['upload-ProfilBild'])||isset($_POST['signeup-submit'])){
                 // header("Location: ../join_us.php?upload=success");
 
                 // Statusupdate zum Bild änderne
-                $sql = " UPDATE user SET status = 1 WHERE Nick = ?;";
+                $sql = " UPDATE nutzer SET Profielbild = 1 WHERE Nick = ?;";
                 $stmt = mysqli_stmt_init($conn);
 
                     if(!mysqli_stmt_prepare($stmt,$sql)){
-                        header("Location: ../index.php?error=sql_error");
+                        header("Location: ../index.php?error=sql_error".mysqli_connect_error($conn));
                         exit();
                     }
                     //Wenn es klappt:

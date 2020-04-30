@@ -11,15 +11,36 @@ echo'<link rel="stylesheet" href="../Styles/style_Mitglieder.css">';
                 Ein neuer Name, ein neues Logo und eine Fusion mit unseren langjährigen Freunden und Partnerteam Legion Esslingen 1 später, waren die Wild Rovers geboren. </p>          
 
         <h2> Aktuelles: </h2> 
-            <p class="mitglieder">Aktuell haben wir 30 Mitglieder und 3 Frischlinge ( Anwärter ). Wir kommen aus den unterschiedlichsten Ecken aus Deutschland. Der Hauptteil des Teams ist aber im Großraum Esslingen / Stuttgart zu finden. In den letzten Jahren haben wir viele neue junge Mitglieder dazugewonnen, dennoch ist von 18 bis 34 Jahren alles dabei.               
-                Solltet ihr ein Team suchen oder ihr wollt uns näher kennen lernen, findet ihr alle weiteren Infos findet ihr unter dem Reiter Infos/Regeln.</p>       
+            <p class="mitglieder">Wir kommen aus den unterschiedlichsten Ecken aus Deutschland. Der Hauptteil des Teams ist aber im Großraum Esslingen / Stuttgart zu finden. In den letzten Jahren haben wir viele neue junge Mitglieder dazugewonnen.              
+                Solltet ihr ein Team suchen oder ihr wollt uns näher kennen lernen, findet ihr alle weiteren Infos findet ihr unter dem Reiter <a href="Infos&Regeln.php">Infos/Regeln</a>.</p>       
     </div>
     <div><h2>Mitglieder: </h2></div>
 </div>
     <?php
 
-    $sql = "SELECT Nick, Profielbild, Rang, Geburtstag, Reg_Datum FROM nutzer";
+    $sql = "SELECT Nick, Profielbild, Rang, Geburtstag, Reg_Datum FROM nutzer ORDER BY Reg_Datum";
     $ergebnis = mysqli_query($conn,$sql);
+
+    $alter = array();
+    $zähler = 0;
+
+    //Jüngstes und ältestes Mitglied finden
+    while($row=mysqli_fetch_array($ergebnis)) {
+        $alter[$zähler] = $row['Geburtstag'];
+        $zähler++;
+    }
+    $ältester =  floor((date("Ymd") - date("Ymd", min($alter))) / 10000);
+    $jüngster =  floor((date("Ymd") - date("Ymd", max($alter))) / 10000);
+    echo '<br />';
+    
+    mysqli_data_seek($ergebnis, --$zähler);
+    
+    $row=mysqli_fetch_array($ergebnis);
+    $neustesMitglied = $row['Nick']; 
+
+    //Pointer zurücksetzen um Daten erneut abfragen zu können
+    mysqli_data_seek($ergebnis, 0);
+
     if(mysqli_num_rows($ergebnis)>0){
         echo'
         <div class="mitglieder-statistik">
@@ -33,13 +54,11 @@ echo'<link rel="stylesheet" href="../Styles/style_Mitglieder.css">';
                 <div class="statistik-svg"><svg class="svg-icon" viewBox="0 0 20 20">
                     <path d="M16.557,4.467h-1.64v-0.82c0-0.225-0.183-0.41-0.409-0.41c-0.226,0-0.41,0.185-0.41,0.41v0.82H5.901v-0.82c0-0.225-0.185-0.41-0.41-0.41c-0.226,0-0.41,0.185-0.41,0.41v0.82H3.442c-0.904,0-1.64,0.735-1.64,1.639v9.017c0,0.904,0.736,1.64,1.64,1.64h13.114c0.904,0,1.64-0.735,1.64-1.64V6.106C18.196,5.203,17.461,4.467,16.557,4.467 M17.377,15.123c0,0.453-0.366,0.819-0.82,0.819H3.442c-0.453,0-0.82-0.366-0.82-0.819V8.976h14.754V15.123z M17.377,8.156H2.623V6.106c0-0.453,0.367-0.82,0.82-0.82h1.639v1.23c0,0.225,0.184,0.41,0.41,0.41c0.225,0,0.41-0.185,0.41-0.41v-1.23h8.196v1.23c0,0.225,0.185,0.41,0.41,0.41c0.227,0,0.409-0.185,0.409-0.41v-1.23h1.64c0.454,0,0.82,0.367,0.82,0.82V8.156z"></path>
                 </svg></div>
-                <div class="statistik-info">18-32 Jahre</div>
+                <div class="statistik-info">'.$jüngster.'-'.$ältester.' Jahre</div>
             </div>
             <div class="statistik neu">
-                <div class="statistik-svg"><svg class="svg-icon" viewBox="0 0 20 20">
-                    <path d="M12.075,10.812c1.358-0.853,2.242-2.507,2.242-4.037c0-2.181-1.795-4.618-4.198-4.618S5.921,4.594,5.921,6.775c0,1.53,0.884,3.185,2.242,4.037c-3.222,0.865-5.6,3.807-5.6,7.298c0,0.23,0.189,0.42,0.42,0.42h14.273c0.23,0,0.42-0.189,0.42-0.42C17.676,14.619,15.297,11.677,12.075,10.812 M6.761,6.775c0-2.162,1.773-3.778,3.358-3.778s3.359,1.616,3.359,3.778c0,2.162-1.774,3.778-3.359,3.778S6.761,8.937,6.761,6.775 M3.415,17.69c0.218-3.51,3.142-6.297,6.704-6.297c3.562,0,6.486,2.787,6.705,6.297H3.415z"></path>
-                </svg></div>
-                <div class="statistik-info">Speckhut</div>
+                <div class="statistik-svg" style="background-image: url(../Bilder/SVG/new.svg);"></div>
+                <div class="statistik-info">'. $neustesMitglied.'</div>
             </div>
         </div>';
 
@@ -83,10 +102,10 @@ echo'<link rel="stylesheet" href="../Styles/style_Mitglieder.css">';
                 if($profielbildGesetzt == true){
                     // Hier muss noch auf verschiednen Bildformate geachtet werden
                     // Vielleicht mit einem Feld "Profielbild_Bezeichnung" in der DB in der der Name steht
-                    echo' <div class="mitglied-bild" style="background-image: url(../Bilder/Mitglieder/'.$nick.'.PNG);"></div>';
+                    echo' <div class="mitglied-bild" style="background-image: url(../Uploads/Bilder_Profil/'.$nick.'.PNG);"></div>';
                 }
                 else{
-                    echo' <div class="mitglied-bild" style="background-image: url(../Bilder/Mitglieder/Logo.png);"></div>';
+                    echo' <div class="mitglied-bild" style="background-image: url(../Uploads/Bilder_Profil/Default.png);"></div>';
                 }
                  echo'
                 <div class="mitglied-text">
@@ -136,24 +155,7 @@ echo'<link rel="stylesheet" href="../Styles/style_Mitglieder.css">';
     }
 
 
-    ?>
-
-    <?php
-$meingb = 797205600;
-    
-   $alter = floor((date("Ymd") - date("Ymd", $meingb)) / 10000);
-    
-
-
-    echo $alter;
-
-  
-  
-    ?>
-
-    
-
-
+    ?> 
 
 <?php
 include_once "footer.php"
