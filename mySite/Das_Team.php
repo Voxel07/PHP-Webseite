@@ -63,7 +63,8 @@ echo'<link rel="stylesheet" href="../Styles/style_Mitglieder.css">';
         </div>';
 
     echo'<div class="mitglieder-containter">';
-        while($row = mysqli_fetch_assoc($ergebnis)){
+        while($row = mysqli_fetch_assoc($ergebnis))
+        {
         
             $rang = $row['Rang'];
             $nick = $row['Nick'];

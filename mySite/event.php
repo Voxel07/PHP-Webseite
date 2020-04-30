@@ -133,6 +133,8 @@ $stmt = mysqli_stmt_init($conn);
         }
         echo'</div>'; //Eventliste zu
     }
+    mysqli_stmt_close($stmt);
+    mysqli_close($conn);
 ?>
      </div><!--Event Liste zu -->
     <div id="eventSchalter" class="events-neu">

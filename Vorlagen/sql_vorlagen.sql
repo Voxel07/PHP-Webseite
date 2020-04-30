@@ -47,6 +47,7 @@ CREATE TABLE Nutzer(
     Emailadresse VARCHAR(40) NOT NULL,
     Passwort TEXT NOT NULL,
     Verifiziert tinyint(1) NOT NULL DEFAULT '0',
+    verID TEXT NOT NULL,
     Profielbild tinyint(1) NOT NULL,
     Rang VARCHAR(20) NOT NULL,
     Geburtstag DATE NOT NULL, 

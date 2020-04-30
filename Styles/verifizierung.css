@@ -1,0 +1,15 @@
+.bestätigungs-box{
+    width: 80%;
+    margin-left: 10%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.erfolgreich-registriert{
+    color: green;
+}
+.erfolgreich-verifiziert{
+    color: green;
+
+}

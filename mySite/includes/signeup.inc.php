@@ -18,6 +18,9 @@ if(isset($_POST['signeup-submit'])){
     $Datum = time();
     $gebTimestap = strtotime($geb);
 
+     //Einzigartige Nummer erstellen
+     $nummer = (bin2hex(random_bytes(30)));
+
     //Überprüfung der eingaben
     //Ob alles ausgefüllt ist
     if (empty($nick)||empty($email)||empty($passwort)||empty($passwort_wdh)||empty($vName)||empty($nName)||empty($geb)){
@@ -82,7 +85,7 @@ if(isset($_POST['signeup-submit'])){
                     require_once 'Upload_Bilder.inc.php';
                     $ProfielbildGesetzt = 1;
                 }
-                $sql = "INSERT INTO nutzer (Vorname, Nachname, Nick, Emailadresse, Passwort, Profielbild, Reg_Datum, Geburtstag) VALUES (?,?,?,?,?,?,?,?)";
+                $sql = "INSERT INTO nutzer (Vorname, Nachname, Nick, Emailadresse, Passwort, Profielbild, Reg_Datum, Geburtstag, verID) VALUES (?,?,?,?,?,?,?,?,?)";
 
                 $stmt = mysqli_stmt_init($conn);
                 //Prüfen ob der Befehl und das Statement zusammen funktionieren
@@ -93,10 +96,8 @@ if(isset($_POST['signeup-submit'])){
                 }
                 //Wenn doch, PW Haschen und in DB eintragen
                 else{
-                    $hasedPwd = password_hash($passwort, PASSWORD_DEFAULT);
-                    // mysqli_stmt_bind_param($stmt,"sssis",$email,$hasedPwd,$nick,$ProfielbildGesetzt, $Datum);
-                    
-                    mysqli_stmt_bind_param($stmt,"sssssiss",$vName,$nName,$nick,$email,$hasedPwd,$ProfielbildGesetzt,$Datum,$gebTimestap);
+                    $hasedPwd = password_hash($passwort, PASSWORD_DEFAULT);                    
+                    mysqli_stmt_bind_param($stmt,"sssssisss",$vName,$nName,$nick,$email,$hasedPwd,$ProfielbildGesetzt,$Datum,$gebTimestap,$nummer);
                     mysqli_stmt_execute($stmt);   
                     //Schauen ob schon eine Session läuft (Wegen Pop up ding)
                     if(!(session_status()===PHP_SESSION_ACTIVE)){
@@ -107,7 +108,19 @@ if(isset($_POST['signeup-submit'])){
                     }
                     $_SESSION['User'] = $nick;
                     $_SESSION['rang'] = 0;
-                    
+
+                    //Verifizierungs Mail erstellen
+                   
+                    //Email Vorbereiten
+                    $empfaenger =  $email;
+                    $betreff = 'WRW-Regestriertung am:'.date("d.m.Y H:i").'';
+                    $header = 'From: webmaster@example.com' . "\r\n" . 'Reply-To: webmaster@example.com' . "\r\n" . 'X-Mailer: PHP/' . phpversion();
+                    //Email inhalt
+                    $nachricht = "Hallo".$nick."\n\n"."Willkommen bei den Wild Rovers."."\n\n"." Bitte bestätige deine Email durch klicken auf diesen ".'<a target="blank" href="http://   xxxxx   /mySite/verifizierung.php?verify=success&id='.$nummer.'&nutzer='.$nick.'">Link</a>' ;
+
+                    //Email versenden
+                    // mail($empfaenger, $betreff, $nachricht, $header);
+
                     //Logdatei eintrag
                     $filename = 'Regestriertungen.txt';
                     $date = date("d.m.Y - H:i", time());
@@ -135,22 +148,12 @@ if(isset($_POST['signeup-submit'])){
                     } else {
                         print "Die Datei $filename ist nicht schreibbar";
                     }
-
-                    // $empfänger = $email;
-                    // $betreff = "WRW-Regestriertung am:". date("d.m.Y H:i");
-                    // $absender = "From: Wildrovers2016@googlemil.com";
-                    // $text = "Hallo".$nick."\n\n"."Willkommen bei den Wild Rovers."."\n\n"." Bitte bestätige deine Email durch klicken auf diesen Link" ;
-                    // mail($empfänger,$babsender,$text);
-                    header("Location: ../join_us.php?signeup=success");
+                    header("Location: ../verifizierung.php?signeup=success&email=$email");
                     exit();                
                 }
             }
         }
     }
-
-
-
-    
     //DB verbindung trennen
     mysqli_stmt_close($stmt);
     mysqli_close($conn);
