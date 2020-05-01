@@ -1,4 +1,8 @@
 <?php
+// Für den Server
+// $user ="Camo";
+// $pw = "59ca2ca526302e38e53ee38a3a1f36d8";
+// $dbName ="Wild_Rovers";
 
 $servername = "localhost";
 $user ="root";
