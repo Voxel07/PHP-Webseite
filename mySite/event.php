@@ -109,7 +109,7 @@ $stmt = mysqli_stmt_init($conn);
                 $td = makeDifferenz(time(), strtotime($aktEvent['datum'])); 
                 echo'
                 <div class="event">
-                    <div class="event-name"><a href="'.$aktEvent['link'].'">'.str_replace("-"," ",$aktEvent['name']).'</a></div>
+                    <div class="event-name"><a target ="blank" href="'.$aktEvent['link'].'">'.str_replace("-"," ",$aktEvent['name']).'</a></div>
                     <div class="event-date">'.date("d:m:Y",strtotime($aktEvent['datum'])).'</div>
                     <div class="event-count">'.$td['day'][0] . ' ' . $td['day'][1] . ', ' . $td['std'][0] . ' ' . $td['std'][1] .'</div>';
                 //Edit und löschen nur für Mitglieder

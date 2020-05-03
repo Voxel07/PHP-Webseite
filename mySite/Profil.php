@@ -14,7 +14,7 @@ echo'</div>'; -->
   if(isset($_SESSION['User'])){
 
     // Aktiver Nutzer herausfinden und begrüßen
-    $usr= $_SESSION['User']; 
+    $usr = $_SESSION['User']; 
     echo'<div class="Profiel_box">';
     echo'<div class="Profiel_begrüsung">';
     echo "Hallo "."<strong>".$usr."</strong> Das ist dein Profil. Hier kannst du alle Informationen über dich einsehen und dein Profil bearbeiten.";
@@ -26,7 +26,7 @@ echo'</div>'; -->
         $stmt = mysqli_stmt_init($conn);
         // Wenns nicht klappt
         if(!mysqli_stmt_prepare($stmt,$sql)){
-            header("Location: ../index.php?error=sql_error");
+            header("Location: ../index.php?error=nutzerSuchen".mysqli_errno($conn));
             exit();
         }
         //Wenn es klappt:
@@ -64,7 +64,7 @@ echo'</div>'; -->
               <input type="submit" value="Upload" name="upload-ProfilBild"/>    
               </form> <br>';
               echo'
-              <form action = "includes/profilBildLöschen.inc.php" method="post">
+              <form action = "includes/deleteProfilePic.inc.php" method="post">
               <input type="submit" value="Profil Bild Löschen" name="upload-ProfilBild"/>    
               </form> <br>';    
             echo'</div>';

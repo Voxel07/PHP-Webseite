@@ -1,0 +1,119 @@
+.PresonalData-Box{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+.Data-Box{
+    display: flex;
+    flex-flow: column;
+    width: 1000px;
+    border: 2px solid greenyellow;
+    border-radius: 15px;
+    margin-bottom: 25px;
+    padding: 5px;
+}
+.Data-Überschrift{
+    margin-left: 15px;
+}
+.Data-Überschrift h2{
+    font-size: 30px;
+    letter-spacing: 1px;
+}
+.PresonalData{
+    display: flex;
+    flex-flow: column;
+}
+.Info-Box{
+    display: flex;
+    flex-flow: row;
+    border-bottom: 1px solid orange ;
+    margin-bottom: 10px;
+    margin-left: 15px;
+}
+.PersonalData-Name{
+    display: flex;
+    align-items: center;
+    width: 150px;
+    text-transform: uppercase;
+    font-size: 13px;   
+}
+.PersonalData-Info{
+    display: flex;
+    align-items: center;
+    font-size:20px;  
+    width: 300px;
+}
+.sichtbar{
+    color: red;
+}
+.Info-SVG{
+    margin-left: auto;
+    margin-right: 25px;
+    cursor: pointer;
+    width: 30px;
+    height: 25px;
+    background-color: transparent;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 80%;
+    background-image: url("../Bilder/SVG/edit.svg");
+    margin-bottom: 1px;
+}
+.update{
+    display: flex;
+    flex-flow: row;
+}
+.info-neu{
+    display: block;
+    margin-top: 10px;
+    flex-flow: row;
+    margin-left: 15px;
+}
+.info-input-text{
+    width: 160px;
+    display: flex;
+    flex-flow: column-reverse;
+    border-bottom: 1px solid #b3b3b3;
+    margin-right: 5px;
+}
+.info-input-text input{
+    font-family: roboto_B;
+    margin-left: 1px;
+    font-size: 16px;
+    height: 25px;
+    border: none;
+    background: none;
+    outline: none;
+    color: rgb(129, 129, 129);
+    padding: 0px;
+}
+.info-input-text label{
+    font-family: roboto_B;
+    color: rgb(161, 161, 161);
+    font-size: 12px;
+    padding: 0;
+}
+.info-input-text input:placeholder-shown + label {
+    opacity: 0;
+    font-size: 10px;
+    color: white;
+}
+.info-button-update{
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: 25px;
+
+}
+.info-button-update button{
+    
+    cursor: pointer;
+    width: 30px;
+    height: 25px;
+    border: none;
+    background-color: transparent;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 80%;
+    background-image: url("../Bilder/SVG/aktualisierung.svg");
+    outline: none;
+}

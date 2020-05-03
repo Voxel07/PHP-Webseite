@@ -19,16 +19,17 @@ else{
     // echo'Bild gelöscht';
 
     // Statusupdate zum Bild änderne 
-    $sql = " UPDATE user SET status = 0 WHERE Nick = ?;";
+    $status = 0;
+    $sql = " UPDATE nutzer SET Profielbild = ? WHERE Nick = ?;";
     $stmt = mysqli_stmt_init($conn);
 
         if(!mysqli_stmt_prepare($stmt,$sql)){
-            header("Location: ../index.php?error=sql_error");
+            header("Location: ../index.php?error=sql_error".mysqli_errno($conn));
             exit();
         }
         //Wenn es klappt:
         else{
-            mysqli_stmt_bind_param($stmt,"s",$usr);
+            mysqli_stmt_bind_param($stmt,"is",$status,$usr);
             mysqli_stmt_execute($stmt);
     
         
