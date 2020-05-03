@@ -23,7 +23,7 @@ if(isset($_POST['login-submit'])){
         //Eintrag Prüfen
         //Wenn es fehlschlägt:
         if(!mysqli_stmt_prepare($stmt,$sql)){
-            header("Location: ../$herkunft?error=sql_error_login");
+            header("Location: ../$herkunft?error=sql_error_login".mysqli_error($conn));
             exit();
         }
         //Wenn es klappt:

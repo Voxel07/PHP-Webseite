@@ -87,7 +87,7 @@ echo'<link rel="stylesheet" href="../Styles/style_index.css">';
         </div>
         <div class="Sponsor-Box Begadi">
             <!-- <div class="sponsor-name"><h2>Begadi</h2></div> -->
-            <div class="sponsor-logo" style="background-image: url(../Bilder/Begadi-Logo-1000.gif);"></div>
+            <div class="sponsor-logo" style="background-image: url(../Bilder/Begadi.gif);"></div>
             <div class="sponsor-text">
             <p>Jeder kennt Sie, jeder liebt Sie. Die Jungs von Begadi. Mitte 2006 wurde das Team in die Sponsoringreihen von Begadi aufgenommen. Seitdem sind wir Treue und vor allem sehr zufriedene Kunde. Egal was ihr braucht, eine neue Knifte oder endlich mal gescheite Ausrüstung für die Kalten und Nassen Zeiten des Jahres, bei Begadi werdet ihr fündig. Solltet die AEG mal wieder Zicken machen und ihr kommt einfach nicht darauf an was es liegen könnte oder ihr braucht ein Ersatzteil, welches ihr nirgends finden könnt. Dann seid ihr bei der Begadi Werkstatt genau richtig. Mit ihrer Jahren langen Erfahrung und Kontakten zu Händlern und Herstellern, können Sie Probleme schnelle beheben und ihr könnt glücklich zu eurem nächsten Spiel fahren. Nach über 10 Jahren Sponsoring sind wir nach wie vor sehr froh, dass Begadi uns immernoch mit ihrem tollen Support und Sortiment zur Seite steht.</p>
                 <p><strong><a href="">Die Hompage</a></strong></p>                                                                                                        

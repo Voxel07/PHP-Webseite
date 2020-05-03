@@ -50,7 +50,7 @@
 }
 .event-liste::-webkit-scrollbar-thumb:hover {
     background: #ececec; 
-  }
+}
 .event-header .event-name{
     color: rgb(170, 170, 170);
     font-family: roboto_L;

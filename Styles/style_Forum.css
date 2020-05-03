@@ -151,10 +151,11 @@
 }
 .Add-Thema-Butten{
 /* background-color: sienna; */
+    cursor: pointer;
     align-items: center;
     width: 30px;
     height: 30px;
-    background-image: url("../Bilder/SVG/plus.svg");
+    background-image: url("../Bilder/SVG/add.svg");
     background-repeat: no-repeat;
     background-size: 100%;
 }

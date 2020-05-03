@@ -63,7 +63,7 @@ if(isset($_POST['signeup-submit'])){
         $sql = "SELECT Nick,Emailadresse FROM nutzer WHERE Nick=? OR Emailadresse=?";
         $stmt = mysqli_stmt_init($conn);
         if(!mysqli_stmt_prepare($stmt, $sql)){
-            header("Location: ../join_us.php?error=sql_error_hier" .mysqli_connect_error($conn));
+            header("Location: ../join_us.php?error=sql_error_hier".mysqli_error($conn));
             exit();
         }
         //Parameter binden und schauen ob bereits vorhanden
@@ -91,7 +91,7 @@ if(isset($_POST['signeup-submit'])){
                 //Prüfen ob der Befehl und das Statement zusammen funktionieren
                 //Wenn nicht:
                 if(!mysqli_stmt_prepare($stmt, $sql)){
-                    header("Location: ../join_us.php?error=sql_error2".mysqli_connect_error($conn));
+                    header("Location: ../join_us.php?error=sql_error2".mysqli_error($conn));
                     exit();
                 }
                 //Wenn doch, PW Haschen und in DB eintragen

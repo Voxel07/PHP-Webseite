@@ -1,6 +1,8 @@
+
+
 .index_box{
     display: block;
-    width: 80%;
+    width: 1500px;
     /* background-color: whitesmoke; */
     margin-left: 10%;
     padding: 5px;
@@ -44,9 +46,9 @@ h1.news {
 
 /* News  */
 .index-news{
-    /* background-color: darkolivegreen; */
+    /* background-color: darkolivegreen;  */
     width: 100%;
-    margin-right: 10px;
+    margin-right: 150px;
 }
 .news-header{
     display: flex;
@@ -155,15 +157,16 @@ h1.news {
 
 }
 .Sponsor-Box{
-    padding: 5px;
-    width: 50%;
+    /* padding: 5px; */
+    width: 750px;
     height: auto;
   
 }
 .Softairstore{
     /* background-color: rgb(46, 26, 0); */
     border-radius: 10px;
-    margin-right: 5px;
+    margin-left: 0px;
+    margin-right: auto;
 }
 .sponsoren{
     margin-top: 75px; 
@@ -203,7 +206,8 @@ h1.news {
     
 }
 .Begadi{
-    margin-left: 5px;
+    margin-right: 0px;
+    margin-left: auto;
     /* background-color: rgb(100, 88, 88); */
 }
 .sponsor-text{

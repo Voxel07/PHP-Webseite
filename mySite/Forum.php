@@ -111,7 +111,7 @@ else
                         echo'<div id="addThema-'.$zahl.'" class="Add-Thema-Form"><form action = "includes/Forum_Thema.inc.php?herkunft=Forum.php" method="post">             
                                 <input tyxpe="text" name ="thema" placeholder="Name des Themas" autofocus maxlength="35"/>
                                 <input tyxpe="text" name ="beschreibung" placeholder="Beschreibe worum es geht" maxlength="50"/>
-                                <input type ="text" name ="Kategorie" placeholder="pfusch" value="'.$reiheKat["kategorie"].'" readonly></input>
+                                <input type ="hidden" name ="Kategorie" placeholder="pfusch" value="'.$reiheKat["kategorie"].'" readonly></input>
                                 <button type="submit" name="Forum-Thema"/>Neue Thema erstellen</button>    
                             </form></div>';
                 echo'</div>'; 

@@ -54,7 +54,7 @@ if(isset($_POST['upload-ProfilBild'])||isset($_POST['signeup-submit'])){
                 $stmt = mysqli_stmt_init($conn);
 
                     if(!mysqli_stmt_prepare($stmt,$sql)){
-                        header("Location: ../index.php?error=sql_error".mysqli_connect_error($conn));
+                        header("Location: ../index.php?error=sql_error".mysqli_error($conn));
                         exit();
                     }
                     //Wenn es klappt:

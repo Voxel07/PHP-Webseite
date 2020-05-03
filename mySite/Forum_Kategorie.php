@@ -132,14 +132,16 @@ if(isset( $_GET['kategorie'])){
                 </div><!--Thema Box zu -->';         
         } 
 
-        if(isset($_SESSION['User']) && isset($_SESSION['rang'])>0){
-            echo'<div class="">';
-                echo'<form action = "includes/Forum_Thema.inc.php?herkunft=Forum_Kategorie.php" method="post">             
+        if(isset($_SESSION['User']) && $_SESSION['rang']>0){
+            echo'<div class="Add-Thema">';
+            echo'<div class="Add-Thema-Butten" onclick="addThema(0)">
+                     </div>';
+                echo'<div id="addThema-0" class="Add-Thema-Form"><form action = "includes/Forum_Thema.inc.php?herkunft=Forum_Kategorie.php" method="post">             
                         <input tyxpe="text" name ="thema" placeholder="Name des Themas" autofocus maxlength="35"/>
                         <input tyxpe="text" name ="beschreibung" placeholder="Beschreibe worum es geht"  maxlength="50"/>
                         <input type ="hidden" name ="Kategorie" placeholder="pfusch" readonly value="'.$kategorien["kategorie"].'" ></input>
                         <button type="submit" name="Forum-Thema"/>Neue Thema erstellen</button>    
-                    </form>';
+                    </form></div>';
             echo'</div>'; 
             }
 

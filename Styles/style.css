@@ -6,6 +6,26 @@
     font-family: roboto_B;
     src:url("../Roboto/Roboto-Bold.ttf");
 }
+
+::-webkit-scrollbar{
+    width: 5px;
+    border-radius: 50%;
+}
+/* Führung der scrollbar */
+::-webkit-scrollbar-track{
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+}
+/* scrollbar an sich */
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+  background-color: rgb(255, 255, 255);
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #ececec; 
+}
+
+
 body {
     background:rgb(48, 48, 48);
     background-image: url("../Bilder/Logo.png");

@@ -55,7 +55,7 @@ if(isset($_POST['Forum-Kategorie'])){
         }
         //Wenn schon vorhanden, dann:
         if($i>0){
-            header("Location: ../".$herkunft.".php?error=Kategorie_existiert_bereits");
+            header("Location: ../".$herkunft."?error=Kategorie_existiert_bereits");
             exit();
         }
         else{
