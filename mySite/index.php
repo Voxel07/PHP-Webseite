@@ -77,7 +77,7 @@ echo'<link rel="stylesheet" href="../Styles/style_index.css">';
     <div class="index-sponsoren">
         <div class="Sponsor-Box Softairstore">
             <!-- <div class="sponsor-name"><h2>Softairstore</h2></div> -->
-            <div class="sponsor-logo" style="background-image: url(../Bilder/SAS-Logo-1000.gif);" href="#"></div>
+            <div class="sponsor-logo" style="background-image: url(../Bilder/SAS_offiziell_1800x720.png);" href="#"></div>
             <div class="sponsor-text">
             <p>Kennt ihr das, die treue alte Knifte die Jahrelang gute Dienste gleistet hat, möchte auf einmal nichtmehr. Jetzt müssen schnell Ersatzteile her. Sollte die Waffe dann auch noch von G&G sein, dann seid ihr beim Softairstore genau richtig. Das Sie der offizielle Ansprechpartner für G&G in Deutschland sind, haben die Jungs die möglichkeit an nahezu alle heranzukommen was man so brauchen kann. Das ist aber noch lange nicht alles, in ihrem sich ständig erweiternden Shop findet ihr alles was das Airsofter Herz höher schlagen lässt. Außerdem veranstalten die Jungs in der Zwischenzeit auch ihre eigenen Events und besuchen regelmäßig zusammen mit ihren Sponsorteams öffentliche Events</p>
                 <p><strong><a href="">Die Hompage</a></strong></p>                                                                                                        
