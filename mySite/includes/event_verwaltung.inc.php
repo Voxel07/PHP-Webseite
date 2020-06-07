@@ -43,7 +43,7 @@ if(isset($_POST['Neues_Event'])&&isset($_SESSION['User'])&&$_SESSION['rang']>0){
             }
             if (!fwrite($handle, $somecontent)) {
                 print "Kann in die Datei $filename nicht schreiben";
-                exit;
+                exit();
             }
             fclose($handle);
         
@@ -52,6 +52,8 @@ if(isset($_POST['Neues_Event'])&&isset($_SESSION['User'])&&$_SESSION['rang']>0){
         }
 
     }
+    mysqli_stmt_close($stmt);
+    mysqli_close($conn);
     header("Location: ../index.php?eingetragen=$eventName");
     exit();
 }
@@ -84,18 +86,19 @@ elseif (isset($_GET['löschen'])&&isset($_SESSION['User'])&&$_SESSION['rang']>0)
         if (is_writable("../../Logdaten/$filename")) {
             if (!$handle = fopen("../../Logdaten/$filename", "a")) {
                     print "Kann die Datei $filename nicht öffnen";
-                    exit;
+                    exit();
             }
             if (!fwrite($handle, $somecontent)) {
                 print "Kann in die Datei $filename nicht schreiben";
-                exit;
+                exit();
             }
             fclose($handle);
         
         } else {
             print "Die Datei $filename ist nicht schreibbar";
         }
-
+        mysqli_stmt_close($stmt);
+        mysqli_close($conn);
         header("Location: ../index.php?gelöscht=$evZumLöschen");
     }
 }
@@ -172,12 +175,18 @@ elseif (isset($_POST['update'])&&isset($_SESSION['User'])&&$_SESSION['rang']>0) 
         } else {
             print "Die Datei $filename ist nicht schreibbar";
         }
+        mysqli_stmt_close($stmt);
+        mysqli_close($conn);
         header("Location: ../index.php?update=$eventName ");
+        exit();
     }
 }
 
 else {
+    mysqli_stmt_close($stmt);
+    mysqli_close($conn);
     header("Location: ../index.php?was willst du hier");
+    exit();
 }
 
 ?>

@@ -6,6 +6,17 @@
     margin-left: 10%;
     width: 80%;
     margin-bottom: 50px;
+    
+}
+.Das_Team p{
+    font-family: roboto_L; 
+    color: rgb(170, 170, 170);
+}
+.Das_Team a{
+    color: rgb(170, 170, 170);
+    text-decoration: none;
+    font-family: roboto_B; 
+    color: rgb(170, 170, 170);
 }
 .Das_Team h2{
     margin-bottom: 5px;

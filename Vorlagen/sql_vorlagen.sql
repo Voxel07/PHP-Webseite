@@ -45,6 +45,7 @@ CREATE TABLE Nutzer(
     Nachname TEXT NOT NULL,
     Nick VARCHAR(15) NOT NULL,
     Emailadresse VARCHAR(40) NOT NULL,
+    Handynummer int(11) DEFAULT '0';
     Passwort TEXT NOT NULL,
     Verifiziert tinyint(1) NOT NULL DEFAULT '0',
     verID TEXT NOT NULL,
@@ -55,6 +56,8 @@ CREATE TABLE Nutzer(
     anz_Beiträge int(11) DEFAULT '0',
     anz_Antworten int(11) DEFAULT '0',
     anz_Bilder int(11) DEFAULT '0',
+    anz_Reviews int(11) DEFAULT '0';
+    anz_News int(11) DEFAULT '0';
 
     ungelesen_Beiträge LONGTEXT NOT NULL
 

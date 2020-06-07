@@ -42,6 +42,7 @@ if(isset($_POST['login-submit'])){
                 session_start();
                 $_SESSION['User'] = $row['Nick'];
                 $_SESSION['rang'] = $row['Rang'];
+                $_SESSION['id'] = $row['ID'];
 
                     $filename = 'Logins.txt';
                     $date = date("d.m.Y - H:i", time());

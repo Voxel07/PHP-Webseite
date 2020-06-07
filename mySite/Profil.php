@@ -3,185 +3,258 @@ include "Header.php";
 include_once "includes/dbh.inc.php";
 echo' <link rel="stylesheet" href="../Styles/style_Profil.css">';
 ?>
-
-<!-- echo'<div></div>'; -->
-<!-- echo'<div>';
-echo'</div>'; -->
-
-
-<?php 
-// Überprüfen ob jemand angemeldet ist
-  if(isset($_SESSION['User'])){
-
-    // Aktiver Nutzer herausfinden und begrüßen
-    $usr = $_SESSION['User']; 
-    echo'<div class="Profiel_box">';
-    echo'<div class="Profiel_begrüsung">';
-    echo "Hallo "."<strong>".$usr."</strong> Das ist dein Profil. Hier kannst du alle Informationen über dich einsehen und dein Profil bearbeiten.";
-    echo'</div>';
-      
+<?php
+ if(isset($_SESSION['User']))
+ {
+  $usr = $_SESSION['User']; 
+  echo'
+  <div class="PersonalData-Box">
+    <div class="Data-Box">
+      <div class="Data-Überschrift">
+          <h2>Hallo '.$usr.' das ist dein Profil.</h2>  
+      </div>';
         // Alle weiteren infos aus der Datenbak abgreifen
-        // Anfrage vorbereiten
-        $sql = "SELECT * FROM nutzer WHERE Nick = ?";
-        $stmt = mysqli_stmt_init($conn);
-        // Wenns nicht klappt
-        if(!mysqli_stmt_prepare($stmt,$sql)){
-            header("Location: ../index.php?error=nutzerSuchen".mysqli_errno($conn));
-            exit();
+      // Anfrage vorbereiten
+      $sql = "SELECT * FROM nutzer WHERE Nick = ?";
+      $stmt = mysqli_stmt_init($conn);
+      // Wenns nicht klappt
+      if(!mysqli_stmt_prepare($stmt,$sql)){
+          header("Location: ../index.php?error=nutzerSuchen".mysqli_errno($conn));
+          exit();
+      }
+      //Wenn es klappt:
+      else
+      {
+        mysqli_stmt_bind_param($stmt,"s",$usr);
+        mysqli_stmt_execute($stmt);
+        $ergebnis = mysqli_stmt_get_result($stmt);
+        $row= mysqli_fetch_assoc($ergebnis);
+        echo'
+        <div class="header">
+            <div class="header-Bild">
+                <div>';
+        if($row['Profielbild']==0){
+          echo'
+          <img class="header-Bild-Bild" src="/Uploads/Bilder_Profil/Default.png" alt="--Benutzer--Profilbild" border-radius="5px" > 
+          </div>';
         }
-        //Wenn es klappt:
-        else{
-          mysqli_stmt_bind_param($stmt,"s",$usr);
-          mysqli_stmt_execute($stmt);
-          $ergebnis = mysqli_stmt_get_result($stmt);
-          $row= mysqli_fetch_assoc($ergebnis);
-         
-          //Abfrage ob ein Profielbild gesetzt wurde.
-          echo'<div class="Profiel_Profielbild">';
-            echo'<div class="Profiel_Profielbild_Bild">';
-
-              if($row['Profielbild']==0){
-                  echo '<img src="/Uploads/Bilder_Profil/Default.png" alt="">';
-              }
-              else{
+        else 
+        {
+          $dateiname = "../Uploads/Bilder_Profil/".$usr."*";
+          $dateiInfo = glob($dateiname);
+          $dateiEndung= explode(".",$dateiInfo[0]);
+          $echteDateiEndung = $dateiEndung[3];
+          
+          echo '<img class="header-Bild-Bild" src="/Uploads/Bilder_Profil/'.$usr.'.'.$echteDateiEndung.'?'.mt_rand().'alt="--Benutzer--Profilbild" border-radius="5px">
+          </div>';
+        }
+        if(isset($_GET['upload'])){
+          if($_GET['upload'] =="success"){
+              echo'
+              <div class="upload">
+                <p>Bild erfolgreich hochgeladen</p> 
+              </div>';
+          }
+        }
+        echo' 
+          <div class="Profil_Bild_ändern">
+             <p> Profilbild ändern </p>
               
-                $dateiname = "../Uploads/Bilder_Profil/".$usr."*";
-                $dateiInfo = glob($dateiname);
-                $dateiEndung= explode(".",$dateiInfo[0]);
-                $echteDateiEndung = $dateiEndung[3];
-                
-                echo "<img src='/Uploads/Bilder_Profil/".$usr.".".$echteDateiEndung."?".mt_rand()."'>";
-              }
-              if(isset($_GET['upload'])){
-                if($_GET['upload'] =="success"){
-                    echo' <p>Bild erfolgreich hochgeladen</p> ';
-                }
-              }
-              echo'<div class="Profiel_Bild_ändern">';
-              echo'
               <form action = "includes/Upload_Bilder.inc.php" method="post" enctype="multipart/form-data">
-              <input type="file" name="DateiZumHochladen">
-              <input type="submit" value="Upload" name="upload-ProfilBild"/>    
-              </form> <br>';
-              echo'
+                <input type="file" name="DateiZumHochladen" required>
+                <input type="submit" value="Upload" name="upload-ProfilBild"/>    
+              </form> <br>
+              
               <form action = "includes/deleteProfilePic.inc.php" method="post">
-              <input type="submit" value="Profil Bild Löschen" name="upload-ProfilBild"/>    
-              </form> <br>';    
-            echo'</div>';
-            echo'</div>'; //Rahmen für Profielbild
-            }
-         
-            // Alle infos über den nutzer
-            echo'<div class="Prfiel_User_Info">';
-              echo"Emailadresse: "."<strong>".$row['Emailadresse']."</strong> <br>";
-              echo"ID: "."<strong>".$row['ID']."</strong> <br>";
-              echo"Vorname "."<strong>".$row['Vorname']."</strong> <br>";
-              echo"Nachname: "."<strong>".$row['Nachname']."</strong> <br>";
-              echo"Nick: "."<strong>".$row['Nick']."</strong> <br>";
-              echo"Regestriert am: "."<strong>".date("d.m.Y - H:i", $row['Reg_Datum'])."</strong> <br>";
-              echo"Geburtstag am: "."<strong>".date("d.m.Y", $row['Geburtstag'])."</strong> <br>";
-              echo"Kontoverivizierung: <strong>";
-              if($row['Verifiziert']==0){
-                echo'Bestätigung ausstehend';
-              }
-              else{
-                echo'Echtheit bestätigt';
-              }
-            echo "</strong>";
-            echo'</div>'; //Nutzerinfo zu
-            
-            echo'<div class= "Profiel_Zusatz">';
-             echo'Hier stehen dein Rang: ';
-             switch($row['Rang']){
-              case 0: echo'nix';
-                break;
-              case 1: echo'Mitglied';
-               break;
-              case 2: echo'Sponsor';
-                break;
-              case 3: echo'Vorstand';
-                break;
-              case 4: echo'Admin';
-                break;
-
-             }
-
-            //  echo'<p>Deine Rolle ( Rechte )</p>';
-            echo'</div>';
-
-      
-          echo'</div>';  // Profielheader zu   
+                <input type="submit" value="Profil Bild Löschen" name="upload-ProfilBild"/>    
+              </form> <br>   
+            </div>
+          </div>
+          <div class="header-Info">
+              <p>Hier sind alle Daten über dich erfasst wurden aufgelistet. </p>
+              <p>Einige Infos sind für alle Besucher der Seite sichtbar. Diese sind mit einem ! gekennzeichnet. </p>
+              <p>Alle von dir Veränderbaren Daten sind mit einem Zahnrad gekennzeichnet.</p>
+              <p>Es sind manche Felder noch nicht befüllt. Diese Daten werden bei der Regestirerung nicht erfasst und sind für die Benutzung der Seite nicht unbeding notwendig.
+                  Diese Daten können aber benutz werden um ein besseres miteinander im Team zu ermöglichen. Diese Daten werden nicht an dritte weiter gegeben und können auch nicht von anderen Teammitgliedern eingesehen werden. Lediglich der Administrator der Seite kann diese Infos einsehen.
+              </p>
+              </div>
+          </div>
+        </div>
       
 
+        <div class="Data-Box">
+            <div class="Data-Überschrift">
+                <h2>Profil</h2>
+                <p>Hier sind alle Personenbezogenen Daten die über dich gespeichert werden aufgelistet. Alle mit einem ! versehenen Felder beinhalten Daten, welche allen Besucher der Rovers Webseite frei einsehbar sind.</p>
+            </div>
+            <div class="PersonalData">
+            <div class="Info-Box">
+                    <div class="PersonalData-Name">Kontoverivizierung</div>   <div class="PersonalData-Info">';
+                    if($row['Verifiziert']==0){echo'Bestätigung ausstehend';}else{echo'Echtheit bestätigt';}echo'</div> <div class="Info-SVG"></div>   
+                </div>
+                <div class="Info-Box">
+                    <div class="PersonalData-Name">ID</div>   <div class="PersonalData-Info">'.$row['ID'].'</div> 
+                </div>
+                <div class="Info-Box">
+                    <div class="PersonalData-Name">Vorname</div>   <div class="PersonalData-Info">'.$row['Vorname'].'</div> <div class="Info-SVG"></div>
+                </div>
+                <div class="Info-Box">
+                    <div class="PersonalData-Name">Nachname</div>   <div class="PersonalData-Info">'.$row['Nachname'].'</div>  <div class="Info-SVG"></div>
+                </div>
+                <div class="Info-Box">
+                    <div class="PersonalData-Name">Geburtstag</div>   <div class="PersonalData-Info">'.date("d.m.Y", $row['Geburtstag']).'</div>   <div class="Info-SVG"></div>
+                </div>
+                <div class="Info-Box">
+                    <div class="PersonalData-Name">Alter</div>   <div class="PersonalData-Info">'.floor((date("Ymd") - date("Ymd", $row['Geburtstag'])) / 10000).'</div>    <div class="sichtbar">!</div>  
+                </div>
+                <div class="Info-Box">
+                    <div class="PersonalData-Name">Passwort</div>   <div class="PersonalData-Info">*********</div>  <div class="Info-SVG"></div>
+                </div>
+                <div id="infoSchalter-Profil" class="info-neu">
+                    <form action = "includes/update_nutzerInfo.inc.php?herkunft=Profil.php" method="post">
+                        <div class="update">
+                            <div class="info-input-text">
+                                <input type="text" name="elmZumUpdaten" value="Vorname" readonly />
+                                <label >Für update gewählt</label>
+                            </div>
+                            <div class="info-input-text">
+                                <input type="text" name="neueInfo" value="Wert" />
+                                <label >Neue Eingabe</label>
+                            </div>
+                            <div class="info-button-update">
+                                <button type="submit" name="update" ></button> 
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
 
-        echo'<div class="Profiel_Sonstiges">';
-          echo'<h2>Hier eine Übersicht deiner Aktivitäten auf der Webseite</h2>';
+        <div class="Data-Box">
+            <div class="Data-Überschrift">
+                <h2>Kontaktdaten</h2>
+                <p>Hier sind sind alle Kontacktdaten die über dich gespeichert werden aufgelistet. Alle mit einem ! versehenen Felder beinhalten Daten, welche allen Besucher der Rovers Webseite frei einsehbar sind.</p>
+            </div>
+            <div class="PersonalData">
+                <div class="Info-Box">
+                    <div class="PersonalData-Name">E-mail Privat</div>   <div class="PersonalData-Info">'.$row['Emailadresse'].'</div>  <div class="Info-SVG"></div>
+                </div>
+                <div class="Info-Box">
+                    <div class="PersonalData-Name">E-mail Team</div>   <div class="PersonalData-Info">camo@wildrovers.de</div>  <div class="sichtbar">!</div>  
+                </div>
+                <div class="Info-Box">
+                    <div class="PersonalData-Name">Telefon</div>   <div class="PersonalData-Info">'.$row['Handynummer'].'</div> <div class="Info-SVG"></div>
+                </div>
+                <div id="infoSchalter-Kontaktdaten" class="info-neu">
+                    <form action = "includes/event_verwaltung.inc.php?herkunft=Profil.php" method="post">
+                        <div class="update">
+                            <div class="info-input-text">
+                                <input type="text" name="elmZumUpdaten" value="Vorname" readonly />
+                                <label >Für update gewählt</label>
+                            </div>
+                            <div class="info-input-text">
+                                <input type="text" name="neueInfo" value="Wert" />
+                                <label >Neue Eingabe</label>
+                            </div>
+                            <div class="info-button-update">
+                                <button type="submit" name="update" ></button> 
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
 
-          echo'<div class="Profiel_Sonstiges_Forum">';
-          echo'<h3>Forum</h3>';
-          echo'<p>Du hast bissher:'.$row["anz_Beiträge"].' Beiträge gepostet</p>';
-          echo'<p>Du hast bissher:'.$row["anz_Antworten"].' Antworten gepostet</p>';
-          echo'</div>';
-          
-          echo'<div class="Profiel_Sonstiges_Galerie">';//Aktivitäten in der Gallerie
-          echo'<h3>Galerie</h3>';
-          
-          
-          echo'<p>Du hast aktuell '.$row["anz_Bilder"].' Bilder in die Gallerie geposted</p>';
-       
-          $sql = "SELECT * FROM gallerie WHERE Ersteller = '$usr' ORDER BY Reihenfolge DESC";//Sql befehl 
-          $stmt = mysqli_stmt_init($conn);
-          if(!mysqli_stmt_prepare($stmt,$sql)){
-             echo"<p style=color:red; >Keine Verbindung zu Gallerie DB möglich </p>";
-             exit();
-          }
-          else{
-              mysqli_stmt_execute($stmt);
-              $ergebniss =  mysqli_stmt_get_result($stmt);
-              // $anzBilder = mysqli_num_rows($ergebniss); //Anzahl der Bilder
-              // echo"<p>Du hast aktuell $anzBilder Bilder in die Gallerie geposted </p>";
-            
-              $row = mysqli_fetch_assoc($ergebniss);
-              if($row>0)
-              {
-              echo'<p>Das ist das Letzte Bild, welches du am '. $row["uploadDatum"].' in die Gallerie geposted hast </p>';
-                echo'
-                <a href ="#">
-                  <div style ="background-image: url(../Uploads/Bilder_Galerie/'.$row["Pfad"].')"></div>
-                  <h3>'.$row["Titel"].'</h3>
-                  <p>'.$row["Beschreibung"].'</p>
-                </a>';
-              }
-              else{
-                echo'<p>Los poste was</p>';
-              }
-          }
-          echo'</div>'; //Ender der Gallerie
-          
-          echo'<div class="Profiel_Sonstiges_Reviews">';
-          echo'<h3>Reviews</h3>';
+        <div class="Data-Box">
+            <div class="Data-Überschrift">
+                <h2>Team</h2>
+                <p>Hier sind sind alle Daten die über dich zum Thema Airsoft. Alle mit einem ! versehenen Felder beinhalten Daten, welche allen Besucher der Rovers Webseite frei einsehbar sind.</p>
+            </div>
+            <div class="PersonalData">
+                <div class="Info-Box">
+                    <div class="PersonalData-Name">Nick</div>   <div class="PersonalData-Info">'.$row['Nick'].'</div>   <div class="sichtbar">!</div>   <div class="Info-SVG"></div>
+                </div>
+                <div class="Info-Box">
+                    <div class="PersonalData-Name">Teamstatus</div>   <div class="PersonalData-Info">
+                    ';
+                    switch($row['Rang']){
+                      case 0: echo'nix';
+                        break;
+                      case 1: echo'Mitglied';
+                      break;
+                      case 2: echo'Sponsor';
+                        break;
+                      case 3: echo'Vorstand';
+                        break;
+                      case 4: echo'Admin';
+                        break;
+                    }
 
-          echo'</div>';
-        
-        echo'</div>';
-    echo'</div>'; //Profielbox zu
+                    echo'
+                    </div>     <div class="sichtbar">!</div>  
+                </div>
+                <div class="Info-Box">
+                    <div class="PersonalData-Name">Regestrierdatum</div>   <div class="PersonalData-Info">'.date("d.m.Y - H:i", $row['Reg_Datum']).'</div> 
+                </div>
+                <div id="infoSchalter-Team" class="info-neu">
+                    <form action = "includes/event_verwaltung.inc.php?herkunft=Profil.php" method="post">
+                        <div class="update">
+                            <div class="info-input-text">
+                                <input type="text" name="elmZumUpdaten" value="Vorname" readonly />
+                                <label >Für update gewählt</label>
+                            </div>
+                            <div class="info-input-text">
+                                <input type="text" name="neueInfo" value="Wert" />
+                                <label >Neue Eingabe</label>
+                            </div>
+                            <div class="info-button-update">
+                                <button type="submit" name="update" ></button> 
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
 
+        <div class="Data-Box">
+            <div class="Data-Überschrift">
+                <h2>Aktivitäten</h2>
+                <p>Hier steht was du so beiträgst</p>
+            </div>
+            <div class="PersonalData">
+                <div class="Info-Box">
+                    <div class="PersonalData-Name">Foren Beiträge</div>   <div class="PersonalData-Info">'.$row["anz_Beiträge"].'</div>   
+                </div>
+                <div class="Info-Box">
+                    <div class="PersonalData-Name">Foren Antworten</div>   <div class="PersonalData-Info">'.$row["anz_Antworten"].'</div>     
+                </div>
+                <div class="Info-Box">
+                    <div class="PersonalData-Name">Uploads in die Galerie</div>   <div class="PersonalData-Info">'.$row["anz_Bilder"].'</div> 
+                </div>
+                <div class="Info-Box">
+                    <div class="PersonalData-Name">Anzahl Reviews</div>   <div class="PersonalData-Info">'.$row["anz_Reviews"].'</div> 
+                </div> 
+                <div class="Info-Box">
+                    <div class="PersonalData-Name">Anzahl News</div>   <div class="PersonalData-Info">'.$row["anz_News"].'</div> 
+                </div>
+                
+            </div>
+          </div>
+      </div>';
     }
-    //Wird angezeigt, wenn der Nutzer nicht angemeldet ist.
-  else{
-    echo'<div class = "p_nichtangemeldet">
-      <p>Du bist nich Angemeldet. <br> Um dein Profil zu bearbeiten musst du dich Anmelden!</p>      ';
+ }
+ else
+ { 
+  echo'<div class = "p_nichtangemeldet">
+        <p>Du bist nich Angemeldet. <br> Um dein Profil zu bearbeiten musst du dich Anmelden!</p>   
+      ';
       echo'<form action="includes/login.inc.php?herkunft=Profil.php" method="POST">  
-          <input class="user-input" type="text" name="mailuid" placeholder="Email/Username"  ><br>
-          <input class="user-input" type="password" name="passwort" placeholder="Passwort" ><br>
-          <button class="p_signin-button" type="submit" name ="login-submit">Login</button><br>
+            <input class="user-input" type="text" name="mailuid" placeholder="Email/Username"  ><br>
+            <input class="user-input" type="password" name="passwort" placeholder="Passwort" ><br>
+            <button class="p_signin-button" type="submit" name ="login-submit">Login</button><br>
           </form>';
-
-    echo'</div>';
-   
-  }
-
-
+  echo'</div>';
+ }
 ?>
 
 <?php

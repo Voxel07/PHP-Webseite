@@ -12,15 +12,19 @@
     /* background-color: rgb(255, 153, 0); */
     height: auto;
 }
+.index_begrüsung h2{
+    margin-bottom: 15px;
+
+}
 .index_begrüsung p{
     margin-bottom: 5px;
     font-family: roboto_L;
-    color: rgb(170, 170, 170);;
+    color: rgb(170, 170, 170);
 }
 .index_begrüsung a{
     text-decoration: none;
     text-decoration-line: underline;
-    color: rgb(170, 170, 170);;
+    color: rgb(170, 170, 170);
     font-family: roboto_B;
 }
 .index-termine{

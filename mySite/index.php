@@ -4,13 +4,13 @@ echo'<link rel="stylesheet" href="../Styles/style_index.css">';
 ?>
 <div class="index_box">
     <div class="index_begrüsung">
-        <p>Herzlich willkommen auf der Hompage der Wild Rovers Württemberg.</p>
-        <p>Ein Paar Worte zu uns</p>
-        <p>Wenn du uns beitreten möchtest kannst du dich im einfach Anmelden und dann einen Beitrag im Forum schreiben oder du gehst aus eine unsere Social Media Seiten und trittst so mit uns in Kontackt wir sind im 
-            <strong><a href="">ASVZ</a></strong> zu finden. Wir sind auf  <strong><a href="">Facebook</a></strong> und auch auf <strong><a href="">Instagramm</a></strong> einfach vorbeischauen und melden.
+        <h2>Herzlich Willkommen auf der Hompage der Wild Rovers Württemberg.</h2>
+        <p></p>   
+        <p>Wenn du uns beitreten möchtest kannst du dich im einfach anmelden und dann einen Beitrag im Forum schreiben oder du gehst aus eine unsere Social Media Seiten und trittst so mit uns in Kontakt wir sind im 
+            <strong><a href="">ASVZ</a></strong> zu finden. Wir sind auf  <strong><a href="">Facebook</a></strong> und auch auf <strong><a href="">Instagram</a></strong> einfach vorbeischauen und melden.
            
         </p>
-        <p>Wir haben nicht viele Regel. Aber die es gitb kannst du <strong><a href="Infos&Regeln.php">hier</a></strong> nachlesen. Dort findes du auch noch ein paar zusätzliche Infos über uns. Villeicht hilft dir das ja schon bei deiner Entscheiduzng ob du zu uns passt oder nicht. 
+        <p>Wir haben nicht viele Regel. Aber die es gitb kannst du <strong><a href="Infos&Regeln.php">hier</a></strong> nachlesen. Dort findes du auch noch ein paar zusätzliche Infos über uns. Villeicht hilft dir das ja schon bei deiner Entscheidung ob du zu uns passt oder nicht. 
     </div>
 
     <div class="index-termine">
@@ -57,9 +57,9 @@ echo'<link rel="stylesheet" href="../Styles/style_index.css">';
                 <div class="news-text">
                     <div class="news-text-überschrift"><h3>Teamsitzung</h3></div>
                     <div class="news-text-text">
-                        <p>Am 20.04.2020 war es mal wieder so weit. Wir haben uns zusammengesetzt und heben einen Neuen Vorstand gewählt. Es sind die üblichen Verdächtigen gewählt worden. 3.Vorstand ist dieses mal Mero geworden mit 10 Stimme die Nr2. wurde Camo mit 14 Stimmten damit ist er diese aufgabe auch nicht losgeworden. Wie nicht anders zu erwarten wurde Sherlok als Nr1 gewählt wie die letzten 100 Jahre halt auch. </p>
+                        <p>Am 20.04.2020 war es mal wieder so weit. Wir haben uns zusammengesetzt und heben einen Neuen Vorstand gewählt. Es sind die üblichen Verdächtigen gewählt worden. 3.Vorstand ist dieses mal Mero geworden mit 10 Stimme die Nr2. wurde Camo mit 14 Stimmten damit ist er diese Aufgabe auch nicht losgeworden. Wie nicht anders zu erwarten wurde Sherlok als Nr1 gewählt wie die letzten 100 Jahre halt auch. </p>
                         <p>Außerdem wurde darüber gesprochen ,wie das Team mit der aktuellen Gesunheitskirese umgehet und dmentsprechend wurde das Jahr 2020 geplant, um dann gegen Ende des Jahres so viele Events wie möglich mitnehmen zu können</p>
-                        <p>Jetzt muss ich mir noch irgend einen dummen Text aus den Fingern saugen, damit diese dumme Text box endlich voll ist. Aber da ich so fruchtbar unkreativ bin fällt mir sowas immer schwer. Villeicht war das aber auch eine Lüge und ich kann den ganzen tag irgendwelchen unfug schreiben</p>
+                        <p>Jetzt muss ich mir noch irgend einen dummen Text aus den Fingern saugen, damit diese dumme Text box endlich voll ist. Aber da ich so fruchtbar unkreativ bin fällt mir sowas immer schwer. Villeicht war das aber auch eine Lüge und ich kann den ganzen Tag irgendwelchen Unfug schreiben</p>
                     </div>
                     <div class="news-kompletterBeitrag">
                         <a href ="#" >Komletter Beitrag lesen</a>

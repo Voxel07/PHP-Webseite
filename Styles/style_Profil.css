@@ -1,4 +1,166 @@
-/* Profielseite wenn nicht angemeldet */
+@font-face{
+    font-family: roboto_L;
+    src:url("../Roboto/Roboto-Light.ttf");
+}
+@font-face{
+    font-family: roboto_B;
+    src:url("../Roboto/Roboto-Bold.ttf");
+}
+.PersonalData-Box{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+.Data-Box{
+    display: flex;
+    flex-flow: column;
+    width: 1000px;
+    border: 1px solid rgba(129, 129, 129, 0.541);
+    border-radius: 15px;
+    margin-bottom: 25px;
+    padding: 5px;
+    /* box-shadow:  5em 1em rgba(112, 112, 112, 0.541); */
+    box-shadow: 5px 10px 18px rgba(112, 112, 112, 0.541);
+    /* box-shadow: 2px 2px 2px 1px rgba(122, 134, 233, 1.705); */
+}
+.Data-Überschrift{
+    font-family: roboto_B;
+    color: rgb(129, 129, 129);
+    margin-left: 15px;
+    margin-bottom: 15px;
+}
+.Data-Überschrift h2{
+    font-size: 30px;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+.PresonalData{
+    display: flex;
+    flex-flow: column;
+}
+.header{
+    display: flex;
+    flex-flow: row;
+
+}
+.header-Bild-Bild{
+    margin-left: 15px;
+    max-width: 300px;
+    border-radius: 5px;
+}
+.Profil_Bild_ändern{
+    margin-left: 15px;
+}
+.upload{
+    margin-left: 15px;
+    color: green;
+}
+.header-Info {
+    margin-left: 5px;
+    font-family: roboto_L;
+    color: rgb(129, 129, 129);
+   
+}
+.Info-Box{
+    display: flex;
+    flex-flow: row;
+    border-bottom: 1px solid rgba(97, 97, 97, 0.637) ;
+    margin-bottom: 10px;
+    margin-left: 15px;
+}
+.PersonalData-Name{
+    font-family: roboto_B;
+    color: rgb(129, 129, 129);
+    display: flex;
+    align-items: center;
+    width: 150px;
+    text-transform: uppercase;
+    font-size: 13px;   
+}
+.PersonalData-Info{
+    font-family: roboto_L;
+    color: rgb(170, 170, 170);
+    display: flex;
+    align-items: center;
+    font-size:20px;  
+    width: 300px;
+}
+.sichtbar{
+    font-family: roboto_B;
+    color: red;
+}
+.Info-SVG{
+    margin-left: auto;
+    margin-right: 25px;
+    cursor: pointer;
+    width: 30px;
+    height: 25px;
+    background-color: transparent;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 80%;
+    background-image: url("../Bilder/SVG/edit.svg");
+    margin-bottom: 1px;
+}
+.update{
+    display: flex;
+    flex-flow: row;
+}
+.info-neu{
+    display: block;
+    margin-top: 10px;
+    flex-flow: row;
+    margin-left: 15px;
+}
+.info-input-text{
+    width: 160px;
+    display: flex;
+    flex-flow: column-reverse;
+    border-bottom: 1px solid #b3b3b3;
+    margin-right: 5px;
+}
+.info-input-text input{
+    font-family: roboto_B;
+    margin-left: 1px;
+    font-size: 16px;
+    height: 25px;
+    border: none;
+    background: none;
+    outline: none;
+    color: rgb(129, 129, 129);
+    padding: 0px;
+}
+.info-input-text label{
+    font-family: roboto_B;
+    color: rgb(161, 161, 161);
+    font-size: 12px;
+    padding: 0;
+}
+.info-input-text input:placeholder-shown + label {
+    opacity: 0;
+    font-size: 10px;
+    color: white;
+}
+.info-button-update{
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: 25px;
+
+}
+.info-button-update button{
+    
+    cursor: pointer;
+    width: 30px;
+    height: 25px;
+    border: none;
+    background-color: transparent;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 80%;
+    background-image: url("../Bilder/SVG/aktualisierung.svg");
+    outline: none;
+}
+
 .p_nichtangemeldet{
     text-align: center;
     display: block;
@@ -39,107 +201,4 @@
 }
 .p_signin-button:hover{
     background: radial-gradient(circle, #f19114, #ec9421, #ce7e15, #f1ae55);
-}
-
-/* Profiel, wenn angemeldet */
-
-.Profiel_box{
-    display: block;
-    padding: 5px;
-    background-color: rgb(138, 124, 122);
-    width: 80%;
-    margin-left: 10%;
-}
-.Profiel_begrüsung{
-    display: block;
-    margin-bottom: 5px;
-    background-color: black;
-    text-align: center;
-}
-.Profiel_Profielbild{
-    display: block;
-    width: 100%;
-    background-color: red;
-    height: 500px;
-}
-.Profiel_Bild_ändern{
-    margin-top: 15px;
-    background-color: yellow;
-}
-
-.Profiel_Profielbild_Bild{
-    /* display: inline-block; */
-  
-    float: left;
-    width: 300px;
-    height: auto;
-    background-color: slateblue;
-    padding: 2px;
-}
-.Prfiel_User_Info{
-    float: left;
-    /* display:inline-block; */
-    height: 100%;
-   
-    width: 500px;
-    
-    margin-left: 15px;
-    background-color: seagreen;
-}
-.Profiel_Zusatz{
-    float: right;
-    width: 250px;
-    height: 150px;
-    background-color: blueviolet;
-}
-
-.Profiel_Sonstiges{
-    text-align: center;
-    margin-top: 15px;
-    display: block;
-    background-color: rgb(228, 96, 223);   
-    height: 700px;
-}
-
-.Profiel_Sonstiges_Forum, .Profiel_Sonstiges_Galerie, .Profiel_Sonstiges_Reviews{
-    width: 33%;
-    height:500px;
-    margin-top: 15px;
-    color: black;
-
-}
-.Profiel_Sonstiges_Forum{
-    float: left;
-    background-color: wheat;
-}
-.Profiel_Sonstiges_Galerie{
-    float: left;
-    margin-left: 0.5%;
-
-    background-color: yellow;
-    
-    height: auto;
-}
-.Profiel_Sonstiges_Galerie a{
-    text-decoration: none;
-	/* padding: 2px; */
-	
-	width: 350px;
-
-	margin:20px 10px 0;
-	background-color: green;
-}
-.Profiel_Sonstiges_Galerie a div{
-	width: auto;
-    height: 335px;
-    background-size: contain;
-	background-position: center;
-	background-repeat: no-repeat;
-
-	
-}
-
-.Profiel_Sonstiges_Reviews{
-    float: right;
-    background-color: yellowgreen;
 }
