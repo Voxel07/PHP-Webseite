@@ -2,6 +2,7 @@
 include "Header.php";
 include_once "includes/dbh.inc.php";
 echo' <link rel="stylesheet" href="../Styles/style_Profil.css">';
+echo'<script src="../Skripte/Profil.js"></script>';
 ?>
 <?php
  if(isset($_SESSION['User']))
@@ -90,25 +91,26 @@ echo' <link rel="stylesheet" href="../Styles/style_Profil.css">';
             <div class="PersonalData">
             <div class="Info-Box">
                     <div class="PersonalData-Name">Kontoverivizierung</div>   <div class="PersonalData-Info">';
-                    if($row['Verifiziert']==0){echo'Bestätigung ausstehend';}else{echo'Echtheit bestätigt';}echo'</div> <div class="Info-SVG"></div>   
+                    if($row['Verifiziert']==0){echo'Bestätigung ausstehend</div> <div class="Info-SVG"></div>' ;}else{echo'Echtheit bestätigt</div> ';}
+                echo' 
                 </div>
                 <div class="Info-Box">
                     <div class="PersonalData-Name">ID</div>   <div class="PersonalData-Info">'.$row['ID'].'</div> 
                 </div>
                 <div class="Info-Box">
-                    <div class="PersonalData-Name">Vorname</div>   <div class="PersonalData-Info">'.$row['Vorname'].'</div> <div class="Info-SVG"></div>
+                    <div class="PersonalData-Name">Vorname</div>   <div class="PersonalData-Info">'.$row['Vorname'].'</div> <div class="Info-SVG" onclick="ProfilInfoToggel()"></div>
                 </div>
                 <div class="Info-Box">
-                    <div class="PersonalData-Name">Nachname</div>   <div class="PersonalData-Info">'.$row['Nachname'].'</div>  <div class="Info-SVG"></div>
+                    <div class="PersonalData-Name">Nachname</div>   <div class="PersonalData-Info">'.$row['Nachname'].'</div>  <div class="Info-SVG" onclick="ProfilInfoToggel()"></div>
                 </div>
                 <div class="Info-Box">
-                    <div class="PersonalData-Name">Geburtstag</div>   <div class="PersonalData-Info">'.date("d.m.Y", $row['Geburtstag']).'</div>   <div class="Info-SVG"></div>
+                    <div class="PersonalData-Name">Geburtstag</div>   <div class="PersonalData-Info">'.date("d.m.Y", $row['Geburtstag']).'</div>   <div class="Info-SVG" onclick="ProfilInfoToggel()"></div>
                 </div>
                 <div class="Info-Box">
-                    <div class="PersonalData-Name">Alter</div>   <div class="PersonalData-Info">'.floor((date("Ymd") - date("Ymd", $row['Geburtstag'])) / 10000).'</div>    <div class="sichtbar">!</div>  
+                    <div class="PersonalData-Name">Alter</div>   <div class="PersonalData-Info">'.floor((date("Ymd") - date("Ymd", $row['Geburtstag'])) / 10000).'</div>    <div class="sichtbar" onclick="ProfilInfoToggel()">!</div>  
                 </div>
                 <div class="Info-Box">
-                    <div class="PersonalData-Name">Passwort</div>   <div class="PersonalData-Info">*********</div>  <div class="Info-SVG"></div>
+                    <div class="PersonalData-Name">Passwort</div>   <div class="PersonalData-Info">*********</div>  <div class="Info-SVG" onclick="ProfilInfoToggel()"></div>
                 </div>
                 <div id="infoSchalter-Profil" class="info-neu">
                     <form action = "includes/update_nutzerInfo.inc.php?herkunft=Profil.php" method="post">
@@ -137,13 +139,13 @@ echo' <link rel="stylesheet" href="../Styles/style_Profil.css">';
             </div>
             <div class="PersonalData">
                 <div class="Info-Box">
-                    <div class="PersonalData-Name">E-mail Privat</div>   <div class="PersonalData-Info">'.$row['Emailadresse'].'</div>  <div class="Info-SVG"></div>
+                    <div class="PersonalData-Name">E-mail Privat</div>   <div class="PersonalData-Info">'.$row['Emailadresse'].'</div>  <div class="Info-SVG" onclick="ProfilKontaktdatenToggel()"></div>
                 </div>
                 <div class="Info-Box">
-                    <div class="PersonalData-Name">E-mail Team</div>   <div class="PersonalData-Info">camo@wildrovers.de</div>  <div class="sichtbar">!</div>  
+                    <div class="PersonalData-Name">E-mail Team</div>   <div class="PersonalData-Info">camo@wildrovers.de</div>  <div class="sichtbar" >!</div>  
                 </div>
                 <div class="Info-Box">
-                    <div class="PersonalData-Name">Telefon</div>   <div class="PersonalData-Info">'.$row['Handynummer'].'</div> <div class="Info-SVG"></div>
+                    <div class="PersonalData-Name">Telefon</div>   <div class="PersonalData-Info">'.$row['Handynummer'].'</div> <div class="Info-SVG" onclick="ProfilKontaktdatenToggel()"></div>
                 </div>
                 <div id="infoSchalter-Kontaktdaten" class="info-neu">
                     <form action = "includes/event_verwaltung.inc.php?herkunft=Profil.php" method="post">
@@ -172,7 +174,7 @@ echo' <link rel="stylesheet" href="../Styles/style_Profil.css">';
             </div>
             <div class="PersonalData">
                 <div class="Info-Box">
-                    <div class="PersonalData-Name">Nick</div>   <div class="PersonalData-Info">'.$row['Nick'].'</div>   <div class="sichtbar">!</div>   <div class="Info-SVG"></div>
+                    <div class="PersonalData-Name">Nick</div>   <div class="PersonalData-Info">'.$row['Nick'].'</div>   <div class="sichtbar">!</div>   <div class="Info-SVG" onclick="ProfilTeamToggel()"></div>
                 </div>
                 <div class="Info-Box">
                     <div class="PersonalData-Name">Teamstatus</div>   <div class="PersonalData-Info">

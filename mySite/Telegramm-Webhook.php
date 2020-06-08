@@ -10,7 +10,7 @@ curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER,false);
 
 $param = array(
- "url" => "wrw.ddns.net"
+ "url" => "http://84.140.223.239:8080/mySite/Telegramm-Bot.php"
 );
 
 curl_setopt($ch, CURLOPT_POST, 1);

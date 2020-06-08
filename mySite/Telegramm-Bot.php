@@ -9,7 +9,7 @@ fclose($handle);
 
 $bot_id = "1110152728:AAGN7dEFg4pun2b6zvWBuMwtZUbcGT_XpJ0";
 
-$chat_id = "EURE CHAT-ID";
+$chat_id = "160762717";
 
 $ch = curl_init("https://api.telegram.org/bot" . $bot_id . "/sendMessage");
 curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);

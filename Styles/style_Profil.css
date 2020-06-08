@@ -88,6 +88,7 @@
 .sichtbar{
     font-family: roboto_B;
     color: red;
+    font-size: large;
 }
 .Info-SVG{
     margin-left: auto;
@@ -107,7 +108,7 @@
     flex-flow: row;
 }
 .info-neu{
-    display: block;
+    display: none;
     margin-top: 10px;
     flex-flow: row;
     margin-left: 15px;
