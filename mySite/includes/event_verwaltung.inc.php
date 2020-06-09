@@ -104,6 +104,7 @@ elseif (isset($_GET['löschen'])&&isset($_SESSION['User'])&&$_SESSION['rang']>0)
 }
 
 //Event updaten
+//Event aus DB Holen
 elseif ($_GET['edit']&&isset($_SESSION['User'])&&$_SESSION['rang']>=0) {
 //elseif(isset($_GET['edit'])){
     $id = htmlspecialchars(stripcslashes(trim($_GET['edit'])));
@@ -135,6 +136,7 @@ elseif ($_GET['edit']&&isset($_SESSION['User'])&&$_SESSION['rang']>=0) {
         }
     }
 }
+//Event updaten
 elseif (isset($_POST['update'])&&isset($_SESSION['User'])&&$_SESSION['rang']>0) {
 //elseif (isset($_POST['update'])) {
     $id = htmlspecialchars(stripcslashes(trim($_POST['id'])));

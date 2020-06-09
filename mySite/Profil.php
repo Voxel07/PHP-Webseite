@@ -95,33 +95,37 @@ echo'<script src="../Skripte/Profil.js"></script>';
                 echo' 
                 </div>
                 <div class="Info-Box">
-                    <div class="PersonalData-Name">ID</div>   <div class="PersonalData-Info">'.$row['ID'].'</div> 
+                    <div class="PersonalData-Name">ID</div>   <div class="PersonalData-Info" id="NutzerID">'.$row['ID'].'</div> 
                 </div>
                 <div class="Info-Box">
-                    <div class="PersonalData-Name">Vorname</div>   <div class="PersonalData-Info">'.$row['Vorname'].'</div> <div class="Info-SVG" onclick="ProfilInfoToggel()"></div>
+                    <div class="PersonalData-Name">Vorname</div>   <div class="PersonalData-Info" id="vName">'.$row['Vorname'].'</div> <div class="Info-SVG" onclick="ProfilInfoToggel(\'Vorname\')"></div>
                 </div>
                 <div class="Info-Box">
-                    <div class="PersonalData-Name">Nachname</div>   <div class="PersonalData-Info">'.$row['Nachname'].'</div>  <div class="Info-SVG" onclick="ProfilInfoToggel()"></div>
+                    <div class="PersonalData-Name">Nachname</div>   <div class="PersonalData-Info" id="Name">'.$row['Nachname'].'</div>  <div class="Info-SVG" onclick="ProfilInfoToggel(\'Nachname\')"></div>
                 </div>
                 <div class="Info-Box">
-                    <div class="PersonalData-Name">Geburtstag</div>   <div class="PersonalData-Info">'.date("d.m.Y", $row['Geburtstag']).'</div>   <div class="Info-SVG" onclick="ProfilInfoToggel()"></div>
+                    <div class="PersonalData-Name">Geburtstag</div>   <div class="PersonalData-Info">'.date("d.m.Y", $row['Geburtstag']).'</div>   <div class="Info-SVG" onclick="ProfilInfoToggel(\'Geburtstag\')"></div>
                 </div>
                 <div class="Info-Box">
-                    <div class="PersonalData-Name">Alter</div>   <div class="PersonalData-Info">'.floor((date("Ymd") - date("Ymd", $row['Geburtstag'])) / 10000).'</div>    <div class="sichtbar" onclick="ProfilInfoToggel()">!</div>  
+                    <div class="PersonalData-Name">Alter</div>   <div class="PersonalData-Info">'.floor((date("Ymd") - date("Ymd", $row['Geburtstag'])) / 10000).'</div>    <div class="sichtbar">!</div>  
                 </div>
                 <div class="Info-Box">
-                    <div class="PersonalData-Name">Passwort</div>   <div class="PersonalData-Info">*********</div>  <div class="Info-SVG" onclick="ProfilInfoToggel()"></div>
+                    <div class="PersonalData-Name">Passwort</div>   <div class="PersonalData-Info">*********</div>  <div class="Info-SVG" onclick="ProfilInfoToggel(\'Passwort\')"></div>
                 </div>
                 <div id="infoSchalter-Profil" class="info-neu">
                     <form action = "includes/update_nutzerInfo.inc.php?herkunft=Profil.php" method="post">
                         <div class="update">
-                            <div class="info-input-text">
-                                <input type="text" name="elmZumUpdaten" value="Vorname" readonly />
+                            <div  class="info-input-text">
+                                <input id="ProfilFeldName" type="text" name="elmZumUpdaten" value="Placeholder" readonly />
                                 <label >Für update gewählt</label>
                             </div>
-                            <div class="info-input-text">
-                                <input type="text" name="neueInfo" value="Wert" />
-                                <label >Neue Eingabe</label>
+                            <div  class="info-input-text">
+                                <input id="ProfilWertAlt" type="text" name="elmZumUpdaten" value="Placeholder" readonly />
+                                <label >Alter Wert</label>
+                            </div>
+                            <div  class="info-input-text">
+                                <input id="ProfilWertNeu" type="text" name="neueInfo" placeholder="neuer Wert" />
+                                <label >Neuer Wert</label>
                             </div>
                             <div class="info-button-update">
                                 <button type="submit" name="update" ></button> 
