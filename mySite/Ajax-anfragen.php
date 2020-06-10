@@ -38,10 +38,12 @@ if (isset($_GET["suchbegriff"])) {
             //Wenn schon vorhanden, dann:
             if($ergebnis>0){
                 echo'0';
+              
             }
             //sonst
             else{
                 echo'1';
+                
             }
         }
     }

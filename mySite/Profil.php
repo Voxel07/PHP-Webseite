@@ -113,25 +113,25 @@ echo'<script src="../Skripte/Profil.js"></script>';
                     <div class="PersonalData-Name">Passwort</div>   <div class="PersonalData-Info">*********</div>  <div class="Info-SVG" onclick="ProfilInfoToggel(\'Passwort\')"></div>
                 </div>
                 <div id="infoSchalter-Profil" class="info-neu">
-                    <form action = "includes/update_nutzerInfo.inc.php?herkunft=Profil.php" method="post">
+                    
                         <div class="update">
                             <div  class="info-input-text">
-                                <input id="ProfilFeldName" type="text" name="elmZumUpdaten" value="Placeholder" readonly />
+                                <input id="ProfilFeldName" type="text" name="elmZumUpdaten"  readonly />
                                 <label >Für update gewählt</label>
                             </div>
                             <div  class="info-input-text">
-                                <input id="ProfilWertAlt" type="text" name="elmZumUpdaten" value="Placeholder" readonly />
-                                <label >Alter Wert</label>
+                                <input id="ProfilWertAlt" type="text" name="elmZumUpdaten"  readonly />
+                                <label >Alt</label>
                             </div>
                             <div  class="info-input-text">
-                                <input id="ProfilWertNeu" type="text" name="neueInfo" placeholder="neuer Wert" />
-                                <label >Neuer Wert</label>
+                                <input id="ProfilWertNeu" type="text" name="neueInfo"  />
+                                <label >Neu</label>
                             </div>
                             <div class="info-button-update">
-                                <button type="submit" name="update" ></button> 
+                                <button type="submit" name="update" onclick=datenUpdaten() ></button> 
                             </div>
                         </div>
-                    </form>
+                    
                 </div>
             </div>
         </div>
