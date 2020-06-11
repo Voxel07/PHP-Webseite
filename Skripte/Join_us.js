@@ -209,7 +209,8 @@ function fu(element){
                 // Überprüfen ob der Suchbegriff mehr als 3 Zeichen enthält.
                 if (suchbegriff.length > 3) {  
                     // XMLHTTP-Request zur Datei: antwort.php öffnen und den Suchbegriff anhängen.
-                    xhr.open("POST", "Ajax-anfragen.php?suchbegriff=" + suchbegriff +"&Kategorie=Nick", true);
+                    // xhr.open("POST", "Ajax-anfragen.php?suchbegriff=" + suchbegriff +"&Kategorie=Nick", true);
+                    xhr.open("GET", "includes/update_nutzerInfo.inc.php?aufgabe=pruefen&&feld=Nick&wert="+suchbegriff, true);
                     // xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded" );
                     // XMLHTTP-Request senden.
                     xhr.send();
@@ -252,7 +253,7 @@ function fu(element){
             // Überprüfen ob der Suchbegriff mehr als 3 Zeichen enthält.
             if (suchbegriff.length > 3) {
                 // XMLHTTP-Request zur Datei: antwort.php öffnen und den Suchbegriff anhängen.
-                xhr.open("POST", "Ajax-anfragen.php?suchbegriff=" + suchbegriff +"&Kategorie=Email", true);
+                xhr.open("GET", "includes/update_nutzerInfo.inc.php?aufgabe=pruefen&&feld=Email&wert="+suchbegriff, true);
                 // xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded" );
                 // XMLHTTP-Request senden.
                 xhr.send();
@@ -287,9 +288,4 @@ function fu(element){
          break;
      }
      
-}
-
-function anfrage(suchebegriff,kategorie){
-
-
 }

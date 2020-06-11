@@ -143,7 +143,7 @@ elm.style.fontSize  = "x-large";
 </div>
 <!-- PopUp Sign Up -->
 <?php 
-if(strpos($_SERVER['REQUEST_URI'], 'join_us.php') == false )
+if(strpos($_SERVER['REQUEST_URI'], 'join_us.php') == false||!isset($_SESSION['User']) )
 {
 echo'
     <div id="id01" class="modal">

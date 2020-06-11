@@ -98,19 +98,19 @@ echo'<script src="../Skripte/Profil.js"></script>';
                     <div class="PersonalData-Name">ID</div>   <div class="PersonalData-Info" id="NutzerID">'.$row['ID'].'</div> 
                 </div>
                 <div class="Info-Box">
-                    <div class="PersonalData-Name">Vorname</div>   <div class="PersonalData-Info" id="vName">'.$row['Vorname'].'</div> <div class="Info-SVG" onclick="ProfilInfoToggel(\'Vorname\')"></div>
+                    <div class="PersonalData-Name">Vorname</div>   <div class="PersonalData-Info" id="PrfilVorname">'.$row['Vorname'].'</div> <div class="Info-SVG" onclick="ProfilInfoToggel(\'Vorname\')"></div>
                 </div>
                 <div class="Info-Box">
-                    <div class="PersonalData-Name">Nachname</div>   <div class="PersonalData-Info" id="Name">'.$row['Nachname'].'</div>  <div class="Info-SVG" onclick="ProfilInfoToggel(\'Nachname\')"></div>
+                    <div class="PersonalData-Name">Nachname</div>   <div class="PersonalData-Info" id="PrfilNachname">'.$row['Nachname'].'</div>  <div class="Info-SVG" onclick="ProfilInfoToggel(\'Nachname\')"></div>
                 </div>
                 <div class="Info-Box">
-                    <div class="PersonalData-Name">Geburtstag</div>   <div class="PersonalData-Info">'.date("d.m.Y", $row['Geburtstag']).'</div>   <div class="Info-SVG" onclick="ProfilInfoToggel(\'Geburtstag\')"></div>
+                    <div class="PersonalData-Name">Geburtstag</div>   <div class="PersonalData-Info" id="PrfilGeburtstag">'.date("d.m.Y", $row['Geburtstag']).'</div>   <div class="Info-SVG" onclick="ProfilInfoToggel(\'Geburtstag\')"></div>
                 </div>
                 <div class="Info-Box">
-                    <div class="PersonalData-Name">Alter</div>   <div class="PersonalData-Info">'.floor((date("Ymd") - date("Ymd", $row['Geburtstag'])) / 10000).'</div>    <div class="sichtbar">!</div>  
+                    <div class="PersonalData-Name">Alter</div>   <div class="PersonalData-Info" id="PrfilAlter">'.floor((date("Ymd") - date("Ymd", $row['Geburtstag'])) / 10000).'</div>    <div class="sichtbar">!</div>  
                 </div>
                 <div class="Info-Box">
-                    <div class="PersonalData-Name">Passwort</div>   <div class="PersonalData-Info">*********</div>  <div class="Info-SVG" onclick="ProfilInfoToggel(\'Passwort\')"></div>
+                    <div class="PersonalData-Name">Passwort</div>   <div class="PersonalData-Info" id="PrfilPasswort">*********</div>  <div class="Info-SVG" onclick="ProfilInfoToggel(\'Passwort\')"></div>
                 </div>
                 <div id="infoSchalter-Profil" class="info-neu">
                     
