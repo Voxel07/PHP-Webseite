@@ -43,11 +43,29 @@ if(isset($_POST['login-submit'])){
                 $_SESSION['User'] = $row['Nick'];
                 $_SESSION['rang'] = $row['Rang'];
                 $_SESSION['id'] = $row['ID'];
-
+                
+                $stmt2 = mysqli_stmt_init($conn);
+                $sql2 = "UPDATE nutzer SET letzterLogin = ? WHERE ID = ?";
+                $neuerWert = time();
+                $id =  $row['ID'];
+                if(!mysqli_stmt_prepare($stmt2,$sql2)){
+                    header("Location: ../$herkunft?error=prepare");
+                    exit();
+                }
+                else {     
+                   if( !mysqli_stmt_bind_param($stmt2,"si",$neuerWert,$id)){
+                        header("Location: ../$herkunft?error=bind");
+                        exit();
+                   }
+                   else{
+                       mysqli_stmt_execute($stmt2); 
+                   }
+                }
                     $filename = 'Logins.txt';
                     $date = date("d.m.Y - H:i", time());
                     $nutzer =  $row['Nick'];
                     $somecontent = "$date | Nutzer: $nutzer\n";
+               
                     
                     // Sichergehen, dass die Datei existiert und beschreibbar ist.
                     if (is_writable("../../Logdaten/$filename")) {

@@ -98,40 +98,44 @@ echo'<script src="../Skripte/Profil.js"></script>';
                     <div class="PersonalData-Name">ID</div>   <div class="PersonalData-Info" id="NutzerID">'.$row['ID'].'</div> 
                 </div>
                 <div class="Info-Box">
-                    <div class="PersonalData-Name">Vorname</div>   <div class="PersonalData-Info" id="PrfilVorname">'.$row['Vorname'].'</div> <div class="Info-SVG" onclick="ProfilInfoToggel(\'Vorname\')"></div>
+                    <div class="PersonalData-Name">Vorname</div>   <div class="PersonalData-Info" id="ProfilVorname">'.$row['Vorname'].'</div> <div class="Info-SVG" onclick="toggleUpdateField(\'Vorname\',\'Profil\')"></div>
                 </div>
                 <div class="Info-Box">
-                    <div class="PersonalData-Name">Nachname</div>   <div class="PersonalData-Info" id="PrfilNachname">'.$row['Nachname'].'</div>  <div class="Info-SVG" onclick="ProfilInfoToggel(\'Nachname\')"></div>
+                    <div class="PersonalData-Name">Nachname</div>   <div class="PersonalData-Info" id="ProfilNachname">'.$row['Nachname'].'</div>  <div class="Info-SVG" onclick="toggleUpdateField(\'Nachname\',\'Profil\')"></div>
                 </div>
                 <div class="Info-Box">
-                    <div class="PersonalData-Name">Geburtstag</div>   <div class="PersonalData-Info" id="PrfilGeburtstag">'.date("d.m.Y", $row['Geburtstag']).'</div>   <div class="Info-SVG" onclick="ProfilInfoToggel(\'Geburtstag\')"></div>
+                    <div class="PersonalData-Name">Geburtstag</div>   <div class="PersonalData-Info" id="ProfilGeburtstag">'.date("d.m.Y", $row['Geburtstag']).'</div>   <div class="Info-SVG" onclick="toggleUpdateField(\'Geburtstag\',\'Profil\')"></div>
                 </div>
                 <div class="Info-Box">
-                    <div class="PersonalData-Name">Alter</div>   <div class="PersonalData-Info" id="PrfilAlter">'.floor((date("Ymd") - date("Ymd", $row['Geburtstag'])) / 10000).'</div>    <div class="sichtbar">!</div>  
+                    <div class="PersonalData-Name">Alter</div>   <div class="PersonalData-Info" id="ProfilAlter">'.floor((date("Ymd") - date("Ymd", $row['Geburtstag'])) / 10000).'</div>    <div class="sichtbar">!</div>  
                 </div>
                 <div class="Info-Box">
-                    <div class="PersonalData-Name">Passwort</div>   <div class="PersonalData-Info" id="PrfilPasswort">*********</div>  <div class="Info-SVG" onclick="ProfilInfoToggel(\'Passwort\')"></div>
+                    <div class="PersonalData-Name">Passwort</div>   <div class="PersonalData-Info" id="ProfilPasswort">*********</div>  <div class="Info-SVG" onclick="toggleUpdateField(\'Passwort\',\'Profil\')"></div>
+                </div>
+                <div class="Info-Box">
+                    <div class="PersonalData-Name">Regestrierdatum</div>   <div class="PersonalData-Info">'.date("d.m.Y - H:i", $row['Reg_Datum']).'</div> 
+                </div>
+                <div class="Info-Box">
+                    <div class="PersonalData-Name">Letzer Login</div>   <div class="PersonalData-Info">'.date("d.m.Y - H:i", $row['letzterLogin']).'</div> 
                 </div>
                 <div id="infoSchalter-Profil" class="info-neu">
-                    
                         <div class="update">
                             <div  class="info-input-text">
-                                <input id="ProfilFeldName" type="text" name="elmZumUpdaten"  readonly />
+                                <input id="FeldName-Profil" type="text" name="elmZumUpdaten"  readonly />
                                 <label >Für update gewählt</label>
                             </div>
                             <div  class="info-input-text">
-                                <input id="ProfilWertAlt" type="text" name="elmZumUpdaten"  readonly />
+                                <input id="WertAlt-Profil" type="text" name="elmZumUpdaten"  readonly />
                                 <label >Alt</label>
                             </div>
                             <div  class="info-input-text">
-                                <input id="ProfilWertNeu" type="text" name="neueInfo"  />
+                                <input id="WertNeu-Profil" type="text" name="neueInfo"  />
                                 <label >Neu</label>
                             </div>
                             <div class="info-button-update">
-                                <button type="submit" name="update" onclick=datenUpdaten() ></button> 
+                                <button type="submit" name="update" onclick=datenUpdaten(\'Profil\') ></button> 
                             </div>
                         </div>
-                    
                 </div>
             </div>
         </div>
@@ -143,31 +147,33 @@ echo'<script src="../Skripte/Profil.js"></script>';
             </div>
             <div class="PersonalData">
                 <div class="Info-Box">
-                    <div class="PersonalData-Name">E-mail Privat</div>   <div class="PersonalData-Info">'.$row['Emailadresse'].'</div>  <div class="Info-SVG" onclick="ProfilKontaktdatenToggel()"></div>
+                    <div class="PersonalData-Name">E-mail Privat</div>   <div class="PersonalData-Info" id="KontaktdatenEmailadressePrivat">'.$row['Emailadresse'].'</div>  <div class="Info-SVG" onclick="toggleUpdateField(\'Emailadresse\',\'Kontaktdaten\')"></div>
                 </div>
                 <div class="Info-Box">
-                    <div class="PersonalData-Name">E-mail Team</div>   <div class="PersonalData-Info">camo@wildrovers.de</div>  <div class="sichtbar" >!</div>  
+                    <div class="PersonalData-Name">E-mail Team</div>   <div class="PersonalData-Info" id="KontaktdatenEmailadresseTeam">camo@wildrovers.de</div>  <div class="sichtbar" >!</div>  
                 </div>
                 <div class="Info-Box">
-                    <div class="PersonalData-Name">Telefon</div>   <div class="PersonalData-Info">'.$row['Handynummer'].'</div> <div class="Info-SVG" onclick="ProfilKontaktdatenToggel()"></div>
+                    <div class="PersonalData-Name">Telefon</div>   <div class="PersonalData-Info" id="KontaktdatenTelefon">'.$row['Handynummer'].'</div> <div class="Info-SVG" onclick="toggleUpdateField(\'Handynummer\',\'Kontaktdaten\')"></div>
                 </div>
                 <div id="infoSchalter-Kontaktdaten" class="info-neu">
-                    <form action = "includes/event_verwaltung.inc.php?herkunft=Profil.php" method="post">
-                        <div class="update">
-                            <div class="info-input-text">
-                                <input type="text" name="elmZumUpdaten" value="Vorname" readonly />
-                                <label >Für update gewählt</label>
-                            </div>
-                            <div class="info-input-text">
-                                <input type="text" name="neueInfo" value="Wert" />
-                                <label >Neue Eingabe</label>
-                            </div>
-                            <div class="info-button-update">
-                                <button type="submit" name="update" ></button> 
-                            </div>
-                        </div>
-                    </form>
+                <div class="update">
+                    <div  class="info-input-text">
+                        <input id="FeldName-Kontaktdaten" type="text" name="elmZumUpdaten"  readonly />
+                        <label >Für update gewählt</label>
+                    </div>
+                    <div  class="info-input-text">
+                        <input id="WertAlt-Kontaktdaten" type="text" name="elmZumUpdaten"  readonly />
+                        <label >Alt</label>
+                    </div>
+                    <div  class="info-input-text">
+                        <input id="WertNeu-Kontaktdaten" type="text" name="neueInfo"  />
+                        <label >Neu</label>
+                    </div>
+                    <div class="info-button-update">
+                        <button type="submit" name="update" onclick=datenUpdaten(\'Kontaktdaten\') ></button> 
+                    </div>
                 </div>
+        </div>
             </div>
         </div>
 
@@ -178,11 +184,11 @@ echo'<script src="../Skripte/Profil.js"></script>';
             </div>
             <div class="PersonalData">
                 <div class="Info-Box">
-                    <div class="PersonalData-Name">Nick</div>   <div class="PersonalData-Info">'.$row['Nick'].'</div>   <div class="sichtbar">!</div>   <div class="Info-SVG" onclick="ProfilTeamToggel()"></div>
+                    <div class="PersonalData-Name">Nick</div>   <div class="PersonalData-Info" id="TeamNick">'.$row['Nick'].'</div>   <div class="sichtbar">!</div>   <div class="Info-SVG" onclick="toggleUpdateField(\'Nick\',\'Team\')"></div>
                 </div>
                 <div class="Info-Box">
-                    <div class="PersonalData-Name">Teamstatus</div>   <div class="PersonalData-Info">
-                    ';
+                    <div class="PersonalData-Name">Teamstatus</div>   <div class="PersonalData-Info">';
+                    
                     switch($row['Rang']){
                       case 0: echo'nix';
                         break;
@@ -200,24 +206,34 @@ echo'<script src="../Skripte/Profil.js"></script>';
                     </div>     <div class="sichtbar">!</div>  
                 </div>
                 <div class="Info-Box">
-                    <div class="PersonalData-Name">Regestrierdatum</div>   <div class="PersonalData-Info">'.date("d.m.Y - H:i", $row['Reg_Datum']).'</div> 
-                </div>
+                    <div class="PersonalData-Name">Mitgliedsbeitrag</div>   <div class="PersonalData-Info">';
+                    if($row['Mitgliedsbeitrag']==0){
+                        echo'Noch nicht gezahlt';
+                    }
+                    else{
+                        echo'Gezahlt am: '.date("d.m.Y", $row['Mitgliedsbeitrag']).'';
+                    }
+                 echo'
+                    </div>  
+                </div> 
                 <div id="infoSchalter-Team" class="info-neu">
-                    <form action = "includes/event_verwaltung.inc.php?herkunft=Profil.php" method="post">
                         <div class="update">
-                            <div class="info-input-text">
-                                <input type="text" name="elmZumUpdaten" value="Vorname" readonly />
+                            <div  class="info-input-text">
+                                <input id="FeldName-Team" type="text" name="elmZumUpdaten"  readonly />
                                 <label >Für update gewählt</label>
                             </div>
-                            <div class="info-input-text">
-                                <input type="text" name="neueInfo" value="Wert" />
-                                <label >Neue Eingabe</label>
+                            <div  class="info-input-text">
+                                <input id="WertAlt-Team" type="text" name="elmZumUpdaten"  readonly />
+                                <label >Alt</label>
+                            </div>
+                            <div  class="info-input-text">
+                                <input id="WertNeu-Team" type="text" name="neueInfo"  />
+                                <label >Neu</label>
                             </div>
                             <div class="info-button-update">
-                                <button type="submit" name="update" ></button> 
+                                <button type="submit" name="update" onclick=datenUpdaten(\'Team\') ></button> 
                             </div>
                         </div>
-                    </form>
                 </div>
             </div>
         </div>

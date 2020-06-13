@@ -143,7 +143,7 @@ function getInfo(){
         }
         else {
             mysqli_stmt_bind_param($stmt,"i",$id);
-            //  mysqli_stmt_bind_param($stmt,"si",$id, $gewFeld);
+            // mysqli_stmt_bind_param($stmt,"si",$id, $gewFeld);
             mysqli_stmt_execute($stmt); 
             $erg = mysqli_stmt_get_result($stmt);
             $alles = mysqli_fetch_assoc($erg);
@@ -164,19 +164,19 @@ function  pruefen(){
     $zuPruefen = htmlspecialchars(stripcslashes(trim($_GET['wert'])));
     $feld = htmlspecialchars(stripcslashes(trim($_GET['feld'])));
 
-    //  echo $id;
-    //  echo $zuPruefen;
-    //  echo $feld;
+    //   echo $id;
+    //   echo $zuPruefen;
+    //   echo $feld;
 
     switch($feld){
         case "Nick":
             $sql ="SELECT Nick FROM nutzer WHERE Nick=?";
         break;
-        case "Email":
+        case "Emailadresse":
             $sql ="SELECT Emailadresse FROM nutzer WHERE Emailadresse=?";
         break;
         case "Passwort":
-            $sql ="SELECT * FROM nutzer WHERE ID = ?";
+            $sql ="SELECT Passwort FROM nutzer WHERE ID = ?";
             $stmt = mysqli_stmt_init($conn);
     
             if(!mysqli_stmt_prepare($stmt,$sql)){
@@ -211,15 +211,19 @@ function  pruefen(){
             exit();
         }
         else{
-            mysqli_stmt_bind_param($stmt,"s",$zuPruefen);
-            mysqli_stmt_execute($stmt);
-            mysqli_stmt_store_result($stmt);
-            $ergebnis=mysqli_stmt_num_rows($stmt);
-            if($ergebnis==0){
-                echo'1';
+            if(!mysqli_stmt_bind_param($stmt,"s",$zuPruefen)) {
+                echo 'fehler beim binden';
             }
             else{
-                echo'0'; 
+                mysqli_stmt_execute($stmt);
+                mysqli_stmt_store_result($stmt);
+                $ergebnis=mysqli_stmt_num_rows($stmt);
+                if($ergebnis==0){
+                    echo '1';
+                }
+                else{
+                    echo '0'; 
+                }
             }
         }
 }

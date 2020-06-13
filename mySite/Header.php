@@ -88,12 +88,16 @@ switch (link) {
         elm = document.getElementById("6");
         break; 
     default:
+        elm = 0;
         break;
       
 }
-elm.style.color = "#fc9403";
-elm.style.textDecoration = "underline";
-elm.style.fontSize  = "x-large";
+if(elm != 0){
+    elm.style.color = "#fc9403";
+    elm.style.textDecoration = "underline";
+    elm.style.fontSize  = "x-large";
+}
+
 
 </script>
 
@@ -143,7 +147,7 @@ elm.style.fontSize  = "x-large";
 </div>
 <!-- PopUp Sign Up -->
 <?php 
-if(strpos($_SERVER['REQUEST_URI'], 'join_us.php') == false||!isset($_SESSION['User']) )
+if((strpos($_SERVER['REQUEST_URI'], 'join_us.php') == false)||(isset($_SESSION['User'])) )
 {
 echo'
     <div id="id01" class="modal">

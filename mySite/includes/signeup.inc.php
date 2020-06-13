@@ -81,11 +81,12 @@ if(isset($_POST['signeup-submit'])){
             else{
                 $ProfielbildGesetzt = 0;
                 //Wenn ein Profielbild mitgegeben wurde
-                if(!empty($_FILES['DateiZumHochladen'])){
+                if(empty($_FILES['DateiZumHochladen'])){
                     require_once 'Upload_Bilder.inc.php';
                     $ProfielbildGesetzt = 1;
                 }
-                $sql = "INSERT INTO nutzer (Vorname, Nachname, Nick, Emailadresse, Passwort, Profielbild, Reg_Datum, Geburtstag, verID) VALUES (?,?,?,?,?,?,?,?,?)";
+                $sql = "INSERT INTO nutzer (Vorname, Nachname, Nick, Emailadresse, Passwort, Profielbild, Reg_Datum, Geburtstag, letzterLogin, verID) VALUES (?,?,?,?,?,?,?,?,?,?)";
+                // $sql = "INSERT INTO nutzer (Vorname, Nachname, Nick, Emailadresse, Passwort, Profielbild, Reg_Datum, Geburtstag, verID) VALUES (?,?,?,?,?,?,?,?,?)";
 
                 $stmt = mysqli_stmt_init($conn);
                 //Prüfen ob der Befehl und das Statement zusammen funktionieren
@@ -97,8 +98,16 @@ if(isset($_POST['signeup-submit'])){
                 //Wenn doch, PW Haschen und in DB eintragen
                 else{
                     $hasedPwd = password_hash($passwort, PASSWORD_DEFAULT);                    
-                    mysqli_stmt_bind_param($stmt,"sssssisss",$vName,$nName,$nick,$email,$hasedPwd,$ProfielbildGesetzt,$Datum,$gebTimestap,$nummer);
-                    mysqli_stmt_execute($stmt);   
+                    if(!mysqli_stmt_bind_param($stmt,"sssssiiiii",$vName,$nName,$nick,$email,$hasedPwd,$ProfielbildGesetzt,$Datum,$gebTimestap,$Datum,$nummer)){
+                        header("Location: ../join_us.php?Parameter binding");
+                        exit();
+                    }
+                    else{
+                        mysqli_stmt_execute($stmt);   
+                    
+                    // mysqli_stmt_bind_param($stmt,"sssssisss",$vName,$nName,$nick,$email,$hasedPwd,$ProfielbildGesetzt,$Datum,$gebTimestap,$nummer);
+                    
+                   
                     //Schauen ob schon eine Session läuft (Wegen Pop up ding)
                     if(!(session_status()===PHP_SESSION_ACTIVE)){
                         session_start();
@@ -108,7 +117,7 @@ if(isset($_POST['signeup-submit'])){
                     }
                     $_SESSION['User'] = $nick;
                     $_SESSION['rang'] = 0;
-
+                    }
                     //Verifizierungs Mail erstellen
                    
                     //Email Vorbereiten
@@ -160,7 +169,7 @@ if(isset($_POST['signeup-submit'])){
 }
 //Wenn die Seite durch eingabe der URL wird er zurückgeschickt
 else{
-    header("Location: ../join_us.php");
+    header("Location: ../join_us.php?hier solltest du nicht hinkommen");
     exit(); 
 }
 

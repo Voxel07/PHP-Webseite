@@ -53,11 +53,13 @@ CREATE TABLE Nutzer(
     Rang VARCHAR(20) NOT NULL,
     Geburtstag int NOT NULL, 
     Reg_Datum int NOT NULL,
+    letzterLogin int NOT NULL,
     anz_Beiträge int(11) DEFAULT '0',
     anz_Antworten int(11) DEFAULT '0',
     anz_Bilder int(11) DEFAULT '0',
-    anz_Reviews int(11) DEFAULT '0';
-    anz_News int(11) DEFAULT '0';
+    anz_Reviews int(11) DEFAULT '0',
+    anz_News int(11) DEFAULT '0',
+    Mitgliedsbeitrag  tinyint(1) NOT NULL DEFAULT '0',
 
     ungelesen_Beiträge LONGTEXT NOT NULL
 

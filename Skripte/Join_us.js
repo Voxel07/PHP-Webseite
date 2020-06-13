@@ -182,14 +182,14 @@ function fu(element){
          break;
          case"Passwort-WDH":
            //Passwort holen
-           var pwEntelightcoral = document.getElementById("Passwort").value;
+           var pw = document.getElementById("Passwort").value;
     
            if(inputLänge == 0){
             hint.innerHTML = "Zu wenig Zeichen";
             lable.style.color = "lightcoral"; 
             Checkbox.style.backgroundImage = "url('../Bilder/SVG/fail.svg')";
             }
-           else if(element.value != pwEntelightcoral){
+           else if(element.value != pw){
                hint.innerHTML = "Passwörter stimmen nicht überein";
                lable.style.color = "lightcoral";
            }
@@ -250,6 +250,7 @@ function fu(element){
             var xhr = new XMLHttpRequest();
             // Den Inhalt des Eingabefeldes auslesen
             var suchbegriff = element.value;
+            console.log("Suchbergriff Email"+suchbegriff);
             // Überprüfen ob der Suchbegriff mehr als 3 Zeichen enthält.
             if (suchbegriff.length > 3) {
                 // XMLHTTP-Request zur Datei: antwort.php öffnen und den Suchbegriff anhängen.
