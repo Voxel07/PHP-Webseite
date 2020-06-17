@@ -118,25 +118,53 @@ echo'<script src="../Skripte/Profil.js"></script>';
                 <div class="Info-Box">
                     <div class="PersonalData-Name">Letzer Login</div>   <div class="PersonalData-Info">'.date("d.m.Y - H:i", $row['letzterLogin']).'</div> 
                 </div>
-                <div id="infoSchalter-Profil" class="info-neu">
-                        <div class="update">
-                            <div  class="info-input-text">
-                                <input id="FeldName-Profil" type="text" name="elmZumUpdaten"  readonly />
-                                <label >Für update gewählt</label>
-                            </div>
-                            <div  class="info-input-text">
-                                <input id="WertAlt-Profil" type="text" name="elmZumUpdaten"  readonly />
-                                <label >Alt</label>
-                            </div>
-                            <div  class="info-input-text">
-                                <input id="WertNeu-Profil" type="text" name="neueInfo"  />
-                                <label >Neu</label>
-                            </div>
-                            <div class="info-button-update">
-                                <button type="submit" name="update" onclick=datenUpdaten(\'Profil\') ></button> 
-                            </div>
+
+              
+
+            <div id="infoSchalter-Profil" class="info-neu">
+                <div class="update">
+
+                    <div class="update-box">
+                        <div  class="info-input-text">
+                            <input id="FeldName-Profil" type="text" name="elmZumUpdaten"  readonly />
+                            <label >Für update gewählt</label>
                         </div>
+                        <div id="hintFeldName-Profil" class="hint-text-Profil"></div>
+                    </div>
+
+                    <div class="update-box">
+                        <div  class="info-input-text">  
+                            <input id="WertAlt-Profil" type="text" name="elmZumUpdaten" readonly maxlength="30" />
+                            <label >Alt</label>
+                        </div>
+                        <div id="hintWertAlt-Profil" class="hint-text-Profil"></div>
+                    </div>
+
+                    <div class="update-box">
+                        <div  class="info-input-text">
+                            <input id="WertNeu-Profil" type="text" name="neueInfo" maxlength="30" />
+                            <label >Neu</label>
+                        </div>
+                        <div id="hintWertNeu-Profil" class="hint-text-Profil"></div>
+                    </div>
+                    
+                    <div class="update-box">
+                        <div  class="info-input-text">
+                            <input id="WertNeuWDH-Profil" type="password" name="neueInfo" placeholder="Passwort wiederholen" maxlength="30"  />
+                            <label >Wiederholen</label>
+                        </div>
+                        <div id="hintWertWDH-Profil" class="hint-text-Profil"></div>
+                    </div>
+
+                    <div class="info-button-update">
+                        <button type="submit" name="update" onclick=datenUpdaten(\'Profil\')></button> 
+                    </div>
                 </div>
+            </div>
+
+
+
+               
             </div>
         </div>
 
@@ -153,28 +181,45 @@ echo'<script src="../Skripte/Profil.js"></script>';
                     <div class="PersonalData-Name">E-mail Team</div>   <div class="PersonalData-Info" id="KontaktdatenEmailadresseTeam">camo@wildrovers.de</div>  <div class="sichtbar" >!</div>  
                 </div>
                 <div class="Info-Box">
-                    <div class="PersonalData-Name">Telefon</div>   <div class="PersonalData-Info" id="KontaktdatenTelefon">'.$row['Handynummer'].'</div> <div class="Info-SVG" onclick="toggleUpdateField(\'Handynummer\',\'Kontaktdaten\')"></div>
+                    <div class="PersonalData-Name">Handynummer</div>   <div class="PersonalData-Info" id="KontaktdatenHandynummer">'.$row['Handynummer'].'</div> <div class="Info-SVG" onclick="toggleUpdateField(\'Handynummer\',\'Kontaktdaten\')"></div>
                 </div>
-                <div id="infoSchalter-Kontaktdaten" class="info-neu">
-                <div class="update">
-                    <div  class="info-input-text">
-                        <input id="FeldName-Kontaktdaten" type="text" name="elmZumUpdaten"  readonly />
-                        <label >Für update gewählt</label>
-                    </div>
-                    <div  class="info-input-text">
-                        <input id="WertAlt-Kontaktdaten" type="text" name="elmZumUpdaten"  readonly />
-                        <label >Alt</label>
-                    </div>
-                    <div  class="info-input-text">
-                        <input id="WertNeu-Kontaktdaten" type="text" name="neueInfo"  />
-                        <label >Neu</label>
-                    </div>
-                    <div class="info-button-update">
-                        <button type="submit" name="update" onclick=datenUpdaten(\'Kontaktdaten\') ></button> 
-                    </div>
-                </div>
+
+
+<div id="infoSchalter-Kontaktdaten" class="info-neu">
+<div class="update">
+
+    <div class="update-box">
+        <div  class="info-input-text">
+            <input id="FeldName-Kontaktdaten" type="text" name="elmZumUpdaten"  readonly />
+            <label >Für update gewählt</label>
         </div>
-            </div>
+        <div id="hintFeldName-Kontaktdaten" class="hint-text-Profil"></div>
+    </div>
+
+    <div class="update-box">
+        <div  class="info-input-text">  
+            <input id="WertAlt-Kontaktdaten" type="text" name="elmZumUpdaten" readonly maxlength="30" />
+            <label >Alt</label>
+        </div>
+        <div id="hintWertAlt-Kontaktdaten" class="hint-text-Profil"></div>
+    </div>
+
+    <div class="update-box">
+        <div  class="info-input-text">
+            <input id="WertNeu-Kontaktdaten" type="text" name="neueInfo" maxlength="30" />
+            <label >Neu</label>
+        </div>
+        <div id="hintWertNeu-Kontaktdaten" class="hint-text-Profil"></div>
+    </div>
+
+    <div class="info-button-update">
+        <button type="submit" name="update" onclick=datenUpdaten(\'Kontaktdaten\')></button> 
+    </div>
+</div>
+</div>
+
+
+          </div>
         </div>
 
         <div class="Data-Box">
@@ -216,25 +261,45 @@ echo'<script src="../Skripte/Profil.js"></script>';
                  echo'
                     </div>  
                 </div> 
-                <div id="infoSchalter-Team" class="info-neu">
-                        <div class="update">
-                            <div  class="info-input-text">
-                                <input id="FeldName-Team" type="text" name="elmZumUpdaten"  readonly />
-                                <label >Für update gewählt</label>
-                            </div>
-                            <div  class="info-input-text">
-                                <input id="WertAlt-Team" type="text" name="elmZumUpdaten"  readonly />
-                                <label >Alt</label>
-                            </div>
-                            <div  class="info-input-text">
-                                <input id="WertNeu-Team" type="text" name="neueInfo"  />
-                                <label >Neu</label>
-                            </div>
-                            <div class="info-button-update">
-                                <button type="submit" name="update" onclick=datenUpdaten(\'Team\') ></button> 
-                            </div>
-                        </div>
-                </div>
+
+                  
+
+
+<div id="infoSchalter-Team" class="info-neu">
+<div class="update">
+
+    <div class="update-box">
+        <div  class="info-input-text">
+            <input id="FeldName-Team" type="text" name="elmZumUpdaten"  readonly />
+            <label >Für update gewählt</label>
+        </div>
+        <div id="hintFeldName-Team" class="hint-text-Profil"></div>
+    </div>
+
+    <div class="update-box">
+        <div  class="info-input-text">  
+            <input id="WertAlt-Team" type="text" name="elmZumUpdaten" readonly maxlength="15" />
+            <label >Alt</label>
+        </div>
+        <div id="hintWertAlt-Team" class="hint-text-Profil"></div>
+    </div>
+
+    <div class="update-box">
+        <div  class="info-input-text">
+            <input id="WertNeu-Team" type="text" name="neueInfo" maxlength="30" />
+            <label >Neu</label>
+        </div>
+        <div id="hintWertNeu-Team" class="hint-text-Profil"></div>
+    </div>
+
+    <div class="info-button-update">
+        <button type="submit" name="update" onclick=datenUpdaten(\'Team\')></button> 
+    </div>
+</div>
+</div>
+
+
+
             </div>
         </div>
 

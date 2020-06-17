@@ -2,23 +2,31 @@
 include_once "dbh.inc.php";
 session_start();
 
-
-switch ($_GET['aufgabe']){
-    case 'getInfo':
-        getInfo();
-    break;
-    case 'updateInfo':
-        updateInfo();
-    break;
-    case 'pruefen':
-        pruefen();
-    break;
-
-    default:
-        echo'Fehler: kein gültige GET methode';
-    break;
-
+if(isset($_GET['aufgabe']))
+{
+    switch ($_GET['aufgabe']){
+        case 'getInfo':
+            getInfo();
+        break;
+        case 'updateInfo':
+            updateInfo();
+        break;
+        case 'pruefen':
+            pruefen();
+        break;
+    
+        default:
+            echo '4';
+        break;
+    }
 }
+else{
+    echo '4';
+    header("Location: ../index.php?Hier hast du nix zu suchen");
+    exit;
+}
+
+
 //Funktionen
 function dbVerbinden(){
     $dbName = "nutzer";
@@ -65,7 +73,7 @@ function updateInfo(){
         if($nick == $_SESSION['User']){
             $stmt2 = mysqli_stmt_init($conn);
 
-
+            //Wählt das richtige Statement für den Jeweiligen Fall aus.
             switch ($gewFeld) {
                 case 'Vorname':
                     $sql2 ="UPDATE nutzer SET Vorname = ? WHERE ID = ?";
@@ -111,19 +119,33 @@ function updateInfo(){
             mysqli_stmt_close($stmt2);
             mysqli_close($conn);
             
+            //aktualisiert die Session Variable wenn der Nick geändert wurde
             if($gewFeld == "Nick"){
+                //Aktualisiert die Dateinamen der Profilbilder
+
+                $dateiname = "../../Uploads/Bilder_Profil/".$_SESSION['User']."*";
+                $dateiInfo = glob($dateiname);
+                $dateiEndung= explode(".",$dateiInfo[0]);
+                $echteDateiEndung = $dateiEndung[5];
+                // echo'</br>';
+                // var_dump($dateiname);
+                // echo'</br>';
+                // var_dump($dateiInfo);
+                // echo'</br>';
+                // var_dump($dateiEndung);
+                // echo'</br>';
+                // var_dump($echteDateiEndung);
+                // echo'</br>';
+
+                rename("../../Uploads/Bilder_Profil/".$_SESSION['User'].".".$echteDateiEndung."", "../../Uploads/Bilder_Profil/".$neuerWert.".".$echteDateiEndung."");
+                rename("../../Uploads/Bilder_Profil/Orginaleuploads/".$_SESSION['User'].".".$echteDateiEndung."", "../../Uploads/Bilder_Profil/Orginaleuploads/".$neuerWert.".".$echteDateiEndung."");
                 $_SESSION['User'] = $neuerWert;
             }
         }
         else{
-            echo 'ID passt nicht zum Angemeldeten Nutzer';
+            echo '4';
         }
-
-    }
-   
-    
-
-   
+    } 
 }
 
 function getInfo(){
@@ -156,7 +178,9 @@ function getInfo(){
     }
 }
 
+//Überprüft ob nick und Email schon auf dem Server bekannt sind
 function  pruefen(){
+    $rückgabe = 0;
     $conn = dbVerbinden();
     if(isset($_GET['benuter'])){
         $id = htmlspecialchars(stripcslashes(trim($_GET['benuter'])));
@@ -185,6 +209,7 @@ function  pruefen(){
             }
             else 
             {
+                //Prüft ob das eingegebene Passwort mit dem gespeicherten übereinstimmt
                 mysqli_stmt_bind_param($stmt,"i",$id);
                 mysqli_stmt_execute($stmt); 
                 $ergebnis = mysqli_stmt_get_result($stmt);
@@ -193,18 +218,22 @@ function  pruefen(){
                 if(!password_verify($zuPruefen,$row['Passwort']))
                 {
                 echo '0';
+                $rückgabe = 0;
                 }
                 else {
                 echo '1';
+                $rückgabe = 1;
                 }
             }
-            exit;
+        exit();
         break;
         default:
-        echo 'Fehler beim überprüfen aufgeterten';
-            break;
+            echo 'Fehler beim überprüfen aufgeterten';
+            exit();
+        break;
     } 
     
+    //Überprüfung ob Nick oder Email bereits bekannt sind
     $stmt = mysqli_stmt_init($conn);
         if(!mysqli_stmt_prepare($stmt, $sql)){
             header("Location: ../join_us.php?error=sql_error");
@@ -220,9 +249,11 @@ function  pruefen(){
                 $ergebnis=mysqli_stmt_num_rows($stmt);
                 if($ergebnis==0){
                     echo '1';
+                    $rückgabe = 1;
                 }
                 else{
                     echo '0'; 
+                    $rückgabe = 0;
                 }
             }
         }
