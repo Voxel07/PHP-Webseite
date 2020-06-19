@@ -97,7 +97,7 @@ echo'<script src="../Skripte/Profil.js"></script>';
             </div>
             <div class="PersonalData">
             <div class="Info-Box">
-                    <div class="PersonalData-Name">Kontoverivizierung</div>   <div class="PersonalData-Info">';
+                    <div class="PersonalData-Name">Verivizierung</div>   <div class="PersonalData-Info">';
                     if($row['Verifiziert']==0){echo'Bestätigung ausstehend</div> <div class="Info-SVG"></div>' ;}else{echo'Echtheit bestätigt</div> ';}
                 echo' 
                 </div>

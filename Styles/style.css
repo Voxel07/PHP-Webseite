@@ -199,21 +199,21 @@ fill: red;
 /* Ab hier muss das menü neu angeordnet werden*/
 @media screen and (max-width:1000px){
     body{
-        background: rgb(214, 105, 105);
+        /* background: rgb(214, 105, 105); */
         
     }
 }
 /* Ab hier muss das menü nochmal neu angeordnet werden*/
 @media screen and (max-width:725px){
     body{
-        background: rgb(113, 113, 221);
+        /* background: rgb(113, 113, 221); */
         
     }
 }
 /* Ab hier muss das menü nochmal neu angeordnet werden*/
 @media screen and (max-width:500px){
     body{
-        background: rgb(132, 235, 132);
+        /* background: rgb(132, 235, 132); */
         
     }
 }
