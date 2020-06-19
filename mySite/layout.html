@@ -4,50 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profil</title>
-    <link rel="stylesheet" href="../Styles/layout.css">   
+    <link rel="stylesheet" href="../Styles/layout.css">  
+    <script src="../Skripte/layout.js"></script> 
 </head>
 <body>
 
-    <div id="infoSchalter-Profil" class="info-neu">
-        <div class="update">
+    
+        
+        <div class="löschen-button"  onclick="löschenPopUpShow()">Profil löschen</div>
+   
 
-            <div class="update-box">
-                <div  class="info-input-text">
-                    <input id="FeldName-Profil" type="text" name="elmZumUpdaten"  readonly />
-                    <label >Für update gewählt</label>
-                </div>
-                <div id="hint-FeldName" class="hint-text"></div>
-             </div>
-
-            <div class="update-box">
-                <div  class="info-input-text">  
-                    <input id="WertAlt-Profil" type="text" name="elmZumUpdaten"   readonly />
-                    <label >Alt</label>
-                </div>
-                <div id="hint-WertAlt" class="hint-text"></div>
-            </div>
-
-            <div class="update-box">
-                <div  class="info-input-text">
-                    <input id="WertNeu-Profil" type="text" name="neueInfo" />
-                    <label >Neu</label>
-                </div>
-                <div id="hint-WertNeu" class="hint-text"></div>
-            </div>
-            
-            <div class="update-box">
-                <div  class="info-input-text">
-                    <input id="WertNeuWDH-Profil" type="text" name="neueInfo" placeholder="Passwort wiederholen"  />
-                    <label >wiederholen</label>
-                </div>
-                <div id="hint-WertWDH" class="hint-text"></div>
-            </div>
-
-            <div class="info-button-update">
-                <button type="submit" name="update"  ></button> 
-            </div>
+    <div id="löschenPopUp" class="löschen-PopUp">
+        <div class="PopUp-kopf">
+            <div><p>Bist du dir ganz sicher ?</p></div>
+            <div class="PopUp-schließen"  onclick="löschenPopUpHide()"><svg class="svg-icon" viewBox="0 0 20 20">
+                <path  d="M15.898,4.045c-0.271-0.272-0.713-0.272-0.986,0l-4.71,4.711L5.493,4.045c-0.272-0.272-0.714-0.272-0.986,0s-0.272,0.714,0,0.986l4.709,4.711l-4.71,4.711c-0.272,0.271-0.272,0.713,0,0.986c0.136,0.136,0.314,0.203,0.492,0.203c0.179,0,0.357-0.067,0.493-0.203l4.711-4.711l4.71,4.711c0.137,0.136,0.314,0.203,0.494,0.203c0.178,0,0.355-0.067,0.492-0.203c0.273-0.273,0.273-0.715,0-0.986l-4.711-4.711l4.711-4.711C16.172,4.759,16.172,4.317,15.898,4.045z"></path>
+            </svg></div>
         </div>
+        <div class="löschen-warnung"><p>Bitte lies dir den folgenden Hinnweis gut durch.</p></div>
+        <div class="löschen-text">
+            <p>Diese Aktion kann <strong>nicht</strong> rückgängig gemacht werden ! Dein Profil wird unwiederruflich gelöscht.
+                Es gibt keine Sicherheitskopie deiner Daten. 
+            </p>
+            <p>
+                Dein Persönlichen Daten, sowie dein Profilbild werden gelöscht. Deine Beiträge in Foren und der Gallerie bleiben jedoch bestehen.
+            </p>
+        </div>
+        <div class="löschen-aufforderung">
+            <p>Bitte tippe <strong>löschen</strong> zum Bestätigen</p>
+        </div>
+        
+        <form action="../mySite/includes/update_nutzerInfo.inc.php?aufgabe=löschen" method="GET">
+            <input id="löschenInput"  class="löschen-eingabe " type="text" maxlength="7"  autocomplete="off" pattern="[lL][öÖ][sS][cC][hH][eE][nN]">
+            <input type="text" value="14" hidden name="id">
+            <button id="löschn-fkbutton" class="löschen-fkbutton" name="aufgabe" type="submit" value="löschen" >Profil unwiederruflich  löschen</button>
+        </form>
+        
+       
     </div>
+    
 
 </body>
 </html>

@@ -100,23 +100,23 @@ function datenHolen(feld,bereich){
                     hintNeu.innerHTML="";
                     // hintWDH.innerHTML="";    
                 break;
-                case"Handynummer":
-                alterWert.removeEventListener("blur", pruefen,true);
-                alterWert.type = "text";
-                alterWert.value = xhr.responseText;
-                alterWert.readOnly = true;
-                alterWert.style.borderBottom ="1px solid #b3b3b3";
-                neuerWert.style.borderBottom = '1px solid #b3b3b3';
+                // case"Handynummer":
+                // alterWert.removeEventListener("blur", pruefen,true);
+                // alterWert.type = "text";
+                // alterWert.value = xhr.responseText;
+                // alterWert.readOnly = true;
+                // alterWert.style.borderBottom ="1px solid #b3b3b3";
+                // neuerWert.style.borderBottom = '1px solid #b3b3b3';
               
-                neuerWert.placeholder = "neuer "+feld;
-                neuerWert.value = "";
-                neuerWert.focus();
-                neuerWert.addEventListener('keyup',vergleichen,true);
-                // wertWDH.parentElement.style.display ="none";
-                hintAlt.innerHTML="";
-                hintNeu.innerHTML="";
-                neuerWert.type = "number";
-                break;
+                // neuerWert.placeholder = "neuer "+feld;
+                // neuerWert.value = "";
+                // neuerWert.focus();
+                // neuerWert.addEventListener('keyup',vergleichen,true);
+                // // wertWDH.parentElement.style.display ="none";
+                // hintAlt.innerHTML="";
+                // hintNeu.innerHTML="";
+                // neuerWert.type = "number";
+                // break;
                 default:
                     alterWert.removeEventListener("blur", pruefen,true);
                     alterWert.type = "text";
@@ -255,7 +255,6 @@ function vergleichen(fu){
     switch (feld) {
         case "Vorname":
         case "Nachname":
-        case 'Handynummer':
             if(neuerWert.value.length < 30)
             {
                 if(neuerWert.value == "")
@@ -357,7 +356,7 @@ function vergleichen(fu){
             break;
 
         case 'Handynummer':
-            if((isNaN(neuerWert.value))==false)
+            if(!isNaN(neuerWert.value))
             {
                 if(neuerWert.value.length < 30)
                 {
@@ -382,7 +381,9 @@ function vergleichen(fu){
                 }
                 else{
                     hintNeu.style.color = "red";
-                    hintNeu.innerHTML = "Max. läng erreicht";
+                    hintNeu.innerHTML = "nur Zahlen";
+                    updateMoeglich = false;
+
                 }
             }
             else{
@@ -396,10 +397,6 @@ function vergleichen(fu){
         default:
             break;
     }
-}
-
-function datenLoeschen(){
-
 }
 
 //Schickt die neuen Daten in die Datenbank
@@ -468,4 +465,43 @@ function datenUpdaten(bereich){
             }
         }
     }
+}
+
+
+var darfLöschen = false;
+
+function löschenPopUpShow(){
+    var box = document.getElementById("löschenPopUp");
+    var input = document.getElementById("löschenInput");
+    var button = document.getElementById("löschen-fkbutton");
+    button.disabled = true;
+    box.style.display = "flex"; 
+    input.focus();
+   
+    
+    input.addEventListener("keyup",function(){
+       
+        if(input.value == "löschen"){
+            button.style.opacity = "100%";
+            darfLöschen = true;
+            button.style.cursor = "pointer"
+            button.disabled = false;
+        }
+        else{
+            button.style.opacity = "30%";
+            darfLöschen = false;
+            button.style.cursor = "not-allowed"
+            button.disabled = true;
+        }
+    })
+}
+function löschenPopUpHide(){
+    var box = document.getElementById("löschenPopUp");
+    var input = document.getElementById("löschenInput");
+    var button = document.getElementById("löschen-fkbutton");
+    box.style.display = "none"; 
+    input.value ="";   
+    darfLöschen = false;
+    button.style.cursor = "not-allowed"
+    button.style.opacity = "30%";
 }

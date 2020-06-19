@@ -1,6 +1,7 @@
 <?php
 include_once "dbh.inc.php";
 session_start();
+$fehler = 0;
 
 if(isset($_GET['aufgabe']))
 {
@@ -14,7 +15,9 @@ if(isset($_GET['aufgabe']))
         case 'pruefen':
             pruefen();
         break;
-    
+        case'löschen':
+            löschen();
+        break;
         default:
             echo '4';
         break;
@@ -56,8 +59,7 @@ function updateInfo(){
 
     $sql = "SELECT Nick FROM nutzer WHERE ID = ?";
     $stmt = mysqli_stmt_init($conn);
-    //Verhindert, dass der PW Hash aus der DB zu Nutzer kommt. 
-    
+       
     if(!mysqli_stmt_prepare($stmt,$sql)){
         echo'Upade vergleich '.mysqli_error($conn);
         exit();
@@ -93,6 +95,10 @@ function updateInfo(){
                     break;
                 case 'Handynummer':
                     $sql2 ="UPDATE nutzer SET Handynummer = ? WHERE ID = ?";
+                    if(!is_numeric($neuerWert)){
+                        echo 3;
+                        exit;
+                    }
                     break;
                 case 'Passwort':
                     $sql2 ="UPDATE nutzer SET Passwort = ? WHERE ID = ?";
@@ -257,6 +263,102 @@ function  pruefen(){
                 }
             }
         }
+}
+
+function löschen(){
+    
+    $conn = dbVerbinden();
+    $id = htmlspecialchars(stripcslashes(trim($_GET['id'])));
+  
+    $sql = "SELECT Nick FROM nutzer WHERE ID = ?";
+    $stmt = mysqli_stmt_init($conn);
+       
+    if(!mysqli_stmt_prepare($stmt,$sql)){
+        // echo'Upade vergleich '.mysqli_error($conn);
+        header("Location:../Profil.php?fehler prepare 1".mysqli_error($conn));
+        exit;
+    }
+    else 
+    {
+        mysqli_stmt_bind_param($stmt,"i",$id);
+        mysqli_stmt_execute($stmt); 
+        $erg = mysqli_stmt_get_result($stmt);
+        $alles = mysqli_fetch_assoc($erg);
+        $nick = $alles["Nick"]; 
+
+        //Prüfen ob der Angemeldete Nutzer der Selbe ist wie die zugehörige ID
+        if($nick == $_SESSION['User'])
+        {
+            $stmt2 = mysqli_stmt_init($conn);
+            $sql2 = "DELETE FROM `nutzer` WHERE `ID` = ?";
+            if(!mysqli_stmt_prepare($stmt2,$sql2)){
+                // echo'Upade vergleich '.mysqli_error($conn);
+                header("Location:../Profil.php?fehler prepare 2".mysqli_error($conn));
+                exit;
+            }
+            else 
+            {
+                mysqli_stmt_bind_param($stmt2,"i",$id);
+                mysqli_stmt_execute($stmt2); 
+                
+                //Profilbilder löschen
+                $dateiname = "../../Uploads/Bilder_Profil/".$_SESSION['User']."*";
+                $dateiInfo = glob($dateiname);
+                $dateiEndung= explode(".",$dateiInfo[0]);
+                $echteDateiEndung = $dateiEndung[5];
+                if(!unlink ("../../Uploads/Bilder_Profil/".$_SESSION['User'].".".$echteDateiEndung)){
+                    echo'Fehler beim löschen des Vorschaubilds';
+                }
+                else{
+                    
+                    if(!unlink ("../../Uploads/Bilder_Profil/Orginaleuploads/".$_SESSION['User'].".".$echteDateiEndung)){
+                        echo'Fehler beim löschen des Orginal Bilds';
+                    
+                    }
+                    else{
+                        //Löschen Dokumentieren
+                        $filename = 'Profil_Löschen.txt';
+                        $date = date("d.m.Y - H:i", time());
+                        $nutzer =  $_SESSION['User'];
+                        $somecontent = "$date | Nutzer: $nutzer\n";
+                   
+                        
+                        // Sichergehen, dass die Datei existiert und beschreibbar ist.
+                        if (is_writable("../../Logdaten/$filename")) {
+                        
+                            // Wir öffnen $filename im "Anhänge" - Modus.
+                            // Der Dateizeiger befindet sich am Ende der Datei, und
+                            // dort wird $somecontent später mit fwrite() geschrieben.
+                            if (!$handle = fopen("../../Logdaten/$filename", "a")) {
+                                 print "Kann die Datei $filename nicht öffnen";
+                                 exit;
+                            }
+                        
+                            // Schreibe $somecontent in die geöffnete Datei.
+                            if (!fwrite($handle, $somecontent)) {
+                                print "Kann in die Datei $filename nicht schreiben";
+                                exit;
+                            }
+                            fclose($handle);
+                        
+                        } else {
+                            print "Die Datei $filename ist nicht schreibbar";
+                        }
+                        
+                        //Loggt den Nutzer aus
+                        session_unset();
+                        session_destroy();
+                        
+                        //Schickt den Nutzer auf die Startseite
+                        header("Location: ../index.php?Schade dass du uns verlässt");
+                    }
+                }    
+            }
+        }
+        else{
+            header("Location: ../Profil.php?dazu bist du nicht berechtigt".mysqli_error($conn));
+        }
+    }
 }
 
 ?>

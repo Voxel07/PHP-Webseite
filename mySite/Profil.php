@@ -4,6 +4,10 @@ include_once "includes/dbh.inc.php";
 echo' <link rel="stylesheet" href="../Styles/style_Profil.css">';
 echo'<script src="../Skripte/Profil.js"></script>';
 ?>
+
+
+
+  
 <?php
  if(isset($_SESSION['User']))
  {
@@ -11,9 +15,11 @@ echo'<script src="../Skripte/Profil.js"></script>';
   echo'
   <div class="PersonalData-Box">
     <div class="Data-Box">
-      <div class="Data-Überschrift">
+      <div class="Data-Titel">
           <h2>Hallo '.$usr.' das ist dein Profil.</h2>  
-      </div>';
+          <div class="löschen-button"  onclick="löschenPopUpShow()">Profil löschen</div>
+      </div>
+      ';
         // Alle weiteren infos aus der Datenbak abgreifen
       // Anfrage vorbereiten
       $sql = "SELECT * FROM nutzer WHERE Nick = ?";
@@ -71,14 +77,15 @@ echo'<script src="../Skripte/Profil.js"></script>';
               </form> <br>   
             </div>
           </div>
-          <div class="header-Info">
-              <p>Hier sind alle Daten über dich erfasst wurden aufgelistet. </p>
-              <p>Einige Infos sind für alle Besucher der Seite sichtbar. Diese sind mit einem ! gekennzeichnet. </p>
-              <p>Alle von dir Veränderbaren Daten sind mit einem Zahnrad gekennzeichnet.</p>
-              <p>Es sind manche Felder noch nicht befüllt. Diese Daten werden bei der Regestirerung nicht erfasst und sind für die Benutzung der Seite nicht unbeding notwendig.
-                  Diese Daten können aber benutz werden um ein besseres miteinander im Team zu ermöglichen. Diese Daten werden nicht an dritte weiter gegeben und können auch nicht von anderen Teammitgliedern eingesehen werden. Lediglich der Administrator der Seite kann diese Infos einsehen.
+             <div class="header-Info">
+                Hier sind alle Daten über dich erfasst wurden aufgelistet. 
+                <p>Einige Infos sind für alle Besucher der Seite sichtbar. Diese sind mit einem ! gekennzeichnet. </p>
+                <p>Alle von dir Veränderbaren Daten sind mit einem Zahnrad gekennzeichnet.</p>
+                <p>Es sind manche Felder noch nicht befüllt. Diese Daten werden bei der Regestirerung nicht erfasst und sind für die Benutzung der Seite nicht unbeding notwendig.
+                    Diese Daten können aber benutz werden um ein besseres miteinander im Team zu ermöglichen. Diese Daten werden nicht an dritte weiter gegeben und können auch nicht von anderen Teammitgliedern eingesehen werden. Lediglich der Administrator der Seite kann diese Infos einsehen.
               </p>
               </div>
+             
           </div>
         </div>
       
@@ -327,7 +334,45 @@ echo'<script src="../Skripte/Profil.js"></script>';
                 
             </div>
           </div>
-      </div>';
+    </div>
+    
+    
+    
+    
+    <div  id="löschenPopUp" class = "löschenPopUpContainer">
+    <div  class="löschen-PopUp">
+        <div class="PopUp-kopf">
+            <div><p>Bist du dir ganz sicher ?</p></div>
+            <div class="PopUp-schließen"  onclick="löschenPopUpHide()"><svg class="svg-icon" viewBox="0 0 20 20">
+                <path  d="M15.898,4.045c-0.271-0.272-0.713-0.272-0.986,0l-4.71,4.711L5.493,4.045c-0.272-0.272-0.714-0.272-0.986,0s-0.272,0.714,0,0.986l4.709,4.711l-4.71,4.711c-0.272,0.271-0.272,0.713,0,0.986c0.136,0.136,0.314,0.203,0.492,0.203c0.179,0,0.357-0.067,0.493-0.203l4.711-4.711l4.71,4.711c0.137,0.136,0.314,0.203,0.494,0.203c0.178,0,0.355-0.067,0.492-0.203c0.273-0.273,0.273-0.715,0-0.986l-4.711-4.711l4.711-4.711C16.172,4.759,16.172,4.317,15.898,4.045z"></path>
+            </svg></div>
+        </div>
+        <div class="löschen-warnung"><p>Bitte lies dir den folgenden Hinnweis gut durch.</p></div>
+        <div class="löschen-text">
+            <p>Diese Aktion kann <strong>nicht</strong> rückgängig gemacht werden ! Dein Profil wird unwiederruflich gelöscht.
+                Es gibt keine Sicherheitskopie deiner Daten. 
+            </p>
+            <p>
+                Dein Persönlichen Daten, sowie dein Profilbild werden gelöscht. Deine Beiträge in Foren und der Gallerie bleiben jedoch bestehen.
+            </p>
+        </div>
+        <div class="löschen-aufforderung">
+            <p>Bitte tippe <strong>löschen</strong> zum Bestätigen</p>
+        </div>
+        
+        <input id="löschenInput"  class="löschen-eingabe " type="text" maxlength="7" autocomplete="off" pattern="[lL][öÖ][sS][cC][hH][eE][nN]">
+        <form action="../mySite/includes/update_nutzerInfo.inc.php?aufgabe=löschen" method="GET">
+            <input type="text" value='.$row['ID'].' hidden name="id">
+            <button id="löschen-fkbutton" class="löschen-fkbutton" name="aufgabe" type="submit" value="löschen" >Profil unwiederruflich  löschen</button>
+        </form>    
+    </div>
+</div>
+    
+    
+    
+    
+    ';
+
     }
  }
  else
