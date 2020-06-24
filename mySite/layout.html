@@ -3,46 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profil</title>
+    <title>Layout</title>
     <link rel="stylesheet" href="../Styles/layout.css">  
     <script src="../Skripte/layout.js"></script> 
+
+
+
 </head>
+ 
 <body>
+  <h1>Bildergalerie</h1>
 
-    
-        
-        <div class="löschen-button"  onclick="löschenPopUpShow()">Profil löschen</div>
+  
+  
+  <div class="gallery">
+
+
    
+    <figure class="landscape"><img onclick="big('galerie_asfasf.5ef225c869eaa4.51986487.jpg')" src="../Uploads/Bilder_Galerie/galerie_asfasf.5ef225c869eaa4.51986487.jpg" alt="placeholder"></figure>
+    <figure class="landscape"><img onclick="big('gallerie_123asd4234.5e624ccea3acb6.23185667.jpg')" src="../Uploads/Bilder_Galerie/gallerie_123asd4234.5e624ccea3acb6.23185667.jpg" alt="placeholder"></figure>
+    <figure class="landscape"><img onclick="big('gallerie_1231231234234234234234.5e59a2d7cb8f03.39207156.jpg')" src="../Uploads/Bilder_Galerie/gallerie_1231231234234234234234.5e59a2d7cb8f03.39207156.jpg" alt="placeholder"></figure>
+  
+   </div>
 
-    <div id="löschenPopUp" class="löschen-PopUp">
-        <div class="PopUp-kopf">
-            <div><p>Bist du dir ganz sicher ?</p></div>
-            <div class="PopUp-schließen"  onclick="löschenPopUpHide()"><svg class="svg-icon" viewBox="0 0 20 20">
-                <path  d="M15.898,4.045c-0.271-0.272-0.713-0.272-0.986,0l-4.71,4.711L5.493,4.045c-0.272-0.272-0.714-0.272-0.986,0s-0.272,0.714,0,0.986l4.709,4.711l-4.71,4.711c-0.272,0.271-0.272,0.713,0,0.986c0.136,0.136,0.314,0.203,0.492,0.203c0.179,0,0.357-0.067,0.493-0.203l4.711-4.711l4.71,4.711c0.137,0.136,0.314,0.203,0.494,0.203c0.178,0,0.355-0.067,0.492-0.203c0.273-0.273,0.273-0.715,0-0.986l-4.711-4.711l4.711-4.711C16.172,4.759,16.172,4.317,15.898,4.045z"></path>
-            </svg></div>
-        </div>
-        <div class="löschen-warnung"><p>Bitte lies dir den folgenden Hinnweis gut durch.</p></div>
-        <div class="löschen-text">
-            <p>Diese Aktion kann <strong>nicht</strong> rückgängig gemacht werden ! Dein Profil wird unwiederruflich gelöscht.
-                Es gibt keine Sicherheitskopie deiner Daten. 
-            </p>
-            <p>
-                Dein Persönlichen Daten, sowie dein Profilbild werden gelöscht. Deine Beiträge in Foren und der Gallerie bleiben jedoch bestehen.
-            </p>
-        </div>
-        <div class="löschen-aufforderung">
-            <p>Bitte tippe <strong>löschen</strong> zum Bestätigen</p>
-        </div>
-        
-        <form action="../mySite/includes/update_nutzerInfo.inc.php?aufgabe=löschen" method="GET">
-            <input id="löschenInput"  class="löschen-eingabe " type="text" maxlength="7"  autocomplete="off" pattern="[lL][öÖ][sS][cC][hH][eE][nN]">
-            <input type="text" value="14" hidden name="id">
-            <button id="löschn-fkbutton" class="löschen-fkbutton" name="aufgabe" type="submit" value="löschen" >Profil unwiederruflich  löschen</button>
-        </form>
-        
+   
+    <div id="vollBild-Box">
+        <div class="previous" onclick="previos()"></div>
        
-    </div>
+        <div id="vollBild" class="vollBild">
+            <div id="infoSideBar">
+                <div class="infoSideBar-menue">
+                    <div class="infoVollBild menue-schliesen" onclick="hideDetails()"></div>
+                    <div class="infoVollBild menue-zoom" onclick="hideDetails()"></div>
+                    <div class="infoVollBild menue-löschen" onclick="hideDetails()"></div>
+                </div>
+                
+                <div class="infoSideBar-infos">
+                    <div>Infos:
+                    </div>
+                    <div class="infoBox">
+                        <div class="infoBox-svg date"></div>
+                        <div class="infoBox-infos ">24.06.2020
+
+                        </div>
+                    </div>
+                    <div class="infoBox">
+                        <div class="infoBox-svg details"></div>
+                        <div class="infoBox-infos">Auflösung: 1920x1080
     
+                        </div>
+                    </div>
+                    <div class="infoBox">
+                        <div class="infoBox-svg album"></div>
+                        <div class="infoBox-infos"> vom Album Veckring 2018
+    
+                        </div>
+                    </div>
+                    <div class="infoBox">
+                        <div class="infoBox-svg uploader"></div>
+                        <div class="infoBox-infos">Hochgeladen von Camo
+    
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="vollBildMenue">
+                <div class="infoVollBild" onclick="showDetails()"></div>
+                <div class="vollBildSchließen"  onclick="small()"></div>
+            </div>
+                       
+        </div>
+        <div class="next" onclick="next()"></div>
+    </div>
+  
+
 
 </body>
 </html>

@@ -1,4 +1,11 @@
-
+@font-face{
+  font-family: roboto_L;
+  src:url("../Roboto/Roboto-Light.ttf");
+}
+@font-face{
+  font-family: roboto_B;
+  src:url("../Roboto/Roboto-Bold.ttf");
+}
 #sidebar{
   position: fixed; 
   width: 190px;
@@ -15,6 +22,9 @@
 }
   
 #sidebar ul li{
+
+  margin-left: -25px;
+  margin-right: 10px;
   color: rgba(230,230,230,0.9);
   list-style: none;
   padding: 15px 10px;
@@ -40,6 +50,7 @@
 #sidebar ul li a{
   color: white;
   text-decoration: none;
+  font-family: roboto_B;
 }
 
 img.sb_bild {
@@ -49,7 +60,29 @@ img.sb_bild {
   /* opacity: 1.0; */
 }
 
-/* div.toggle-btn:active{
-   background: red;
-   margin-left: 200px;
-} */
+#sidebarButten{
+  display: flex;
+  justify-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 20px;
+  margin-bottom: -50px;
+  margin-left: 25px;
+  border: 1px solid white;
+  border-radius: 5px;
+} 
+
+#sidebarButten a{
+  color: white;
+  text-decoration: none;
+  font-family: roboto_B;
+}
+
+
+#sidebarButten:hover{
+  border: 1px solid red;
+} 
+
+#sidebarButten a:hover{
+  color: red;
+}

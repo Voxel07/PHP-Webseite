@@ -48,16 +48,16 @@ if(isset($_POST['upload-Galerie']))
                 $pfad = "../../Uploads/Bilder_Galerie/Vollbild_Bilder/". $dateinameServer; //Wo soll die Datei gespeichert werdem
 
                 if(empty($titel)||empty($beschreibung)){ //Prüft ob Titel und beschreibung gegeben sind
-                    header("Location: ../Galerie.php?upload=empty");
-                     echo'1';
+                    // header("Location: ../Galerie.php?upload=empty");
+                     echo'1 Tietel und Beschreibung dürfen nicht lehr sein.';
                     exit();
                 }
                 else{
                     $sql = "SELECT * FROM gallerie";//Sql befehl 
                     $stmt = mysqli_stmt_init($conn);
                     if(!mysqli_stmt_prepare($stmt,$sql)){
-                        header("Location: ../Galerie.php?upload=sqlStatementError");//
-                         echo'2';
+                        // header("Location: ../Galerie.php?upload=sqlStatementError");//
+                         echo'2 Titel schon vorhanden';
                         exit();
                     }
                     else{
@@ -69,8 +69,8 @@ if(isset($_POST['upload-Galerie']))
                         $sql2 = "INSERT INTO gallerie (Titel, Beschreibung, Pfad, Reihenfolge, uploadDatum, Ersteller) VALUES (?, ?, ?, ?, ?, ?);";
                         // $sql2 = "INSERT INTO gallerie (titelGallerie, beschGallerie, dateinameServer, reihenfolgeGallerie) VALUES (?, ?, ?, ?);";
                         if(!mysqli_stmt_prepare($stmt,$sql2)){
-                            echo'3';
-                            header("Location: ../Galerie.php?upload=sqlStatementError2");
+                            echo'3 Einfügen ist fehlgeschlagen';
+                            // header("Location: ../Galerie.php?upload=sqlStatementError2");
                             exit();
                         }
                         else{
@@ -93,7 +93,8 @@ if(isset($_POST['upload-Galerie']))
                               $stmt = mysqli_stmt_init($conn);
 
                               if(!mysqli_stmt_prepare($stmt,$sql3)){
-                              echo "SQL Fehler !!";
+                              echo "SQL Fehler beim Nutzer herausfinden";
+                              exit();
                               }
                               else{
                                   mysqli_stmt_bind_param($stmt,"s",$Nutzer);
@@ -108,8 +109,9 @@ if(isset($_POST['upload-Galerie']))
                                 $sql4 = " UPDATE nutzer SET anz_Bilder = '$anzNeu' WHERE Nick = ?;";
                                 $stmt = mysqli_stmt_init($conn);
                                     if(!mysqli_stmt_prepare($stmt,$sql4)){
+                                        echo "SQL Fehler beim Nutzer updaten";
 
-                                        header("Location: ../index.php?error=sql_error2");
+                                        // header("Location: ../index.php?error=sql_error2");
                                         exit();
                                     }
                                 //Wenn es klappt:
@@ -138,25 +140,26 @@ if(isset($_POST['upload-Galerie']))
                                 }
                             }
                             header("Location: ../Galerie.php?upload=success?&anz =".$anzahl."&anzNeu=".$anzNeu);
+                            echo'Datei erfolgreich hochgeladen';
                         }
                     }
                 }
             }
             else{
                 header("Location: ../Galerie.php?upload=Datei zu groß");
-                 echo'5';
+                 echo'Datei zu groß';
                 exit();
             }
         }
         else{
             header("Location: ../Galerie.php?upload=Fehler beim Upload");
-             echo'6';
+             echo'Fehler beim Upload';
             exit();
         }
     }
     else{
         header("Location: ../Galerie.php?upload=Ungültiges Bildformat");
-         echo'7';
+         echo'Ungültiges Bildformat';
         exit();
     }
 }

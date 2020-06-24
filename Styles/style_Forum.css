@@ -91,11 +91,25 @@
     width: 35px;
 }
 .gelesen svg{
+    margin-left: 5px;
+    /* background-color: rgb(224, 224, 224); */
     fill: white;
 }
 .Thema-Titel{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
     width: 400px;
+    height: 76px;
     margin-left: 20px;
+}
+.Thema-Titel h3{
+    margin: 0px;
+    padding: 0px;
+}
+.Thema-Titel p{
+    margin: 0px;
+    padding: 0px;
 }
 .Thema-Titel-Themen{
     display: flex;
@@ -105,18 +119,42 @@
 }
 
 .Thema-Info{
-    margin-left: 150px;
-    display: block;
-    position: relative;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    height: 76px;
+    margin-left: 100px;
+    
     /* background-color: blueviolet; */ 
 }
+.Thema-Info h4{
+    margin: 0px;
+    padding: 0px;
+}
+.Thema-Info p{
+    margin: 0px;
+    padding: 0px;
+}
 .Thema-LB{
-   /* background-color: yellow; */
-   margin-right: 5px;
+    display: flex;
+    flex-flow: column;
+    height: 76px;
+    justify-content: center;
+}
+.Thema-LB a{
+    margin: 0px;
+    padding: 0px;
+}
+.Thema-LB p{
+    margin: 0px;
+    padding: 0px;
 }
 .Thema-test{
     display: flex;
     flex-flow: row;
+    height: 76px;
+    align-items: center;
+    align-content: center;
 }
 .Thema div a{
     text-decoration: none;

@@ -68,7 +68,9 @@ echo'<link rel="stylesheet" href="../Styles/Galerie.css">';
       echo'<div class="galerie_upload">';
       // echo' <form class ="form" id="uploadForm"> 
       //Fortschrittsbalken geht noch nicht, warum kp. 
-      echo'<form action = "includes/Upload_Galerie.inc.php" method="post" enctype="multipart/form-data">
+
+      //id entfernen dann geht der upload, allerdings ohne fortschrittsbalken
+      echo'<form id="uploadForm" action = "includes/Upload_Galerie.inc.php" method="post" enctype="multipart/form-data">
      
      
      
@@ -85,6 +87,8 @@ echo'<link rel="stylesheet" href="../Styles/Galerie.css">';
             <div class="progress-bar-fill">
               <span class="progress-bar-text">0%</span>
             </div>
+            <div class="progress-bar-fortschritt">0mb</div>
+            <div class="progress-bar-geschw">0mb</div>
           </div>';
       echo'</div>'; //gallerie_upload zu
     }
@@ -103,5 +107,5 @@ echo'<link rel="stylesheet" href="../Styles/Galerie.css">';
 <script src="../Skripte/Galerie.js"></script>
 </div><!--gallerie_box zu -->
 <?php
-include "footer.php";
+// include "footer.php";
 ?>

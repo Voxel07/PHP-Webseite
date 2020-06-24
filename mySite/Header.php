@@ -114,23 +114,25 @@ if(elm != 0){
         //Wird ausgegeben wenn der Nutzer nicht angemeldet ist
         if(isset($_SESSION['User']))
         {
-        echo '
-            <ul>                
-                <li><a href="#">Home</a></li>
-                <li><a href="Profil.php">Mein Profil</a></li>';
-        // zusätzliche Inhalte wenn der Nutzer Mitglied ist
-        if($_SESSION['rang']>0)
-        {
-            echo'<li><a href="Chat.php">Chat</a></li>
-                 <li><a href="Forum.php">Forum</a></li>';              
-        }     
-        //Admin, vorstand zusatz
-        if($_SESSION['rang']>2)
-        {
-            echo'<li><a href="Adminzeug.php">Adminzeug</a></li>
-            </ul>'; 
-            //Optionen Liste zu               
-        }
+            echo '
+                <ul>                
+                    <li><a href="#">Home</a></li>
+                    <li><a href="Profil.php">Mein Profil</a></li>';
+            // zusätzliche Inhalte wenn der Nutzer Mitglied ist
+            if($_SESSION['rang']>0)
+            {
+                echo'<li><a href="Chat.php">Chat</a></li>
+                    <li><a href="Forum.php">Forum</a></li>';              
+            }     
+            //Admin, vorstand zusatz
+            if($_SESSION['rang']>2)
+            {
+                echo'<li><a href="Adminzeug.php">Adminzeug</a></li>';
+                
+                //Optionen Liste zu               
+            }
+            echo'</ul>';
+            echo'<div id="sidebarButten"><a href="includes/logout.inc.php">Logout</a></div>';
         }
         //Wenn der Nutzer nicht angemeldet ist.
         else 

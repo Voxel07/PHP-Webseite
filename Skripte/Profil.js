@@ -77,6 +77,7 @@ function datenHolen(feld,bereich){
                     neuerWert.addEventListener('keyup',vergleichen,true);
                     neuerWert.value = date.getFullYear() + '-' + ('0' + (date.getMonth()+1)).slice(-2) + '-'+('0' + date.getDate()).slice(-2); 
                     wertWDH.parentElement.style.display ="none";
+                    wertWDH.value = "";
                    
                     hintAlt.innerHTML="";
                     hintNeu.innerHTML="";
@@ -94,29 +95,14 @@ function datenHolen(feld,bereich){
                     neuerWert.value = "";
                     neuerWert.focus();
                     neuerWert.addEventListener('blur', pruefen,true); 
-                    // wertWDH.parentElement.style.display ="none";
+                    wertWDH.parentElement.style.display ="none";
+                    wertWDH.value = "";
 
                     hintAlt.innerHTML="";
                     hintNeu.innerHTML="";
-                    // hintWDH.innerHTML="";    
+                    hintWDH.innerHTML="";    
                 break;
-                // case"Handynummer":
-                // alterWert.removeEventListener("blur", pruefen,true);
-                // alterWert.type = "text";
-                // alterWert.value = xhr.responseText;
-                // alterWert.readOnly = true;
-                // alterWert.style.borderBottom ="1px solid #b3b3b3";
-                // neuerWert.style.borderBottom = '1px solid #b3b3b3';
-              
-                // neuerWert.placeholder = "neuer "+feld;
-                // neuerWert.value = "";
-                // neuerWert.focus();
-                // neuerWert.addEventListener('keyup',vergleichen,true);
-                // // wertWDH.parentElement.style.display ="none";
-                // hintAlt.innerHTML="";
-                // hintNeu.innerHTML="";
-                // neuerWert.type = "number";
-                // break;
+               
                 default:
                     alterWert.removeEventListener("blur", pruefen,true);
                     alterWert.type = "text";
@@ -129,10 +115,11 @@ function datenHolen(feld,bereich){
                     neuerWert.value = "";
                     neuerWert.focus();
                     neuerWert.addEventListener('keyup',vergleichen,true);
-                    // wertWDH.parentElement.style.display ="none";
+                    wertWDH.parentElement.style.display ="none";
+                    wertWDH.value = "";
                     hintAlt.innerHTML="";
                     hintNeu.innerHTML="";
-                    // hintWDH.innerHTML="";
+                    hintWDH.innerHTML="";
                     break;
             }
         }   

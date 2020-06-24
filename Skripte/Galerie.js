@@ -1,24 +1,55 @@
 const uploadForm = document.getElementById("uploadForm");
 const inpFile = document.getElementById("inpFile");
 const progressBarFill = document.querySelector(".progress-bar-fill");
-
 const progressBarText = progressBarFill.querySelector(".progress-bar-text");
+const progressBarfortschritt = document.querySelector(".progress-bar-fortschritt");
+const progressBargeschw = document.querySelector(".progress-bar-geschw");
+
+var lastSize = 0;
+var lastTime = Date.now();
+var currentTime = Date.now();
+
+
 
 uploadForm.addEventListener("submit",uploadFile);
 
 function uploadFile (e){
     e.preventDefault();
     const xhr = new XMLHttpRequest();
-    xhr.open("post","../mySite/includes/Upload_Gallerie.inc.php");
+    xhr.open("post","../mySite/includes/Upload_Galerie.inc.php");
     xhr.upload.addEventListener("progress",e => {
       const percent = e.lengthComputable ? (e.loaded / e.total) * 100 : 0;
-
+     
+      //Anzeig für xxmb von xxmb
+      progressBarfortschritt.textContent = ((e.total)/1000000).toFixed(2) + " mb von "+((e.loaded)/1000000).toFixed(2) +" mB hochgeladen.";
+      //Upload geschw 
+      currentTime = Date.now()
+      var dtime= currentTime-lastTime;
+      var dsize = e.loaded-lastSize;
+      console.log("Hochgeladen in diesem Tick: "+ dtime);
+      console.log("Vergange Zeit: "+ dsize);
+      
+      
+      lastSize = e.loaded;
+      lastTime = currentTime;
+      progressBargeschw.textContent = "Uploadgeschw.: "+(dsize/dtime).toFixed(2)+" kb/s";
+      //Fortschrittsbalken
       progressBarFill.style.width = percent.toFixed(2) + "%";
       progressBarText.textContent = percent.toFixed(2) + "%";
         console.log(e);
     });
     xhr.setRequestHeader("enctype", "multipart/form-data")
     xhr.send(new FormData(uploadForm));
+
+    xhr.onreadystatechange = function() {
+      // console.log("xhr Stat: "+xhr.readyState);
+      // console.log("xhr Status: "+xhr.status);
+     
+      if (xhr.readyState == 4 && xhr.status == 200) {
+          var ergebnis = xhr.responseText;
+          console.log(ergebnis);
+      }
+    }
 }
 
 

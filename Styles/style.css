@@ -35,6 +35,7 @@ body {
     background-size: 94%;
     color: rgb(194, 194, 194);
     font-family: roboto_L;
+   
 }
 header{
     background-color: none;
@@ -197,25 +198,43 @@ fill: red;
 }
 
 /* Ab hier muss das menü neu angeordnet werden*/
+@media screen and (max-width:1300px){
+    header{
+        margin-left: 190px;
+        }
+}
 @media screen and (max-width:1000px){
-    body{
-        /* background: rgb(214, 105, 105); */
-        
+    .logo{
+        display: none;
     }
+    .Loged_in-Banner {
+        display: none;
+
+    }
+    .Loged_out-Banner{
+        display: none;
+    }
+    nav li{
+        margin-top: 50px;
+        /* margin-bottom: 20px; */
+        }
 }
 /* Ab hier muss das menü nochmal neu angeordnet werden*/
 @media screen and (max-width:725px){
-    body{
-        /* background: rgb(113, 113, 221); */
-        
+   header{
+       height: 200px;
+       /* background-color: red; */
+       /* margin-left: 190px; */
+    }
+   nav li{
+    /* margin-bottom: 20px; */
     }
 }
 /* Ab hier muss das menü nochmal neu angeordnet werden*/
-@media screen and (max-width:500px){
-    body{
-        /* background: rgb(132, 235, 132); */
-        
-    }
+@media screen and (max-width:545px){
+    /* nav li{
+         margin-left: 0px; 
+        } */
 }
 
 #id01{
