@@ -6,7 +6,7 @@ session_start();
 <?php
 
 //Uploads für die Galerie
-if(isset($_POST['upload-Galerie']))
+if(isset($_POST['upload-Galerie'])&&isset($_SESSION['User']))
 {
 
     $Nutzer = $_SESSION['User'];

@@ -5,14 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Layout</title>
     <link rel="stylesheet" href="../Styles/layout.css">  
-    <script src="../Skripte/layout.js"></script> 
+    <!-- <script src="../Skripte/layout.js"></script>  -->
 
 
 
 </head>
  
 <body>
-  <h1>Bildergalerie</h1>
+  <div class="galerie-kopf">
+    <div class="galerie-wechseln"><a href="#">zu den Alben</a></div>
+    <div class="galerie-suche">
+        <div class="galerie-suche-svg"></div>
+        <div class="galerie-suche-suche"><input  type="text" placeholder="In der Galerie suchen"></div>
+    </div>
+    <div class="galerie-upload" >
+        <div class="galerie-upload-butten" onclick="uploadMenue()">
+            <div class="galerie-upload-svg"></div>
+            <div class="galerie-upload-text">Hochladen</div>
+        </div>
+
+        <div class="galerie-upload-upload"> 
+          <p></p>Lade ein Bild hoch</p>
+                <form id="uploadForm" action = "includes/Upload_Galerie.inc.php" method="post" enctype="multipart/form-data">                     
+                    <input type="file" name="DateiZumHochladen"  id="inpFile">             
+                    <button type="submit" name="upload-Galerie">Upload</button>    
+                </form>
+                <div class="progress-bar" id="progressBar">
+                    <div class="progress-bar-fill"><span class="progress-bar-text">0%</span></div>
+                </div>    
+                <div class="progress-bar-fortschritt"></div>
+                <div class="progress-bar-geschw"></div>
+        </div>
+    </div>
+    
+    <div class="galerie-album">
+        <div class="galerie-album-butten" onclick="albumMenue()">
+            <div class="galerie-album-svg"></div>
+            <div class="galerie-album-text">Erstellen</div>
+        </div>
+    
+    <div class="galerie-album-upload"> 
+        <p style="color: orange;">Das geht noch nicht</p>
+              <form id="uploadForm" action = "#" method="post"enctype="multipart/form-data">                     
+                  <input type="file" name="DateiZumHochladen"  data-multiple-caption="{count} files selected" multiple  id="inpFile2">             
+                  <input tyxpe="text" name ="titel" placeholder="Albumtitel" maxlength="22" />
+                  <!-- <input tyxpe="text" name ="beschreibung" placeholder="Beschreibe dein Bild" />           -->
+                  <button type="submit" name="upload-Galerie">Upload</button>    
+              </form>
+              <div class="progress-bar" id="progressBar2">
+                  <div class="progress-bar-fill"><span class="progress-bar-text">0%</span></div>
+              </div>
+                  <div class="progress-bar-fortschritt"></div>
+                  <div class="progress-bar-geschw"></div>   
+      </div>
+  </div>
+</div>
+
 
   
   
@@ -77,8 +125,10 @@
         </div>
         <div class="next" onclick="next()"></div>
     </div>
-  
+    
+   
 
+    <script src="../Skripte/layout.js"></script> 
 
 </body>
 </html>

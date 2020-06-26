@@ -21,7 +21,7 @@ function uploadFile (e){
       const percent = e.lengthComputable ? (e.loaded / e.total) * 100 : 0;
      
       //Anzeig für xxmb von xxmb
-      progressBarfortschritt.textContent = ((e.total)/1000000).toFixed(2) + " mb von "+((e.loaded)/1000000).toFixed(2) +" mB hochgeladen.";
+      progressBarfortschritt.textContent = ((e.total)/1000000).toFixed(2) + "/"+((e.loaded)/1000000).toFixed(2) +" mB";
       //Upload geschw 
       currentTime = Date.now()
       var dtime= currentTime-lastTime;
@@ -32,7 +32,7 @@ function uploadFile (e){
       
       lastSize = e.loaded;
       lastTime = currentTime;
-      progressBargeschw.textContent = "Uploadgeschw.: "+(dsize/dtime).toFixed(2)+" kb/s";
+      progressBargeschw.textContent = +(dsize/dtime).toFixed(2)+" kb/s";
       //Fortschrittsbalken
       progressBarFill.style.width = percent.toFixed(2) + "%";
       progressBarText.textContent = percent.toFixed(2) + "%";
