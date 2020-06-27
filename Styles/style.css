@@ -154,6 +154,7 @@ fill: red;
     display: flex;
     border-radius: 3px;
     overflow: visible;
+    z-index: 100;
 }
 .Loged_in-Banner a{
     text-decoration: none;

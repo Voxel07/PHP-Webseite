@@ -5,130 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Layout</title>
     <link rel="stylesheet" href="../Styles/layout.css">  
-    <!-- <script src="../Skripte/layout.js"></script>  -->
+    <script src="../Skripte/layout.js"></script> 
 
 
 
 </head>
- 
-<body>
-  <div class="galerie-kopf">
-    <div class="galerie-wechseln"><a href="#">zu den Alben</a></div>
-    <div class="galerie-suche">
-        <div class="galerie-suche-svg"></div>
-        <div class="galerie-suche-suche"><input  type="text" placeholder="In der Galerie suchen"></div>
-    </div>
-    <div class="galerie-upload" >
-        <div class="galerie-upload-butten" onclick="uploadMenue()">
-            <div class="galerie-upload-svg"></div>
-            <div class="galerie-upload-text">Hochladen</div>
-        </div>
-
-        <div class="galerie-upload-upload"> 
-          <p></p>Lade ein Bild hoch</p>
-                <form id="uploadForm" action = "includes/Upload_Galerie.inc.php" method="post" enctype="multipart/form-data">                     
-                    <input type="file" name="DateiZumHochladen"  id="inpFile">             
-                    <button type="submit" name="upload-Galerie">Upload</button>    
-                </form>
-                <div class="progress-bar" id="progressBar">
-                    <div class="progress-bar-fill"><span class="progress-bar-text">0%</span></div>
-                </div>    
-                <div class="progress-bar-fortschritt"></div>
-                <div class="progress-bar-geschw"></div>
-        </div>
-    </div>
-    
-    <div class="galerie-album">
-        <div class="galerie-album-butten" onclick="albumMenue()">
-            <div class="galerie-album-svg"></div>
-            <div class="galerie-album-text">Erstellen</div>
-        </div>
-    
-    <div class="galerie-album-upload"> 
-        <p style="color: orange;">Das geht noch nicht</p>
-              <form id="uploadForm" action = "#" method="post"enctype="multipart/form-data">                     
-                  <input type="file" name="DateiZumHochladen"  data-multiple-caption="{count} files selected" multiple  id="inpFile2">             
-                  <input tyxpe="text" name ="titel" placeholder="Albumtitel" maxlength="22" />
-                  <!-- <input tyxpe="text" name ="beschreibung" placeholder="Beschreibe dein Bild" />           -->
-                  <button type="submit" name="upload-Galerie">Upload</button>    
-              </form>
-              <div class="progress-bar" id="progressBar2">
-                  <div class="progress-bar-fill"><span class="progress-bar-text">0%</span></div>
-              </div>
-                  <div class="progress-bar-fortschritt"></div>
-                  <div class="progress-bar-geschw"></div>   
-      </div>
-  </div>
-</div>
 
 
-  
-  
-  <div class="gallery">
-
-
-   
-    <figure class="landscape"><img onclick="big('galerie_asfasf.5ef225c869eaa4.51986487.jpg')" src="../Uploads/Bilder_Galerie/galerie_asfasf.5ef225c869eaa4.51986487.jpg" alt="placeholder"></figure>
-    <figure class="landscape"><img onclick="big('gallerie_123asd4234.5e624ccea3acb6.23185667.jpg')" src="../Uploads/Bilder_Galerie/gallerie_123asd4234.5e624ccea3acb6.23185667.jpg" alt="placeholder"></figure>
-    <figure class="landscape"><img onclick="big('gallerie_1231231234234234234234.5e59a2d7cb8f03.39207156.jpg')" src="../Uploads/Bilder_Galerie/gallerie_1231231234234234234234.5e59a2d7cb8f03.39207156.jpg" alt="placeholder"></figure>
-  
-   </div>
-
-   
-    <div id="vollBild-Box">
-        <div class="previous" onclick="previos()"></div>
-       
-        <div id="vollBild" class="vollBild">
-            <div id="infoSideBar">
-                <div class="infoSideBar-menue">
-                    <div class="infoVollBild menue-schliesen" onclick="hideDetails()"></div>
-                    <div class="infoVollBild menue-zoom" onclick="hideDetails()"></div>
-                    <div class="infoVollBild menue-löschen" onclick="hideDetails()"></div>
-                </div>
-                
-                <div class="infoSideBar-infos">
-                    <div>Infos:
-                    </div>
-                    <div class="infoBox">
-                        <div class="infoBox-svg date"></div>
-                        <div class="infoBox-infos ">24.06.2020
-
-                        </div>
-                    </div>
-                    <div class="infoBox">
-                        <div class="infoBox-svg details"></div>
-                        <div class="infoBox-infos">Auflösung: 1920x1080
-    
-                        </div>
-                    </div>
-                    <div class="infoBox">
-                        <div class="infoBox-svg album"></div>
-                        <div class="infoBox-infos"> vom Album Veckring 2018
-    
-                        </div>
-                    </div>
-                    <div class="infoBox">
-                        <div class="infoBox-svg uploader"></div>
-                        <div class="infoBox-infos">Hochgeladen von Camo
-    
-                        </div>
-                    </div>
-                </div>
-
-
-            </div>
-            <div class="vollBildMenue">
-                <div class="infoVollBild" onclick="showDetails()"></div>
-                <div class="vollBildSchließen"  onclick="small()"></div>
-            </div>
-                       
-        </div>
-        <div class="next" onclick="next()"></div>
-    </div>
-    
-   
-
-    <script src="../Skripte/layout.js"></script> 
 
 </body>
 </html>
