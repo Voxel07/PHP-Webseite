@@ -180,3 +180,30 @@ function bildoptionen(bild){
   console.log(bild.height);
 
 }
+
+function textSpeichern() {
+		
+  var xhr = new XMLHttpRequest();
+
+  var daten = new FormData(document.getElementById("PostuploadForm"));
+  // var daten = new FormData();
+  xhr.open("POST", "includes/Forum_Posts.inc.php?herkunft=Forum_Themen.php" );
+  xhr.setRequestHeader("enctype", "multipart/form-data", "charset=utf-8 ");
+
+  daten.append("inhalt",document.getElementById("list").innerHTML);
+  // daten.append("post",document.getElementById("inputPost").value);
+  // daten.append("thema",document.getElementById("inputKategorie").value);
+  // daten.append("kategorie",document.getElementById("inputThema").value);
+  daten.append("Forum-Post","1");
+  xhr.send(daten);
+
+  xhr.onreadystatechange = function() {
+  console.log("XHR State:"+xhr.readyState+"XHR Satus:"+xhr.status);
+  if (xhr.readyState == 4 && xhr.status == 200) {
+       
+    console.log(xhr.responseText);
+    // console.log("fertig");
+     location.reload();
+  }
+}
+}

@@ -16,6 +16,16 @@ function addThema(zahl){
          elm.style.display = "none";
     }
 }
+function addPost(){
+    var elm = document.getElementById("postSchreiben");
+    if(window.getComputedStyle(elm).display == "none"){
+        elm.style.display = "block";
+        }
+        else{
+             elm.style.display = "none";
+        }
+
+}
 function ungelesenePostsUpdaten(id) {	
     var xr = new XMLHttpRequest();
     var url = "Forum_test.php";

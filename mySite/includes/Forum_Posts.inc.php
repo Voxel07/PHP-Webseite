@@ -4,10 +4,17 @@ include_once "dbh.inc.php";
 session_start();
 ?>
 <?php
+
+   var_dump($_POST);
+
+
+
+if(true){
+
 if(isset($_POST['Forum-Post']))
 {
     $neuerPost = htmlspecialchars(stripcslashes(trim($_POST['post'])));
-    $inhalt = htmlspecialchars(stripcslashes(trim($_POST['inhalt'])));
+    $inhalt =$_POST['inhalt'];
     $thema = $_POST['thema'];
     $kategorie = $_POST['kategorie'];
     $Nutzer = $_SESSION['User'];
@@ -130,4 +137,5 @@ else{
     header("Location: ../Forum.php?error=was willst du hier ?");
 }
 
+}
 ?>

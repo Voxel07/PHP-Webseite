@@ -122,7 +122,6 @@ if(isset( $_GET['kategorie'])){
                             else{
                                 echo'Als Ersteller des Tehmas darfst du es nur löschen, wenn keine Beiträge drin sind';
                             }
-                            
                         }
                         else{
                             echo'Admin oder Ersteller dürfen löschen';

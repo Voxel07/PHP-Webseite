@@ -147,13 +147,14 @@ echo'<link rel="stylesheet" href="../Styles/style_Texteditor.css">';
 
 	<?php
 		include_once "includes/dbh_Forum.inc.php";
-		$sql ="SELECT * FROM posts WHERE id = 98";		
+		$sql ="SELECT * FROM posts WHERE post = ?";		
 		$stmt = mysqli_stmt_init($conn2);
 		if(!mysqli_stmt_prepare($stmt,$sql)){
 			echo "SQL Fehler !!";
 		}
 		else
 		{
+			mysqli_stmt_bind_param($stmt,"s",$_GET['post']);
 			mysqli_stmt_execute($stmt);
 			$erg = mysqli_stmt_get_result($stmt);
 			$inhalt = mysqli_fetch_assoc($erg);
@@ -161,7 +162,7 @@ echo'<link rel="stylesheet" href="../Styles/style_Texteditor.css">';
 		}
 	?>
 
-<div id="list" class="output" contenteditable="true" onblur=textSpeichern()>
+<div id="list" class="output" contenteditable="true" >
 	
 	
 	
@@ -178,44 +179,6 @@ echo'<link rel="stylesheet" href="../Styles/style_Texteditor.css">';
 
 </form>
 
-<script>
-	//Bissher super unsicher !!!!
-	function textSpeichern(posta) {
-		
-		var xr = new XMLHttpRequest();
-		var url = "saveText.php";
-		var text = document.getElementById("list").innerHTML;
-		var vars = "newText=" +text;	
-		xr.open("POST", url ,true)
-		xr.setRequestHeader("Content-type", "application/x-www-form-urlencoded" );
-		xr.send(vars);
-
-
-
-		//Bilder auch übertragen
-		//gehot noch nicht
-
-		// document.getElementById('file-input-element').onchange = function(){
-		// if(this.files.length < 1) return false;
-		// for(var i = 0; i < this.files.length; i++) console.log(this.files[i]);
-		// };
-
-		// var xhr = new XMLHttpRequest();
-		// xhr.upload.addEventListener('progress',function(ev){
-		// 	console.log((ev.loaded/ev.total)+'%');
-		// }, false);
-		// xhr.onreadystatechange = function(ev){
-		// 	// Blah blah blah, you know how to make AJAX requests
-		// };
-		// xhr.open('POST', url, true);
-		// var files = document.getElementById('file-input-element').files;
-		// var data = new FormData();
-		// for(var i = 0; i < files.length; i++) data.append('file'+i, files[i]);
-		// xhr.send(data);
-		
-	}
-
-</script>
 
 
 <script src="../Skripte/Texteditor.js"></script>

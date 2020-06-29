@@ -2,7 +2,7 @@
 include "Header.php";
 include_once "includes/dbh_Forum.inc.php";
 echo'<link rel="stylesheet" href="../Styles/style_Forum.css">';
-
+// echo'<script src="../Skripte/Texteditor.js"></script>';
 ?>
 
 
@@ -67,7 +67,7 @@ if(isset($_GET['thema'])){
          Erstellt am: '.date("d.m.Y - H:i",$thema["erstellungsdatum"]).' Anzahl Posts: '.$thema["anzPosts"].'';
           //Themen Löschen Butten für Vorsände
           if(isset($_SESSION['rang'])>=3){
-            echo'<form action = "includes/löschen_Forum_Thema.inc.php?herkunft=Forum_Kategorie.php" method="post"> 
+            echo'<form  action = "includes/löschen_Forum_Thema.inc.php?herkunft=Forum_Kategorie.php" method="post"> 
              <button type="submit" name="Löschen-Thema"/>Thema löschen</button>
              <input type="hidden" name="TheZumLöschen" value="'.$thema["thema"].'" readonly>
              <input type="hidden" name="Kategorie" value="'.$thema["zugKategorie"].'" readonly>
@@ -77,7 +77,7 @@ if(isset($_GET['thema'])){
                 //Wenn der Nutzer der Ersteller ist und Keine Posts vorhenden sind darf er löschen
                 if(isset($_SESSION['User'])==$thema["ersteller"]){
                     if($thema["anzPosts"]==0){
-                        echo'<form action = "includes/löschen_Forum_Thema.inc.php?herkunft=Forum_Kategorie.php" method="post"> 
+                        echo'<form  action = "includes/löschen_Forum_Thema.inc.php?herkunft=Forum_Kategorie.php" method="post"> 
                         <button type="submit" name="Löschen-Thema"/>Thema löschen</button>
                         <input type="hidden" name="TheZumLöschen" value="'.$thema["thema"].'" readonly>
                         <input type="hidden" name="Kategorie" value="'.$thema["zugKategorie"].'" readonly>
@@ -106,7 +106,7 @@ if(isset($_GET['thema'])){
         {
             echo'
             <div class ="Thema">
-                <div class =Thema-test>
+                <div class ="Thema-test">
                             <div class = "gelesen"><svg class="svg-icon" viewBox="0 0 20 20">
                                 <path d="M3.183,9.381H0.704v1.239h2.479V9.381z M2.989,16.135l0.876,0.877l1.752-1.754l-0.876-0.875L2.989,16.135z
                                     M17.012,3.866l-0.877-0.876l-1.752,1.752l0.875,0.876L17.012,3.866z M10.62,0.705H9.38v2.479h1.239V0.705z M5.618,4.742
@@ -121,7 +121,7 @@ if(isset($_GET['thema'])){
                                 <h3><a href="Forum_Posts.php?post='.$reihepos["post"].'">'.str_replace("_"," ",$reihepos["post"]).'</a></h3>
                             </div>
                         </div><!--Titel des Tehmas & Beschreibung Box zu -->
-                <div>
+                <div class ="Thema-Info">
                     <h4>'.$reihepos["anzAntworten"].'</h4>
                     <p>Antworten</p>
                 </div><!--Anzahl der Beiträge zum Thema Box zu -->
@@ -156,21 +156,27 @@ if(isset($_GET['thema'])){
     }
         if(isset($_SESSION['User']) && isset($_SESSION['rang'])>0)
         {
+            echo'
+            <div class="postSchreiben-Button" onclick="addPost()"></div>
+            ';
           
          
-        echo'<div class="">';
+         echo'<div id="postSchreiben"class="postSchreiben">';
      
-            echo'<form action = "includes/Forum_Posts.inc.php?herkunft=Forum_Themen.php" method="post">             
-                    <input tyxpe="text" name ="post" placeholder="Tielel deines Posts" autofocus maxlength="35"/>';
+            echo'<form  id ="PostuploadForm" action = "#" method="post">             
+                    <input type="text" name ="post" placeholder="Tielel deines Posts" autofocus maxlength="35"/>
+                    <input  type ="hidden" name ="thema" placeholder="pfusch" value="'.$themaZumAufrufen.'" readonly></input>
+                    <input  type ="hidden" name ="kategorie" placeholder="pfusch" value="'.$thema['zugKategorie'].'" readonly></input>';
                     
-                    include_once "texteditor.php";
+                     include_once "texteditor.php";
 
                     echo'
-                    <input type ="hidden" name ="thema" placeholder="pfusch" value="'.$themaZumAufrufen.'" readonly></input>
-                    <input type ="hidden" name ="kategorie" placeholder="pfusch" value="'.$thema['zugKategorie'].'" readonly></input>
-                    <button type="submit" name="Forum-Post"/>Neue Beitrag Posten</button>    
+                    <button type="submit" name="Forum-Post" onclick="textSpeichern()"/>Neue Beitrag Posten</button>    
                 </form>';
         echo'</div>'; 
+        }
+        else{
+            echo'Bitte melde dich an !';
         }
             echo'</div>';  //Kategorien zu
     }

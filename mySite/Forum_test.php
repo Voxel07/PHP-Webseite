@@ -37,13 +37,13 @@ function dbVerbinden($db){
     $servername = "localhost";
     $user ="root";
     $pw = "";
-    $dbName ="wild_rovers";
+    // $dbName ="wild_rovers";
     //Verbindung zu DB aufbauen
     $link = mysqli_connect($servername, $user, $pw, $dbName);
     mysqli_set_charset($link,"utf8");
 
     if(!$link){
-    die("Verbindung fehlgeschlafen" .mysqli_connect_error());
+    die("Verbindung fehlgeschlagen" .mysqli_connect_error());
     }
     return $link;
 }
@@ -164,7 +164,7 @@ function dbEinfügen($dbName,$tabel,$spalten,$werte){
     <p>Hier siehst du alle Post welche du noch nicht gesehen hast</p>
     <?php
     $posts= dbLesen("forum","posts");
-    $ung = mysqli_fetch_assoc(dbLesen("wild-rovers","user","ungelesenePosts","Nick","Camo"))['ungelesenePosts'];
+    $ung = mysqli_fetch_assoc(dbLesen("wild_rovers","nutzer","ungelesen_Beiträge","Nick","Camo"))['ungelesen_Beiträge'];
     
     echo $ung; //string
     $nichtGelesen = explode(",",$ung); //array
@@ -204,8 +204,6 @@ function dbEinfügen($dbName,$tabel,$spalten,$werte){
             echo'</div>';         
         }
         else{
-
-         
             echo'<div class="svg-box">
                 <svg class="svg-icon" viewBox="0 0 20 20">
                 <path fill="black" d="M8.652,16.404c-0.186,0-0.337,0.151-0.337,0.337v2.022c0,0.186,0.151,0.337,0.337,0.337s0.337-0.151,0.337-0.337v-2.022C8.989,16.555,8.838,16.404,8.652,16.404z"></path>
