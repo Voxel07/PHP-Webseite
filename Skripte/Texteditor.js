@@ -55,7 +55,6 @@ for(let i = 0; i<editorButtons.length;i++) {
     , true);
 }
 
-
 for(let i = 0; i<option.length;i++) {
     option[i].addEventListener('click',function()
     {    
@@ -78,11 +77,10 @@ function option_toggle(gewOption){
     }
 
 }
-
 //Bilder Upload
 
-function dateiauswahl(bla) {
-    var dateien = bla.target.files; // FileList object
+function dateiauswahl(warumMussDashierSein) {
+    var dateien = warumMussDashierSein.target.files; // FileList object
 
     // Auslesen der gespeicherten Dateien durch Schleife
     for (var i = 0, f; f = dateien[i]; i++) {
@@ -102,29 +100,33 @@ function dateiauswahl(bla) {
           let image = new Image();
           //  console.log(e);
         image.onload = function () {
-            console.log ("Height:" + this.naturalHeight);
-            console.log ("Width:" + this.naturalWidth);
+            // console.log ("Height:" + this.naturalHeight);
+            // console.log ("Width:" + this.naturalWidth);
             // Mach was mit dem Bild
             var höhe = this.naturalHeight;
             var breite =this.naturalWidth;
             var asbRatio = höhe/breite;
-            console.log (asbRatio);
+            // console.log (asbRatio);
 
             var neuBreite = 200;
             var neuHöhe = neuBreite*asbRatio;
             console.log ("Breite:" + neuBreite, "Höhe:" +neuHöhe);
+            image.id ="2165843";
             image.height = neuHöhe;
             image.width = neuBreite;
             image.className="test";
-            image.innerText =image.naturalHeight //Text zwischen den Tags
+            image.innerText = image.naturalHeight //Text zwischen den Tags
             image.setAttribute("onmouseover","bildoptionen(this)");
             image.setAttribute("onclick","test(this)");
 
        };
        image.src = e.target.result;
-         
+         console.log("SRC_Selber: "+image.src);
           
       
+          
+          document.getElementById('list').insertBefore(image, null);
+
           document.getElementById('list').insertBefore(image, null);
         };
       })(f);
@@ -135,33 +137,34 @@ function dateiauswahl(bla) {
   }
 
   // Auf neue Auswahl reagieren und gegebenenfalls Funktion dateiauswahl neu ausführen.
-//   document.getElementById('dateien').addEventListener('change', dateiauswahl, false);
+  document.getElementById('dateien').addEventListener('change', dateiauswahl, false);
 
-//   function test(elm){
-//     var größe = prompt("Neue Breite Eingeben: ");
-//     if(größe<50){
-//       console.log("zu klein");
-//       console.log(größe);
-//     }
+  function test(elm){
+    var größe = prompt("Neue Breite Eingeben: ");
+    if(größe<50){
+      console.log("zu klein");
+      console.log(größe);
+    }
     
-//     else{
-//     console.log ("Height:" + elm.naturalHeight);
-//     console.log ("Width:" + elm.naturalWidth);
-//     // Mach was mit dem Bild
-//     var höhe = elm.naturalHeight;
-//     var breite =elm.naturalWidth;
-//     var asbRatio = höhe/breite;
-//     console.log (asbRatio);
+    else{
+    // console.log ("Height:" + elm.naturalHeight);
+    // console.log ("Width:" + elm.naturalWidth);
+    // Mach was mit dem Bild
+    console.log("Das Bild: "+elm);
+    var höhe = elm.naturalHeight;
+    var breite =elm.naturalWidth;
+    var asbRatio = höhe/breite;
+    console.log (asbRatio);
 
-//     var neuBreite = größe;
-//     var neuHöhe = neuBreite*asbRatio;
+    var neuBreite = größe;
+    var neuHöhe = neuBreite*asbRatio;
    
-//     elm.height = neuHöhe;
-//     elm.width = neuBreite;
-//     console.log("göße:" + größe);
-//     console.log("geht");
-//   }
-// }
+    elm.height = neuHöhe;
+    elm.width = neuBreite;
+    // console.log("göße:" + größe);
+    // console.log("geht");
+  }
+}
 
 function bildoptionen(bild){
 

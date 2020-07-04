@@ -10,6 +10,20 @@ echo'<script src="../Skripte/chat.js"></script>';
 <?php
 
 
+    // $rohDaten = file_get_contents("../test2.txt");
+    $rohDaten = file_get_contents("../Bilder/Begadi.jpg");
+    echo $rohDaten;
+    // $bildDaten = base64_encode($rohDaten); 
+    $quelle = imagecreatefromstring($rohDaten); 
+    $winkel = 90; 
+    // $gedreht = imagerotate($quelle, $winkel, 0); // if want to rotate the image 
+    $imageName = "../BildausText1.jpg"; 
+    $imageSave = imagejpeg($quelle,$imageName,100); 
+    imagedestroy($quelle); 
+
+    echo' <img src="'.$imageName.'">';
+
+
 
 $string = str_replace("/mySite/","",$_SERVER['REQUEST_URI']);
 echo $string;
