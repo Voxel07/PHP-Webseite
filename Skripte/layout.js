@@ -1,4 +1,9 @@
+//Globale Variablen
+
+var anzBilder = 0;
+
 function makeResizableDiv(div) {
+  console.log("Funktionsaufruf");
     const element = document.querySelector(div);
     const resizers = document.querySelectorAll(div + ' .resizer')
     const minimum_size = 20;
@@ -75,15 +80,19 @@ function makeResizableDiv(div) {
     }
   }
   
-  makeResizableDiv('.resizable')
+  //  makeResizableDiv('.resizable')
 
 
   function addAChild () {
-      var Ausgabebereich = document.getElementById('main');
-    
+    anzBilder++;
+    var Ausgabebereich = document.getElementById('main');
     var imageBox = document.createElement('div');
     imageBox.className = 'resizable';
-    imageBox.style.backgroundImage = "url('../Bilder/Begadi.jpg')";
+    imageBox.id = "imageBox"+anzBilder;
+    imageBox.style.backgroundImage = "url('../Bilder/Banner.png')";
+    imageBox.style.backgroundRepeat   = "no-repeat";
+    imageBox.style.backgroundSize   = "contain";
+    
    
 
     var resizersBox = document.createElement("div");
@@ -103,12 +112,13 @@ function makeResizableDiv(div) {
     resizersBox.appendChild(resizers2);
     resizersBox.appendChild(resizers3);
     resizersBox.appendChild(resizers4);
-
     imageBox.appendChild(resizersBox);
-
-
-
     Ausgabebereich.appendChild(imageBox);
+
+    
+
+    // makeResizableDiv('.resizable');
+    makeResizableDiv('#imageBox'+anzBilder);
   }
 
   function init () {
