@@ -93,11 +93,8 @@ function makeResizableDiv(div) {
     imageBox.style.backgroundRepeat   = "no-repeat";
     imageBox.style.backgroundSize   = "contain";
     
-   
-
     var resizersBox = document.createElement("div");
     resizersBox.className = 'resizers';
-
 
     var resizers1 = document.createElement("div");
     resizers1.className = 'resizer top-left';
@@ -114,8 +111,6 @@ function makeResizableDiv(div) {
     resizersBox.appendChild(resizers4);
     imageBox.appendChild(resizersBox);
     Ausgabebereich.appendChild(imageBox);
-
-    
 
     // makeResizableDiv('.resizable');
     makeResizableDiv('#imageBox'+anzBilder);

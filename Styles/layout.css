@@ -1,14 +1,10 @@
-body,
-html {
-  /* background: black; */
-}
 .resizable {
   background: white;
   width: 100px;
   height: 100px;
   position: absolute;
   top: 100px;
-  left: 100px;
+  left: 100px; 
 }
 
 .resizable .resizers{

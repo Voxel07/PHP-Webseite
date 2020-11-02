@@ -35,7 +35,14 @@ function uploadFile (e){
 
         lastSize = e.loaded;
         lastTime = currentTime;
-        progressBargeschw.textContent = (dsize/dtime).toFixed(2)+" kb/s";
+      
+        var uploadGeschw = dsize/dtime;
+        if(uploadGeschw<1024){
+            progressBargeschw.textContent = uploadGeschw.toFixed(2)+" kb/s";
+        }
+        else{
+            progressBargeschw.textContent = (uploadGeschw/1000).toFixed(2)+" mb/s";
+        }
         //Fortschrittsbalken
         progressBarFill.style.width = percent.toFixed(2) + "%";
         progressBarText.textContent = percent.toFixed(2) + "%";

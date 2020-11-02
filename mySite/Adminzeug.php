@@ -91,9 +91,44 @@ echo 'Server auslastung: ';
 echo'<br>';
 echo'CPU Auslastung: '.$CPU_Last[$i-1].'% CPU Temperatur: '.$temperaturen[$i-1].'°C<br>';
 echo'Ram: '.$Ram[$i-1].'mB = '.((100/4000)*floor($Ram[$i-1])).'%<br>';
-echo'Es sind '.$Festplatte.'GB Festplattenspeicher von 32 GB belegt';
+echo'Es sind '.$Festplatte.'GB Festplattenspeicher von 32 GB belegt <br>';
 
 
+
+?>
+
+<?php
+$rawData = file_get_contents('https://vs.unigs.de/web/voiceserver/view/58pDTZ0');
+$arrayData = explode("</td>",$rawData);
+echo "Anzahl der Elemente: ". count($arrayData);
+// echo $arrayData[10];
+
+$nutzer = array();
+$anzNutzer = 0;
+for ($i=0; $i < count($arrayData); $i++) { 
+    
+    $gefunden = stripos($arrayData[$i],"corpus client");
+    if($gefunden > 0){
+        $nutzer[$anzNutzer] = $i;
+        $anzNutzer++;
+    }
+}
+echo " | Gefundene clients ".count($nutzer);
+echo'<ul>';
+
+for ($i=0; $i <  count($nutzer); $i++) { 
+     echo'<li>';
+    // echo'Vorkommen '.$i. ' mit dem Wert: '.htmlspecialchars($arrayData[$nutzer[$i]]);
+
+    $path = $arrayData[$nutzer[$i]];
+    $filename = substr(strrchr($path, ">"), 1);
+    echo $filename; // "index.html"
+
+    echo'</li>';
+}
+echo'</ul>';
+
+echo htmlspecialchars($arrayData[1]);
 
 ?>
 
@@ -101,8 +136,6 @@ echo'Es sind '.$Festplatte.'GB Festplattenspeicher von 32 GB belegt';
 
 
 
-
-
 <?php
-include_once "footer.php";
+// include_once "footer.php";
 ?>

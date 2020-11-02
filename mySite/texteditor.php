@@ -178,6 +178,7 @@ echo'<link rel="stylesheet" href="../Styles/style_Texteditor.css">';
 <button type="submit" name="upload-Post" >Senden</button>
 
 </form>
-
+<button id="button">ändern</button>
+<button id="button2">test</button>
 
 <script src="../Skripte/Texteditor.js"></script>

@@ -3,6 +3,7 @@ const editorCanvas = document.getElementById('canvas');
 const option = document.getElementsByClassName("option");
 var farbe  = "";
 var groeße = 3;
+var anzBilder = 0;
 
 const setAttribute = (element) => {
 
@@ -75,10 +76,8 @@ function option_toggle(gewOption){
         target.className = "versteckt";
         target.style.display = "none";
     }
-
 }
 //Bilder Upload
-
 function dateiauswahl(warumMussDashierSein) {
     var dateien = warumMussDashierSein.target.files; // FileList object
 
@@ -111,23 +110,20 @@ function dateiauswahl(warumMussDashierSein) {
             var neuBreite = 200;
             var neuHöhe = neuBreite*asbRatio;
             console.log ("Breite:" + neuBreite, "Höhe:" +neuHöhe);
-            image.id ="2165843";
+            image.id ="BildNr-"+anzBilder;
             image.height = neuHöhe;
             image.width = neuBreite;
-            image.className="test";
             image.innerText = image.naturalHeight //Text zwischen den Tags
             image.setAttribute("onmouseover","bildoptionen(this)");
-            image.setAttribute("onclick","test(this)");
-
        };
        image.src = e.target.result;
-         console.log("SRC_Selber: "+image.src);
-          
-      
-          
-          document.getElementById('list').insertBefore(image, null);
 
-          document.getElementById('list').insertBefore(image, null);
+        //  console.log("SRC_Selber: "+image.src);  
+         document.getElementById('list').insertBefore(image, null);
+         anzBilder++;
+         console.log("neues bild einfegügt"+ anzBilder);
+         makeResizableDiv('.BildNr'+(anzBilder-1));
+          // document.getElementById('list').insertBefore(image, null);
         };
       })(f);
 
@@ -139,32 +135,135 @@ function dateiauswahl(warumMussDashierSein) {
   // Auf neue Auswahl reagieren und gegebenenfalls Funktion dateiauswahl neu ausführen.
   document.getElementById('dateien').addEventListener('change', dateiauswahl, false);
 
-  function test(elm){
-    var größe = prompt("Neue Breite Eingeben: ");
-    if(größe<50){
-      console.log("zu klein");
-      console.log(größe);
-    }
-    
-    else{
-    // console.log ("Height:" + elm.naturalHeight);
-    // console.log ("Width:" + elm.naturalWidth);
-    // Mach was mit dem Bild
-    console.log("Das Bild: "+elm);
-    var höhe = elm.naturalHeight;
-    var breite =elm.naturalWidth;
-    var asbRatio = höhe/breite;
-    console.log (asbRatio);
+//Bild größe anpassen
 
-    var neuBreite = größe;
-    var neuHöhe = neuBreite*asbRatio;
-   
-    elm.height = neuHöhe;
-    elm.width = neuBreite;
-    // console.log("göße:" + größe);
-    // console.log("geht");
+
+function makeResizableDiv(div) {
+  console.log("Funktionsaufruf");
+    const element = document.querySelector(div);
+    const resizers = document.querySelectorAll(div + ' .resizer')
+    const minimum_size = 20;
+    let original_width = 0;
+    let original_height = 0;
+    let original_x = 0;
+    let original_y = 0;
+    let original_mouse_x = 0;
+    let original_mouse_y = 0;
+    for (let i = 0;i < resizers.length; i++) {
+      const currentResizer = resizers[i];
+      currentResizer.addEventListener('mousedown', function(e) {
+        e.preventDefault()
+        original_width = parseFloat(getComputedStyle(element, null).getPropertyValue('width').replace('px', ''));
+        original_height = parseFloat(getComputedStyle(element, null).getPropertyValue('height').replace('px', ''));
+        original_x = element.getBoundingClientRect().left;
+        original_y = element.getBoundingClientRect().top;
+        original_mouse_x = e.pageX;
+        original_mouse_y = e.pageY;
+        window.addEventListener('mousemove', resize)
+        window.addEventListener('mouseup', stopResize)
+      })
+      
+      function resize(e) {
+        if (currentResizer.classList.contains('bottom-right')) {
+          const width = original_width + (e.pageX - original_mouse_x);
+          const height = original_height + (e.pageY - original_mouse_y)
+          if (width > minimum_size) {
+            element.style.width = width + 'px'
+          }
+          if (height > minimum_size) {
+            element.style.height = height + 'px'
+          }
+        }
+        else if (currentResizer.classList.contains('bottom-left')) {
+          const height = original_height + (e.pageY - original_mouse_y)
+          const width = original_width - (e.pageX - original_mouse_x)
+          if (height > minimum_size) {
+            element.style.height = height + 'px'
+          }
+          if (width > minimum_size) {
+            element.style.width = width + 'px'
+            element.style.left = original_x + (e.pageX - original_mouse_x) + 'px'
+          }
+        }
+        else if (currentResizer.classList.contains('top-right')) {
+          const width = original_width + (e.pageX - original_mouse_x)
+          const height = original_height - (e.pageY - original_mouse_y)
+          if (width > minimum_size) {
+            element.style.width = width + 'px'
+          }
+          if (height > minimum_size) {
+            element.style.height = height + 'px'
+            element.style.top = original_y + (e.pageY - original_mouse_y) + 'px'
+          }
+        }
+        else {
+          const width = original_width - (e.pageX - original_mouse_x)
+          const height = original_height - (e.pageY - original_mouse_y)
+          if (width > minimum_size) {
+            element.style.width = width + 'px'
+            element.style.left = original_x + (e.pageX - original_mouse_x) + 'px'
+          }
+          if (height > minimum_size) {
+            element.style.height = height + 'px'
+            element.style.top = original_y + (e.pageY - original_mouse_y) + 'px'
+          }
+        }
+      }
+      
+      function stopResize() {
+        window.removeEventListener('mousemove', resize)
+      }
+    }
   }
-}
+  
+  //  makeResizableDiv('.resizable')
+
+
+  function addAChild () {
+    anzBilder++;
+    var Ausgabebereich = document.getElementById('list');
+    var imageBox = document.createElement('div');
+    imageBox.className = 'resizable';
+    imageBox.id = "imageBox"+anzBilder;
+    imageBox.style.backgroundImage = "url('../Bilder/Banner.png')";
+    imageBox.style.backgroundRepeat   = "no-repeat";
+    imageBox.style.backgroundSize   = "contain";
+    
+   
+
+    var resizersBox = document.createElement("div");
+    resizersBox.className = 'resizers';
+
+
+    var resizers1 = document.createElement("div");
+    resizers1.className = 'resizer top-left';
+    var resizers2 = document.createElement("div");
+    resizers2.className = 'resizer top-right';
+    var resizers3 = document.createElement("div");
+    resizers3.className = 'resizer bottom-left';
+    var resizers4 = document.createElement("div");
+    resizers4.className = 'resizer bottom-right';
+
+    resizersBox.appendChild(resizers1);
+    resizersBox.appendChild(resizers2);
+    resizersBox.appendChild(resizers3);
+    resizersBox.appendChild(resizers4);
+    imageBox.appendChild(resizersBox);
+    Ausgabebereich.appendChild(imageBox);
+    // Ausgabebereich.insertBefore(imageBox,null);
+
+    
+
+    // makeResizableDiv('.resizable');
+    makeResizableDiv('#imageBox'+anzBilder);
+  }
+
+  function init () {
+    var element  = document.getElementById ('button');
+    element.addEventListener ('click', addAChild);
+  }
+  
+  document.addEventListener('DOMContentLoaded', init);
 
 function bildoptionen(bild){
 
@@ -201,12 +300,42 @@ function textSpeichern() {
   xhr.send(daten);
 
   xhr.onreadystatechange = function() {
-  console.log("XHR State:"+xhr.readyState+"XHR Satus:"+xhr.status);
-  if (xhr.readyState == 4 && xhr.status == 200) {
-       
-    console.log(xhr.responseText);
-    // console.log("fertig");
-     location.reload();
+    console.log("XHR State:"+xhr.readyState+"XHR Satus:"+xhr.status);
+    if (xhr.readyState == 4 && xhr.status == 200) {
+        
+      console.log(xhr.responseText);
+      // console.log("fertig");
+      location.reload();
+    }
   }
 }
+
+function neueBox (bild,höhe,breite){
+
+  //Bildbox ertellen
+  var imageBox = document.createElement('div');
+  imageBox.className = 'resizable';
+  imageBox.id = "imageBox"+anzBilder;
+  imageBox.style.backgroundImage = bild;
+  imageBox.style.backgroundRepeat   = "no-repeat";
+  imageBox.style.backgroundSize   = "contain";
+  
+  var resizersBox = document.createElement("div");
+  resizersBox.className = 'resizers';
+
+  var resizers1 = document.createElement("div");
+  resizers1.className = 'resizer top-left';
+  var resizers2 = document.createElement("div");
+  resizers2.className = 'resizer top-right';
+  var resizers3 = document.createElement("div");
+  resizers3.className = 'resizer bottom-left';
+  var resizers4 = document.createElement("div");
+  resizers4.className = 'resizer bottom-right';
+
+  resizersBox.appendChild(resizers1);
+  resizersBox.appendChild(resizers2);
+  resizersBox.appendChild(resizers3);
+  resizersBox.appendChild(resizers4);
+  imageBox.appendChild(resizersBox);
+
 }
